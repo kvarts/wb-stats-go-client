@@ -48,11 +48,11 @@ components:
         date: date
         supplierArticle: supplierArticle
         quantity: 6
-        discountPercent: 5
+        discountPercent: 5.962133916683182
         incomeID: 5
         odid: 2
         isCancel: true
-        totalPrice: 1
+        totalPrice: 1.4658129805029452
         subject: subject
         lastChangeDate: lastChangeDate
         oblast: oblast
@@ -90,10 +90,10 @@ components:
           type: integer
         totalPrice:
           description: цена до согласованной скидки/промо/спп
-          type: integer
+          type: number
         discountPercent:
           description: согласованный итоговый дисконт
-          type: integer
+          type: number
         warehouseName:
           description: склад отгрузки
           type: string

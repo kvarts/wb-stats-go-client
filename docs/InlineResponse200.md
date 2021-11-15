@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **TechSize** | **string** | размер | 
 **Barcode** | **string** | штрих-код | 
 **Quantity** | **int32** | кол-во | 
-**TotalPrice** | **int32** | цена до согласованной скидки/промо/спп | 
-**DiscountPercent** | **int32** | согласованный итоговый дисконт | 
+**TotalPrice** | **float32** | цена до согласованной скидки/промо/спп | 
+**DiscountPercent** | **float32** | согласованный итоговый дисконт | 
 **WarehouseName** | **string** | склад отгрузки | 
 **Oblast** | **string** | область | 
 **IncomeID** | **int64** | номер поставки | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
+`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -186,40 +186,40 @@ SetQuantity sets Quantity field to given value.
 
 ### GetTotalPrice
 
-`func (o *InlineResponse200) GetTotalPrice() int32`
+`func (o *InlineResponse200) GetTotalPrice() float32`
 
 GetTotalPrice returns the TotalPrice field if non-nil, zero value otherwise.
 
 ### GetTotalPriceOk
 
-`func (o *InlineResponse200) GetTotalPriceOk() (*int32, bool)`
+`func (o *InlineResponse200) GetTotalPriceOk() (*float32, bool)`
 
 GetTotalPriceOk returns a tuple with the TotalPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalPrice
 
-`func (o *InlineResponse200) SetTotalPrice(v int32)`
+`func (o *InlineResponse200) SetTotalPrice(v float32)`
 
 SetTotalPrice sets TotalPrice field to given value.
 
 
 ### GetDiscountPercent
 
-`func (o *InlineResponse200) GetDiscountPercent() int32`
+`func (o *InlineResponse200) GetDiscountPercent() float32`
 
 GetDiscountPercent returns the DiscountPercent field if non-nil, zero value otherwise.
 
 ### GetDiscountPercentOk
 
-`func (o *InlineResponse200) GetDiscountPercentOk() (*int32, bool)`
+`func (o *InlineResponse200) GetDiscountPercentOk() (*float32, bool)`
 
 GetDiscountPercentOk returns a tuple with the DiscountPercent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiscountPercent
 
-`func (o *InlineResponse200) SetDiscountPercent(v int32)`
+`func (o *InlineResponse200) SetDiscountPercent(v float32)`
 
 SetDiscountPercent sets DiscountPercent field to given value.
 

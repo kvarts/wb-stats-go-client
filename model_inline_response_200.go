@@ -31,9 +31,9 @@ type InlineResponse200 struct {
 	// кол-во
 	Quantity int32 `json:"quantity"`
 	// цена до согласованной скидки/промо/спп
-	TotalPrice int32 `json:"totalPrice"`
+	TotalPrice float32 `json:"totalPrice"`
 	// согласованный итоговый дисконт
-	DiscountPercent int32 `json:"discountPercent"`
+	DiscountPercent float32 `json:"discountPercent"`
 	// склад отгрузки
 	WarehouseName string `json:"warehouseName"`
 	// область
@@ -61,7 +61,7 @@ type InlineResponse200 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
+func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.Number = number
 	this.Date = date
@@ -263,9 +263,9 @@ func (o *InlineResponse200) SetQuantity(v int32) {
 }
 
 // GetTotalPrice returns the TotalPrice field value
-func (o *InlineResponse200) GetTotalPrice() int32 {
+func (o *InlineResponse200) GetTotalPrice() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -274,7 +274,7 @@ func (o *InlineResponse200) GetTotalPrice() int32 {
 
 // GetTotalPriceOk returns a tuple with the TotalPrice field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetTotalPriceOk() (*int32, bool) {
+func (o *InlineResponse200) GetTotalPriceOk() (*float32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -282,14 +282,14 @@ func (o *InlineResponse200) GetTotalPriceOk() (*int32, bool) {
 }
 
 // SetTotalPrice sets field value
-func (o *InlineResponse200) SetTotalPrice(v int32) {
+func (o *InlineResponse200) SetTotalPrice(v float32) {
 	o.TotalPrice = v
 }
 
 // GetDiscountPercent returns the DiscountPercent field value
-func (o *InlineResponse200) GetDiscountPercent() int32 {
+func (o *InlineResponse200) GetDiscountPercent() float32 {
 	if o == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 
@@ -298,7 +298,7 @@ func (o *InlineResponse200) GetDiscountPercent() int32 {
 
 // GetDiscountPercentOk returns a tuple with the DiscountPercent field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetDiscountPercentOk() (*int32, bool) {
+func (o *InlineResponse200) GetDiscountPercentOk() (*float32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -306,7 +306,7 @@ func (o *InlineResponse200) GetDiscountPercentOk() (*int32, bool) {
 }
 
 // SetDiscountPercent sets field value
-func (o *InlineResponse200) SetDiscountPercent(v int32) {
+func (o *InlineResponse200) SetDiscountPercent(v float32) {
 	o.DiscountPercent = v
 }
 
