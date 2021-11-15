@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  title: WB Supplier Stats
+  version: "1.0"
+servers:
+- url: https://suppliers-stats.wildberries.ru/api/v1/supplier
+security:
+- Key: []
+paths:
+  /orders:
+    get:
+      operationId: get-orders
+      parameters:
+      - description: 1 - то за одну дату, 0 - за все что больше переданной даты
+        explode: true
+        in: query
+        name: flag
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: OK
+      summary: Get Orders
+      tags:
+      - stats
+components:
+  schemas:
+    inline_response_200:
+      example:
+        date: date
+        supplierArticle: supplierArticle
+        quantity: 0
+        discountPercent: 1
+        incomeID: 5
+        odid: 5
+        isCancel: true
+        totalPrice: 6
+        subject: subject
+        lastChangeDate: lastChangeDate
+        oblast: oblast
+        nmId: 2
+        warehouseName: warehouseName
+        gNumber: gNumber
+        number: number
+        cancel_dt: cancel_dt
+        techSize: techSize
+        category: category
+        barcode: barcode
+        brand: brand
+      properties:
+        number:
+          description: номер заказа
+          type: string
+        date:
+          description: дата заказа
+          type: string
+        lastChangeDate:
+          description: дата время обновления информации в сервисе
+          type: string
+        supplierArticle:
+          description: ваш артикул
+          type: string
+        techSize:
+          description: размер
+          type: string
+        barcode:
+          description: штрих-код
+          type: string
+        quantity:
+          description: кол-во
+          type: integer
+        totalPrice:
+          description: цена до согласованной скидки/промо/спп
+          type: integer
+        discountPercent:
+          description: согласованный итоговый дисконт
+          type: integer
+        warehouseName:
+          description: склад отгрузки
+          type: string
+        oblast:
+          description: область
+          type: string
+        incomeID:
+          description: номер поставки
+          type: integer
+        odid:
+          description: уникальный идентификатор позиции заказа
+          type: integer
+        nmId:
+          description: Код WB
+          type: integer
+        subject:
+          description: предмет
+          type: string
+        category:
+          description: категория
+          type: string
+        brand:
+          description: бренд
+          type: string
+        isCancel:
+          description: признак отмены заказа (0 – отмены не было, 1 – отмена была
+          type: boolean
+        cancel_dt:
+          description: дата отмены заказа
+          type: string
+        gNumber:
+          type: string
+      required:
+      - barcode
+      - brand
+      - cancel_dt
+      - category
+      - date
+      - discountPercent
+      - gNumber
+      - incomeID
+      - isCancel
+      - lastChangeDate
+      - nmId
+      - number
+      - oblast
+      - odid
+      - quantity
+      - subject
+      - supplierArticle
+      - techSize
+      - totalPrice
+      - warehouseName
+      type: object
+  securitySchemes:
+    Key:
+      in: query
+      name: key
+      type: apiKey
