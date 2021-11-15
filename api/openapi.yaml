@@ -34,7 +34,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                type: array
           description: OK
       summary: Get Orders
       tags:

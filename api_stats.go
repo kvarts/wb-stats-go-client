@@ -44,7 +44,7 @@ func (r ApiGetOrdersRequest) Flag(flag int32) ApiGetOrdersRequest {
 	return r
 }
 
-func (r ApiGetOrdersRequest) Execute() (InlineResponse200, *_nethttp.Response, error) {
+func (r ApiGetOrdersRequest) Execute() ([]InlineResponse200, *_nethttp.Response, error) {
 	return r.ApiService.GetOrdersExecute(r)
 }
 
@@ -62,15 +62,15 @@ func (a *StatsApiService) GetOrders(ctx _context.Context) ApiGetOrdersRequest {
 }
 
 // Execute executes the request
-//  @return InlineResponse200
-func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) (InlineResponse200, *_nethttp.Response, error) {
+//  @return []InlineResponse200
+func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineResponse200, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse200
+		localVarReturnValue  []InlineResponse200
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetOrders")

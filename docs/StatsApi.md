@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetOrders
 
-> InlineResponse200 GetOrders(ctx).DateFrom(dateFrom).Flag(flag).Execute()
+> []InlineResponse200 GetOrders(ctx).DateFrom(dateFrom).Flag(flag).Execute()
 
 Get Orders
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetOrders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrders`: InlineResponse200
+    // response from `GetOrders`: []InlineResponse200
     fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetOrders`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**[]InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
