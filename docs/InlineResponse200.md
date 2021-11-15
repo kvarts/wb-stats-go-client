@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Number** | **int32** | номер заказа | 
+**Number** | **int64** | номер заказа | 
 **Date** | **string** | дата заказа | 
 **LastChangeDate** | **string** | дата время обновления информации в сервисе | 
 **SupplierArticle** | **string** | ваш артикул | 
@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **DiscountPercent** | **int32** | согласованный итоговый дисконт | 
 **WarehouseName** | **string** | склад отгрузки | 
 **Oblast** | **string** | область | 
-**IncomeID** | **int32** | номер поставки | 
-**Odid** | **int32** | уникальный идентификатор позиции заказа | 
+**IncomeID** | **int64** | номер поставки | 
+**Odid** | **int64** | уникальный идентификатор позиции заказа | 
 **NmId** | **int32** | Код WB | 
 **Subject** | **string** | предмет | 
 **Category** | **string** | категория | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(number int32, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int32, odid int32, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
+`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -46,20 +46,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNumber
 
-`func (o *InlineResponse200) GetNumber() int32`
+`func (o *InlineResponse200) GetNumber() int64`
 
 GetNumber returns the Number field if non-nil, zero value otherwise.
 
 ### GetNumberOk
 
-`func (o *InlineResponse200) GetNumberOk() (*int32, bool)`
+`func (o *InlineResponse200) GetNumberOk() (*int64, bool)`
 
 GetNumberOk returns a tuple with the Number field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumber
 
-`func (o *InlineResponse200) SetNumber(v int32)`
+`func (o *InlineResponse200) SetNumber(v int64)`
 
 SetNumber sets Number field to given value.
 
@@ -266,40 +266,40 @@ SetOblast sets Oblast field to given value.
 
 ### GetIncomeID
 
-`func (o *InlineResponse200) GetIncomeID() int32`
+`func (o *InlineResponse200) GetIncomeID() int64`
 
 GetIncomeID returns the IncomeID field if non-nil, zero value otherwise.
 
 ### GetIncomeIDOk
 
-`func (o *InlineResponse200) GetIncomeIDOk() (*int32, bool)`
+`func (o *InlineResponse200) GetIncomeIDOk() (*int64, bool)`
 
 GetIncomeIDOk returns a tuple with the IncomeID field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIncomeID
 
-`func (o *InlineResponse200) SetIncomeID(v int32)`
+`func (o *InlineResponse200) SetIncomeID(v int64)`
 
 SetIncomeID sets IncomeID field to given value.
 
 
 ### GetOdid
 
-`func (o *InlineResponse200) GetOdid() int32`
+`func (o *InlineResponse200) GetOdid() int64`
 
 GetOdid returns the Odid field if non-nil, zero value otherwise.
 
 ### GetOdidOk
 
-`func (o *InlineResponse200) GetOdidOk() (*int32, bool)`
+`func (o *InlineResponse200) GetOdidOk() (*int64, bool)`
 
 GetOdidOk returns a tuple with the Odid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOdid
 
-`func (o *InlineResponse200) SetOdid(v int32)`
+`func (o *InlineResponse200) SetOdid(v int64)`
 
 SetOdid sets Odid field to given value.
 

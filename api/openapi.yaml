@@ -68,6 +68,7 @@ components:
       properties:
         number:
           description: номер заказа
+          format: int64
           type: integer
         date:
           description: дата заказа
@@ -101,9 +102,11 @@ components:
           type: string
         incomeID:
           description: номер поставки
+          format: int64
           type: integer
         odid:
           description: уникальный идентификатор позиции заказа
+          format: int64
           type: integer
         nmId:
           description: Код WB

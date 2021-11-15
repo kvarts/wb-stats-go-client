@@ -17,7 +17,7 @@ import (
 // InlineResponse200 struct for InlineResponse200
 type InlineResponse200 struct {
 	// номер заказа
-	Number int32 `json:"number"`
+	Number int64 `json:"number"`
 	// дата заказа
 	Date string `json:"date"`
 	// дата время обновления информации в сервисе
@@ -39,9 +39,9 @@ type InlineResponse200 struct {
 	// область
 	Oblast string `json:"oblast"`
 	// номер поставки
-	IncomeID int32 `json:"incomeID"`
+	IncomeID int64 `json:"incomeID"`
 	// уникальный идентификатор позиции заказа
-	Odid int32 `json:"odid"`
+	Odid int64 `json:"odid"`
 	// Код WB
 	NmId int32 `json:"nmId"`
 	// предмет
@@ -61,7 +61,7 @@ type InlineResponse200 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(number int32, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int32, odid int32, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
+func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.Number = number
 	this.Date = date
@@ -95,9 +95,9 @@ func NewInlineResponse200WithDefaults() *InlineResponse200 {
 }
 
 // GetNumber returns the Number field value
-func (o *InlineResponse200) GetNumber() int32 {
+func (o *InlineResponse200) GetNumber() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -106,7 +106,7 @@ func (o *InlineResponse200) GetNumber() int32 {
 
 // GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetNumberOk() (*int32, bool) {
+func (o *InlineResponse200) GetNumberOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -114,7 +114,7 @@ func (o *InlineResponse200) GetNumberOk() (*int32, bool) {
 }
 
 // SetNumber sets field value
-func (o *InlineResponse200) SetNumber(v int32) {
+func (o *InlineResponse200) SetNumber(v int64) {
 	o.Number = v
 }
 
@@ -359,9 +359,9 @@ func (o *InlineResponse200) SetOblast(v string) {
 }
 
 // GetIncomeID returns the IncomeID field value
-func (o *InlineResponse200) GetIncomeID() int32 {
+func (o *InlineResponse200) GetIncomeID() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -370,7 +370,7 @@ func (o *InlineResponse200) GetIncomeID() int32 {
 
 // GetIncomeIDOk returns a tuple with the IncomeID field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetIncomeIDOk() (*int32, bool) {
+func (o *InlineResponse200) GetIncomeIDOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -378,14 +378,14 @@ func (o *InlineResponse200) GetIncomeIDOk() (*int32, bool) {
 }
 
 // SetIncomeID sets field value
-func (o *InlineResponse200) SetIncomeID(v int32) {
+func (o *InlineResponse200) SetIncomeID(v int64) {
 	o.IncomeID = v
 }
 
 // GetOdid returns the Odid field value
-func (o *InlineResponse200) GetOdid() int32 {
+func (o *InlineResponse200) GetOdid() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -394,7 +394,7 @@ func (o *InlineResponse200) GetOdid() int32 {
 
 // GetOdidOk returns a tuple with the Odid field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetOdidOk() (*int32, bool) {
+func (o *InlineResponse200) GetOdidOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -402,7 +402,7 @@ func (o *InlineResponse200) GetOdidOk() (*int32, bool) {
 }
 
 // SetOdid sets field value
-func (o *InlineResponse200) SetOdid(v int32) {
+func (o *InlineResponse200) SetOdid(v int64) {
 	o.Odid = v
 }
 

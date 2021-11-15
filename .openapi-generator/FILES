@@ -1,10 +1,8 @@
 .gitignore
-.travis.yml
 api/openapi.yaml
 api_stats.go
 docs/InlineResponse200.md
 docs/StatsApi.md
-git_push.sh
 model_inline_response_200.go
 response.go
 utils.go
