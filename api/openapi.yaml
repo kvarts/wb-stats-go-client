@@ -47,19 +47,19 @@ components:
       example:
         date: date
         supplierArticle: supplierArticle
-        quantity: 0
-        discountPercent: 1
+        quantity: 6
+        discountPercent: 5
         incomeID: 5
-        odid: 5
+        odid: 2
         isCancel: true
-        totalPrice: 6
+        totalPrice: 1
         subject: subject
         lastChangeDate: lastChangeDate
         oblast: oblast
-        nmId: 2
+        nmId: 7
         warehouseName: warehouseName
         gNumber: gNumber
-        number: number
+        number: 0
         cancel_dt: cancel_dt
         techSize: techSize
         category: category
@@ -68,7 +68,7 @@ components:
       properties:
         number:
           description: номер заказа
-          type: string
+          type: integer
         date:
           description: дата заказа
           type: string

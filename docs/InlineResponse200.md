@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Number** | **string** | номер заказа | 
+**Number** | **int32** | номер заказа | 
 **Date** | **string** | дата заказа | 
 **LastChangeDate** | **string** | дата время обновления информации в сервисе | 
 **SupplierArticle** | **string** | ваш артикул | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int32, odid int32, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
+`func NewInlineResponse200(number int32, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int32, odid int32, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -46,20 +46,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNumber
 
-`func (o *InlineResponse200) GetNumber() string`
+`func (o *InlineResponse200) GetNumber() int32`
 
 GetNumber returns the Number field if non-nil, zero value otherwise.
 
 ### GetNumberOk
 
-`func (o *InlineResponse200) GetNumberOk() (*string, bool)`
+`func (o *InlineResponse200) GetNumberOk() (*int32, bool)`
 
 GetNumberOk returns a tuple with the Number field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumber
 
-`func (o *InlineResponse200) SetNumber(v string)`
+`func (o *InlineResponse200) SetNumber(v int32)`
 
 SetNumber sets Number field to given value.
 

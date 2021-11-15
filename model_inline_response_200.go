@@ -17,7 +17,7 @@ import (
 // InlineResponse200 struct for InlineResponse200
 type InlineResponse200 struct {
 	// номер заказа
-	Number string `json:"number"`
+	Number int32 `json:"number"`
 	// дата заказа
 	Date string `json:"date"`
 	// дата время обновления информации в сервисе
@@ -61,7 +61,7 @@ type InlineResponse200 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int32, odid int32, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
+func NewInlineResponse200(number int32, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice int32, discountPercent int32, warehouseName string, oblast string, incomeID int32, odid int32, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.Number = number
 	this.Date = date
@@ -95,9 +95,9 @@ func NewInlineResponse200WithDefaults() *InlineResponse200 {
 }
 
 // GetNumber returns the Number field value
-func (o *InlineResponse200) GetNumber() string {
+func (o *InlineResponse200) GetNumber() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
@@ -106,7 +106,7 @@ func (o *InlineResponse200) GetNumber() string {
 
 // GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetNumberOk() (*string, bool) {
+func (o *InlineResponse200) GetNumberOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -114,7 +114,7 @@ func (o *InlineResponse200) GetNumberOk() (*string, bool) {
 }
 
 // SetNumber sets field value
-func (o *InlineResponse200) SetNumber(v string) {
+func (o *InlineResponse200) SetNumber(v int32) {
 	o.Number = v
 }
 
