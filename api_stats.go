@@ -423,11 +423,17 @@ type ApiGetSalesRequest struct {
 	ctx _context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
+	flag *int32
 }
 
 // Дата и время от которых выгружается информация
 func (r ApiGetSalesRequest) DateFrom(dateFrom time.Time) ApiGetSalesRequest {
 	r.dateFrom = &dateFrom
+	return r
+}
+// 1 - то за одну дату, 0 - за все что больше переданной даты
+func (r ApiGetSalesRequest) Flag(flag int32) ApiGetSalesRequest {
+	r.flag = &flag
 	return r
 }
 
@@ -475,6 +481,9 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 	}
 
 	localVarQueryParams.Add("dateFrom", parameterToString(*r.dateFrom, ""))
+	if r.flag != nil {
+		localVarQueryParams.Add("flag", parameterToString(*r.flag, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

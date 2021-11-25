@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## GetSales
 
-> []InlineResponse2003 GetSales(ctx).DateFrom(dateFrom).Execute()
+> []InlineResponse2003 GetSales(ctx).DateFrom(dateFrom).Flag(flag).Execute()
 
 Get Sales
 
@@ -234,10 +234,11 @@ import (
 
 func main() {
     dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
+    flag := int32(56) // int32 | 1 - то за одну дату, 0 - за все что больше переданной даты (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetSales(context.Background()).DateFrom(dateFrom).Execute()
+    resp, r, err := api_client.StatsApi.GetSales(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetSales``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -259,6 +260,7 @@ Other parameters are passed through a pointer to a apiGetSalesRequest struct via
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateFrom** | **time.Time** | Дата и время от которых выгружается информация | 
+ **flag** | **int32** | 1 - то за одну дату, 0 - за все что больше переданной даты | 
 
 ### Return type
 

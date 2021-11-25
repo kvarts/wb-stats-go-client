@@ -109,6 +109,15 @@ paths:
           format: date-time
           type: string
         style: form
+      - description: 1 - то за одну дату, 0 - за все что больше переданной даты
+        explode: true
+        in: query
+        name: flag
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
