@@ -41,6 +41,125 @@ paths:
       summary: Get Orders
       tags:
       - stats
+  /incomes:
+    get:
+      operationId: get-incomes
+      parameters:
+      - description: Дата и время от которых выгружается информация
+        explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples: {}
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200_1'
+                type: array
+          description: OK
+      summary: Get Incomes
+      tags:
+      - stats
+  /stocks:
+    get:
+      operationId: get-stocks
+      parameters:
+      - description: Дата и время от которых выгружается информация
+        explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples: {}
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200_2'
+                type: array
+          description: OK
+      summary: Get Stocks
+      tags:
+      - stats
+  /sales:
+    get:
+      operationId: get-sales
+      parameters:
+      - description: Дата и время от которых выгружается информация
+        explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples: {}
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200_3'
+                type: array
+          description: OK
+      summary: Get Sales
+      tags:
+      - stats
+  /stochrancost:
+    get:
+      description: Получить информацию о платном хранилище - факт
+      operationId: get-paid-storage
+      parameters:
+      - description: Дата и время от которых выгружается информация
+        explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: Дата и время до которых выгружается информация
+        explode: true
+        in: query
+        name: dateTo
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples: {}
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200_4'
+                type: array
+          description: OK
+      summary: Get Paid Storage
+      tags:
+      - stats
 components:
   schemas:
     inline_response_200:
@@ -149,6 +268,409 @@ components:
       - techSize
       - totalPrice
       - warehouseName
+      type: object
+    inline_response_200_1:
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        supplierArticle: supplierArticle
+        incomeId: 0
+        quantity: 6
+        totalPrice: 1.4658129805029452
+        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        nmId: 5
+        warehouseName: warehouseName
+        number: number
+        dateClose: 2000-01-23
+        techSize: techSize
+        barcode: barcode
+        status: status
+      properties:
+        incomeId:
+          description: Номер поставки
+          format: int64
+          type: integer
+        number:
+          description: Номер УПД
+          type: string
+        date:
+          description: Дата поступления
+          format: date-time
+          type: string
+        lastChangeDate:
+          description: Дата и время обновления данных в сервисе
+          format: date-time
+          type: string
+        supplierArticle:
+          description: Артикул продавца
+          type: string
+        techSize:
+          description: Размер
+          type: string
+        barcode:
+          description: Штрих-код
+          type: string
+        quantity:
+          description: Количество
+          format: int32
+          type: integer
+        totalPrice:
+          description: Цена из УПД
+          type: number
+        dateClose:
+          description: Дата принятия (закрытия) у wildberies
+          format: date
+          type: string
+        warehouseName:
+          description: Наименование склада
+          type: string
+        nmId:
+          description: Код WB
+          format: int64
+          type: integer
+        status:
+          description: Текущий статус поставки
+          type: string
+      required:
+      - barcode
+      - date
+      - dateClose
+      - incomeId
+      - lastChangeDate
+      - nmId
+      - number
+      - quantity
+      - status
+      - supplierArticle
+      - techSize
+      - totalPrice
+      - warehouseName
+      type: object
+    inline_response_200_2:
+      example:
+        daysOnSite: 7
+        supplierArticle: supplierArticle
+        isRealization: true
+        quantity: 0
+        Discount: 3.616076749251911
+        quantityFull: 6
+        quantityNotInOrders: 1
+        subject: subject
+        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        nmId: 2
+        warehouseName: warehouseName
+        SCCode: SCCode
+        inWayFromClient: 5
+        Price: 9.301444243932576
+        isSupply: true
+        inWayToClient: 5
+        techSize: techSize
+        category: category
+        barcode: barcode
+        brand: brand
+      properties:
+        lastChangeDate:
+          description: Дата и время обновления данных в сервисе
+          format: date-time
+          type: string
+        supplierArticle:
+          description: Артикул продавца
+          type: string
+        techSize:
+          description: Размер
+          type: string
+        barcode:
+          description: Штрих-код
+          type: string
+        quantity:
+          description: Количество доступное для продажи
+          format: int64
+          type: integer
+        isSupply:
+          description: Договор поставки
+          type: boolean
+        isRealization:
+          description: Договор реализации
+          type: boolean
+        quantityFull:
+          description: Полное количество
+          format: int64
+          type: integer
+        quantityNotInOrders:
+          description: Количество не в заказе
+          format: int64
+          type: integer
+        warehouseName:
+          description: Название склада
+          type: string
+        inWayToClient:
+          description: Количество штук в пути к клиенту
+          format: int32
+          type: integer
+        inWayFromClient:
+          description: Количество штук в пути от клиента
+          format: int32
+          type: integer
+        nmId:
+          description: Код wildberries
+          format: int64
+          type: integer
+        subject:
+          description: Предмет
+          type: string
+        category:
+          description: Категория
+          type: string
+        daysOnSite:
+          description: Количество дней на сайте
+          format: int32
+          type: integer
+        brand:
+          description: Бренд
+          type: string
+        SCCode:
+          description: Код контракта
+          type: string
+        Price:
+          description: Цена (?)
+          type: number
+        Discount:
+          description: Скидка (?)
+          type: number
+      required:
+      - Discount
+      - Price
+      - SCCode
+      - barcode
+      - brand
+      - category
+      - daysOnSite
+      - inWayFromClient
+      - inWayToClient
+      - isRealization
+      - isSupply
+      - lastChangeDate
+      - nmId
+      - quantity
+      - quantityFull
+      - quantityNotInOrders
+      - subject
+      - supplierArticle
+      - techSize
+      - warehouseName
+      type: object
+    inline_response_200_3:
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        forPay: 3.616076749251911
+        incomeID: 2
+        odid: 7
+        totalPrice: 6.027456183070403
+        orderId: 5
+        subject: subject
+        regionName: regionName
+        priceWithDisc: 4.145608029883936
+        nmId: 7
+        warehouseName: warehouseName
+        gNumber: gNumber
+        number: number
+        techSize: techSize
+        barcode: barcode
+        brand: brand
+        promoCodeDiscount: 5.637376656633329
+        supplierArticle: supplierArticle
+        isRealization: true
+        quantity: 0
+        discountPercent: 1.4658129805029452
+        saleID: saleID
+        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        spp: 9.301444243932576
+        finishedPrice: 2.027123023002322
+        oblastOkrugName: oblastOkrugName
+        IsStorno: 1.2315135367772556
+        isSupply: true
+        countryName: countryName
+        category: category
+      properties:
+        number:
+          description: Номер документа
+          type: string
+        date:
+          description: Дата продажи
+          format: date-time
+          type: string
+        lastChangeDate:
+          description: Дата и время обновления информации в сервисе
+          format: date-time
+          type: string
+        supplierArticle:
+          description: Артикул продавца
+          type: string
+        techSize:
+          description: Размер
+          type: string
+        barcode:
+          description: Штрих-код
+          type: string
+        quantity:
+          description: Количество
+          format: int64
+          type: integer
+        totalPrice:
+          description: Начальная розничная цена товара
+          type: number
+        discountPercent:
+          description: Согласованная скидка на товар
+          type: number
+        isSupply:
+          description: Договор поставки
+          type: boolean
+        isRealization:
+          description: Договор реализации
+          type: boolean
+        orderId:
+          description: Идентификатор заказа
+          format: int64
+          type: integer
+        promoCodeDiscount:
+          description: Согласованный промокод
+          type: number
+        warehouseName:
+          description: Склад отгрузки
+          type: string
+        countryName:
+          description: Страна
+          type: string
+        oblastOkrugName:
+          description: Округ
+          type: string
+        regionName:
+          description: Регион
+          type: string
+        incomeID:
+          description: Идентификатор поставки
+          format: int64
+          type: integer
+        saleID:
+          description: Уникальный идентификатор продажи/возврата
+          type: string
+        odid:
+          description: Уникальный идентификатор позиции заказа
+          format: int64
+          type: integer
+        spp:
+          description: Согласованная скидка постоянного покупателя
+          type: number
+        forPay:
+          description: К перечислению поставщику
+          type: number
+        finishedPrice:
+          description: Фактическая цена из заказа с учетом всех скидок
+          type: number
+        priceWithDisc:
+          description: Цена, от которой считается вознаграждение поставщика forpay
+            (с учетом всех согласованных скидок)
+          type: number
+        nmId:
+          description: код wildberries
+          format: int64
+          type: integer
+        subject:
+          description: Предмет
+          type: string
+        category:
+          description: Категория
+          type: string
+        brand:
+          description: Бренд
+          type: string
+        IsStorno:
+          description: (?)
+          type: number
+        gNumber:
+          description: Номер заказа
+          type: string
+      required:
+      - IsStorno
+      - barcode
+      - brand
+      - category
+      - countryName
+      - date
+      - discountPercent
+      - finishedPrice
+      - forPay
+      - gNumber
+      - incomeID
+      - isRealization
+      - isSupply
+      - lastChangeDate
+      - nmId
+      - number
+      - oblastOkrugName
+      - odid
+      - orderId
+      - priceWithDisc
+      - promoCodeDiscount
+      - quantity
+      - regionName
+      - saleID
+      - spp
+      - subject
+      - supplierArticle
+      - techSize
+      - totalPrice
+      - warehouseName
+      type: object
+    inline_response_200_4:
+      example:
+        daysOnSite: 6
+        nmId: 0
+        techSize: techSize
+        sumW: 5.637376656633329
+        dayBeg: 2000-01-23
+        dayEnd: 2000-01-23
+        stock: 1
+        saleQty: 5
+      properties:
+        dayBeg:
+          description: Дата начала периода хранения
+          format: date
+          type: string
+        dayEnd:
+          description: Дата завершения периода хранения
+          format: date
+          type: string
+        nmId:
+          description: Код wildberries
+          format: int64
+          type: integer
+        techSize:
+          description: Размер
+          type: string
+        daysOnSite:
+          description: Количество дней на сайте
+          format: int32
+          type: integer
+        stock:
+          description: Остаток на начало периода
+          format: int64
+          type: integer
+        saleQty:
+          description: Количество продано
+          format: int64
+          type: integer
+        sumW:
+          description: Сумма за хранение, руб.
+          type: number
+      required:
+      - dayBeg
+      - dayEnd
+      - daysOnSite
+      - nmId
+      - saleQty
+      - stock
+      - sumW
+      - techSize
       type: object
   securitySchemes:
     Key:
