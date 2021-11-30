@@ -36,7 +36,7 @@ type InlineResponse2001 struct {
 	// Цена из УПД
 	TotalPrice float32 `json:"totalPrice"`
 	// Дата принятия (закрытия) у wildberies
-	DateClose string `json:"dateClose"`
+	DateClose time.Time `json:"dateClose"`
 	// Наименование склада
 	WarehouseName string `json:"warehouseName"`
 	// Код WB
@@ -49,7 +49,7 @@ type InlineResponse2001 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2001(incomeId int64, number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose string, warehouseName string, nmId int64, status string) *InlineResponse2001 {
+func NewInlineResponse2001(incomeId int64, number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose time.Time, warehouseName string, nmId int64, status string) *InlineResponse2001 {
 	this := InlineResponse2001{}
 	this.IncomeId = incomeId
 	this.Number = number
@@ -292,9 +292,9 @@ func (o *InlineResponse2001) SetTotalPrice(v float32) {
 }
 
 // GetDateClose returns the DateClose field value
-func (o *InlineResponse2001) GetDateClose() string {
+func (o *InlineResponse2001) GetDateClose() time.Time {
 	if o == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 
@@ -303,7 +303,7 @@ func (o *InlineResponse2001) GetDateClose() string {
 
 // GetDateCloseOk returns a tuple with the DateClose field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2001) GetDateCloseOk() (*string, bool) {
+func (o *InlineResponse2001) GetDateCloseOk() (*time.Time, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -311,7 +311,7 @@ func (o *InlineResponse2001) GetDateCloseOk() (*string, bool) {
 }
 
 // SetDateClose sets field value
-func (o *InlineResponse2001) SetDateClose(v string) {
+func (o *InlineResponse2001) SetDateClose(v time.Time) {
 	o.DateClose = v
 }
 

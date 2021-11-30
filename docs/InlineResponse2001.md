@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Barcode** | **string** | Штрих-код | 
 **Quantity** | **int32** | Количество | 
 **TotalPrice** | **float32** | Цена из УПД | 
-**DateClose** | **string** | Дата принятия (закрытия) у wildberies | 
+**DateClose** | **time.Time** | Дата принятия (закрытия) у wildberies | 
 **WarehouseName** | **string** | Наименование склада | 
 **NmId** | **int64** | Код WB | 
 **Status** | **string** | Текущий статус поставки | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2001
 
-`func NewInlineResponse2001(incomeId int64, number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose string, warehouseName string, nmId int64, status string, ) *InlineResponse2001`
+`func NewInlineResponse2001(incomeId int64, number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose time.Time, warehouseName string, nmId int64, status string, ) *InlineResponse2001`
 
 NewInlineResponse2001 instantiates a new InlineResponse2001 object
 This constructor will assign default values to properties that have it defined,
@@ -219,20 +219,20 @@ SetTotalPrice sets TotalPrice field to given value.
 
 ### GetDateClose
 
-`func (o *InlineResponse2001) GetDateClose() string`
+`func (o *InlineResponse2001) GetDateClose() time.Time`
 
 GetDateClose returns the DateClose field if non-nil, zero value otherwise.
 
 ### GetDateCloseOk
 
-`func (o *InlineResponse2001) GetDateCloseOk() (*string, bool)`
+`func (o *InlineResponse2001) GetDateCloseOk() (*time.Time, bool)`
 
 GetDateCloseOk returns a tuple with the DateClose field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDateClose
 
-`func (o *InlineResponse2001) SetDateClose(v string)`
+`func (o *InlineResponse2001) SetDateClose(v time.Time)`
 
 SetDateClose sets DateClose field to given value.
 

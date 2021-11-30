@@ -289,7 +289,7 @@ components:
         nmId: 5
         warehouseName: warehouseName
         number: number
-        dateClose: 2000-01-23
+        dateClose: 2000-01-23T04:56:07.000+00:00
         techSize: techSize
         barcode: barcode
         status: status
@@ -327,7 +327,7 @@ components:
           type: number
         dateClose:
           description: Дата принятия (закрытия) у wildberies
-          format: date
+          format: date-time
           type: string
         warehouseName:
           description: Наименование склада
