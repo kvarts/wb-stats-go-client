@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Number** | **string** | Номер документа | 
-**Date** | **time.Time** | Дата продажи | 
-**LastChangeDate** | **time.Time** | Дата и время обновления информации в сервисе | 
+**Date** | **string** | Дата продажи | 
+**LastChangeDate** | **string** | Дата и время обновления информации в сервисе | 
 **SupplierArticle** | **string** | Артикул продавца | 
 **TechSize** | **string** | Размер | 
 **Barcode** | **string** | Штрих-код | 
@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2003
 
-`func NewInlineResponse2003(number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, ) *InlineResponse2003`
+`func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, ) *InlineResponse2003`
 
 NewInlineResponse2003 instantiates a new InlineResponse2003 object
 This constructor will assign default values to properties that have it defined,
@@ -76,40 +76,40 @@ SetNumber sets Number field to given value.
 
 ### GetDate
 
-`func (o *InlineResponse2003) GetDate() time.Time`
+`func (o *InlineResponse2003) GetDate() string`
 
 GetDate returns the Date field if non-nil, zero value otherwise.
 
 ### GetDateOk
 
-`func (o *InlineResponse2003) GetDateOk() (*time.Time, bool)`
+`func (o *InlineResponse2003) GetDateOk() (*string, bool)`
 
 GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDate
 
-`func (o *InlineResponse2003) SetDate(v time.Time)`
+`func (o *InlineResponse2003) SetDate(v string)`
 
 SetDate sets Date field to given value.
 
 
 ### GetLastChangeDate
 
-`func (o *InlineResponse2003) GetLastChangeDate() time.Time`
+`func (o *InlineResponse2003) GetLastChangeDate() string`
 
 GetLastChangeDate returns the LastChangeDate field if non-nil, zero value otherwise.
 
 ### GetLastChangeDateOk
 
-`func (o *InlineResponse2003) GetLastChangeDateOk() (*time.Time, bool)`
+`func (o *InlineResponse2003) GetLastChangeDateOk() (*string, bool)`
 
 GetLastChangeDateOk returns a tuple with the LastChangeDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastChangeDate
 
-`func (o *InlineResponse2003) SetLastChangeDate(v time.Time)`
+`func (o *InlineResponse2003) SetLastChangeDate(v string)`
 
 SetLastChangeDate sets LastChangeDate field to given value.
 

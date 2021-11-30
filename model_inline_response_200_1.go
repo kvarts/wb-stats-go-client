@@ -12,7 +12,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // InlineResponse2001 struct for InlineResponse2001
@@ -22,9 +21,9 @@ type InlineResponse2001 struct {
 	// Номер УПД
 	Number string `json:"number"`
 	// Дата поступления
-	Date time.Time `json:"date"`
+	Date string `json:"date"`
 	// Дата и время обновления данных в сервисе
-	LastChangeDate time.Time `json:"lastChangeDate"`
+	LastChangeDate string `json:"lastChangeDate"`
 	// Артикул продавца
 	SupplierArticle string `json:"supplierArticle"`
 	// Размер
@@ -36,7 +35,7 @@ type InlineResponse2001 struct {
 	// Цена из УПД
 	TotalPrice float32 `json:"totalPrice"`
 	// Дата принятия (закрытия) у wildberies
-	DateClose time.Time `json:"dateClose"`
+	DateClose string `json:"dateClose"`
 	// Наименование склада
 	WarehouseName string `json:"warehouseName"`
 	// Код WB
@@ -49,7 +48,7 @@ type InlineResponse2001 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2001(incomeId int64, number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose time.Time, warehouseName string, nmId int64, status string) *InlineResponse2001 {
+func NewInlineResponse2001(incomeId int64, number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose string, warehouseName string, nmId int64, status string) *InlineResponse2001 {
 	this := InlineResponse2001{}
 	this.IncomeId = incomeId
 	this.Number = number
@@ -124,9 +123,9 @@ func (o *InlineResponse2001) SetNumber(v string) {
 }
 
 // GetDate returns the Date field value
-func (o *InlineResponse2001) GetDate() time.Time {
+func (o *InlineResponse2001) GetDate() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -135,7 +134,7 @@ func (o *InlineResponse2001) GetDate() time.Time {
 
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2001) GetDateOk() (*time.Time, bool) {
+func (o *InlineResponse2001) GetDateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -143,14 +142,14 @@ func (o *InlineResponse2001) GetDateOk() (*time.Time, bool) {
 }
 
 // SetDate sets field value
-func (o *InlineResponse2001) SetDate(v time.Time) {
+func (o *InlineResponse2001) SetDate(v string) {
 	o.Date = v
 }
 
 // GetLastChangeDate returns the LastChangeDate field value
-func (o *InlineResponse2001) GetLastChangeDate() time.Time {
+func (o *InlineResponse2001) GetLastChangeDate() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -159,7 +158,7 @@ func (o *InlineResponse2001) GetLastChangeDate() time.Time {
 
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2001) GetLastChangeDateOk() (*time.Time, bool) {
+func (o *InlineResponse2001) GetLastChangeDateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -167,7 +166,7 @@ func (o *InlineResponse2001) GetLastChangeDateOk() (*time.Time, bool) {
 }
 
 // SetLastChangeDate sets field value
-func (o *InlineResponse2001) SetLastChangeDate(v time.Time) {
+func (o *InlineResponse2001) SetLastChangeDate(v string) {
 	o.LastChangeDate = v
 }
 
@@ -292,9 +291,9 @@ func (o *InlineResponse2001) SetTotalPrice(v float32) {
 }
 
 // GetDateClose returns the DateClose field value
-func (o *InlineResponse2001) GetDateClose() time.Time {
+func (o *InlineResponse2001) GetDateClose() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -303,7 +302,7 @@ func (o *InlineResponse2001) GetDateClose() time.Time {
 
 // GetDateCloseOk returns a tuple with the DateClose field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2001) GetDateCloseOk() (*time.Time, bool) {
+func (o *InlineResponse2001) GetDateCloseOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -311,7 +310,7 @@ func (o *InlineResponse2001) GetDateCloseOk() (*time.Time, bool) {
 }
 
 // SetDateClose sets field value
-func (o *InlineResponse2001) SetDateClose(v time.Time) {
+func (o *InlineResponse2001) SetDateClose(v string) {
 	o.DateClose = v
 }
 

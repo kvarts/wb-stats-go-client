@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IncomeId** | **int64** | Номер поставки | 
 **Number** | **string** | Номер УПД | 
-**Date** | **time.Time** | Дата поступления | 
-**LastChangeDate** | **time.Time** | Дата и время обновления данных в сервисе | 
+**Date** | **string** | Дата поступления | 
+**LastChangeDate** | **string** | Дата и время обновления данных в сервисе | 
 **SupplierArticle** | **string** | Артикул продавца | 
 **TechSize** | **string** | Размер | 
 **Barcode** | **string** | Штрих-код | 
 **Quantity** | **int32** | Количество | 
 **TotalPrice** | **float32** | Цена из УПД | 
-**DateClose** | **time.Time** | Дата принятия (закрытия) у wildberies | 
+**DateClose** | **string** | Дата принятия (закрытия) у wildberies | 
 **WarehouseName** | **string** | Наименование склада | 
 **NmId** | **int64** | Код WB | 
 **Status** | **string** | Текущий статус поставки | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2001
 
-`func NewInlineResponse2001(incomeId int64, number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose time.Time, warehouseName string, nmId int64, status string, ) *InlineResponse2001`
+`func NewInlineResponse2001(incomeId int64, number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, dateClose string, warehouseName string, nmId int64, status string, ) *InlineResponse2001`
 
 NewInlineResponse2001 instantiates a new InlineResponse2001 object
 This constructor will assign default values to properties that have it defined,
@@ -79,40 +79,40 @@ SetNumber sets Number field to given value.
 
 ### GetDate
 
-`func (o *InlineResponse2001) GetDate() time.Time`
+`func (o *InlineResponse2001) GetDate() string`
 
 GetDate returns the Date field if non-nil, zero value otherwise.
 
 ### GetDateOk
 
-`func (o *InlineResponse2001) GetDateOk() (*time.Time, bool)`
+`func (o *InlineResponse2001) GetDateOk() (*string, bool)`
 
 GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDate
 
-`func (o *InlineResponse2001) SetDate(v time.Time)`
+`func (o *InlineResponse2001) SetDate(v string)`
 
 SetDate sets Date field to given value.
 
 
 ### GetLastChangeDate
 
-`func (o *InlineResponse2001) GetLastChangeDate() time.Time`
+`func (o *InlineResponse2001) GetLastChangeDate() string`
 
 GetLastChangeDate returns the LastChangeDate field if non-nil, zero value otherwise.
 
 ### GetLastChangeDateOk
 
-`func (o *InlineResponse2001) GetLastChangeDateOk() (*time.Time, bool)`
+`func (o *InlineResponse2001) GetLastChangeDateOk() (*string, bool)`
 
 GetLastChangeDateOk returns a tuple with the LastChangeDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastChangeDate
 
-`func (o *InlineResponse2001) SetLastChangeDate(v time.Time)`
+`func (o *InlineResponse2001) SetLastChangeDate(v string)`
 
 SetLastChangeDate sets LastChangeDate field to given value.
 
@@ -219,20 +219,20 @@ SetTotalPrice sets TotalPrice field to given value.
 
 ### GetDateClose
 
-`func (o *InlineResponse2001) GetDateClose() time.Time`
+`func (o *InlineResponse2001) GetDateClose() string`
 
 GetDateClose returns the DateClose field if non-nil, zero value otherwise.
 
 ### GetDateCloseOk
 
-`func (o *InlineResponse2001) GetDateCloseOk() (*time.Time, bool)`
+`func (o *InlineResponse2001) GetDateCloseOk() (*string, bool)`
 
 GetDateCloseOk returns a tuple with the DateClose field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDateClose
 
-`func (o *InlineResponse2001) SetDateClose(v time.Time)`
+`func (o *InlineResponse2001) SetDateClose(v string)`
 
 SetDateClose sets DateClose field to given value.
 

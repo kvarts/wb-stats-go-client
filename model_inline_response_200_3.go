@@ -12,7 +12,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // InlineResponse2003 struct for InlineResponse2003
@@ -20,9 +19,9 @@ type InlineResponse2003 struct {
 	// Номер документа
 	Number string `json:"number"`
 	// Дата продажи
-	Date time.Time `json:"date"`
+	Date string `json:"date"`
 	// Дата и время обновления информации в сервисе
-	LastChangeDate time.Time `json:"lastChangeDate"`
+	LastChangeDate string `json:"lastChangeDate"`
 	// Артикул продавца
 	SupplierArticle string `json:"supplierArticle"`
 	// Размер
@@ -83,7 +82,7 @@ type InlineResponse2003 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2003(number string, date time.Time, lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string) *InlineResponse2003 {
+func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string) *InlineResponse2003 {
 	this := InlineResponse2003{}
 	this.Number = number
 	this.Date = date
@@ -151,9 +150,9 @@ func (o *InlineResponse2003) SetNumber(v string) {
 }
 
 // GetDate returns the Date field value
-func (o *InlineResponse2003) GetDate() time.Time {
+func (o *InlineResponse2003) GetDate() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -162,7 +161,7 @@ func (o *InlineResponse2003) GetDate() time.Time {
 
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetDateOk() (*time.Time, bool) {
+func (o *InlineResponse2003) GetDateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -170,14 +169,14 @@ func (o *InlineResponse2003) GetDateOk() (*time.Time, bool) {
 }
 
 // SetDate sets field value
-func (o *InlineResponse2003) SetDate(v time.Time) {
+func (o *InlineResponse2003) SetDate(v string) {
 	o.Date = v
 }
 
 // GetLastChangeDate returns the LastChangeDate field value
-func (o *InlineResponse2003) GetLastChangeDate() time.Time {
+func (o *InlineResponse2003) GetLastChangeDate() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -186,7 +185,7 @@ func (o *InlineResponse2003) GetLastChangeDate() time.Time {
 
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetLastChangeDateOk() (*time.Time, bool) {
+func (o *InlineResponse2003) GetLastChangeDateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -194,7 +193,7 @@ func (o *InlineResponse2003) GetLastChangeDateOk() (*time.Time, bool) {
 }
 
 // SetLastChangeDate sets field value
-func (o *InlineResponse2003) SetLastChangeDate(v time.Time) {
+func (o *InlineResponse2003) SetLastChangeDate(v string) {
 	o.LastChangeDate = v
 }
 

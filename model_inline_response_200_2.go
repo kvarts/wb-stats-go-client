@@ -12,13 +12,12 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // InlineResponse2002 struct for InlineResponse2002
 type InlineResponse2002 struct {
 	// Дата и время обновления данных в сервисе
-	LastChangeDate time.Time `json:"lastChangeDate"`
+	LastChangeDate string `json:"lastChangeDate"`
 	// Артикул продавца
 	SupplierArticle string `json:"supplierArticle"`
 	// Размер
@@ -63,7 +62,7 @@ type InlineResponse2002 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2002(lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int64, isSupply bool, isRealization bool, quantityFull int64, quantityNotInOrders int64, warehouseName string, inWayToClient int32, inWayFromClient int32, nmId int64, subject string, category string, daysOnSite int32, brand string, sCCode string, price float32, discount float32) *InlineResponse2002 {
+func NewInlineResponse2002(lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, isSupply bool, isRealization bool, quantityFull int64, quantityNotInOrders int64, warehouseName string, inWayToClient int32, inWayFromClient int32, nmId int64, subject string, category string, daysOnSite int32, brand string, sCCode string, price float32, discount float32) *InlineResponse2002 {
 	this := InlineResponse2002{}
 	this.LastChangeDate = lastChangeDate
 	this.SupplierArticle = supplierArticle
@@ -97,9 +96,9 @@ func NewInlineResponse2002WithDefaults() *InlineResponse2002 {
 }
 
 // GetLastChangeDate returns the LastChangeDate field value
-func (o *InlineResponse2002) GetLastChangeDate() time.Time {
+func (o *InlineResponse2002) GetLastChangeDate() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -108,7 +107,7 @@ func (o *InlineResponse2002) GetLastChangeDate() time.Time {
 
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2002) GetLastChangeDateOk() (*time.Time, bool) {
+func (o *InlineResponse2002) GetLastChangeDateOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -116,7 +115,7 @@ func (o *InlineResponse2002) GetLastChangeDateOk() (*time.Time, bool) {
 }
 
 // SetLastChangeDate sets field value
-func (o *InlineResponse2002) SetLastChangeDate(v time.Time) {
+func (o *InlineResponse2002) SetLastChangeDate(v string) {
 	o.LastChangeDate = v
 }
 

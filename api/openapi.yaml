@@ -280,16 +280,16 @@ components:
       type: object
     inline_response_200_1:
       example:
-        date: 2000-01-23T04:56:07.000+00:00
+        date: date
         supplierArticle: supplierArticle
         incomeId: 0
         quantity: 6
         totalPrice: 1.4658129805029452
-        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        lastChangeDate: lastChangeDate
         nmId: 5
         warehouseName: warehouseName
         number: number
-        dateClose: 2000-01-23T04:56:07.000+00:00
+        dateClose: dateClose
         techSize: techSize
         barcode: barcode
         status: status
@@ -303,11 +303,9 @@ components:
           type: string
         date:
           description: Дата поступления
-          format: date-time
           type: string
         lastChangeDate:
           description: Дата и время обновления данных в сервисе
-          format: date-time
           type: string
         supplierArticle:
           description: Артикул продавца
@@ -327,7 +325,6 @@ components:
           type: number
         dateClose:
           description: Дата принятия (закрытия) у wildberies
-          format: date-time
           type: string
         warehouseName:
           description: Наименование склада
@@ -364,7 +361,7 @@ components:
         quantityFull: 6
         quantityNotInOrders: 1
         subject: subject
-        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        lastChangeDate: lastChangeDate
         nmId: 2
         warehouseName: warehouseName
         SCCode: SCCode
@@ -379,7 +376,6 @@ components:
       properties:
         lastChangeDate:
           description: Дата и время обновления данных в сервисе
-          format: date-time
           type: string
         supplierArticle:
           description: Артикул продавца
@@ -469,7 +465,7 @@ components:
       type: object
     inline_response_200_3:
       example:
-        date: 2000-01-23T04:56:07.000+00:00
+        date: date
         forPay: 3.616076749251911
         incomeID: 2
         odid: 7
@@ -491,7 +487,7 @@ components:
         quantity: 0
         discountPercent: 1.4658129805029452
         saleID: saleID
-        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        lastChangeDate: lastChangeDate
         spp: 9.301444243932576
         finishedPrice: 2.027123023002322
         oblastOkrugName: oblastOkrugName
@@ -505,11 +501,9 @@ components:
           type: string
         date:
           description: Дата продажи
-          format: date-time
           type: string
         lastChangeDate:
           description: Дата и время обновления информации в сервисе
-          format: date-time
           type: string
         supplierArticle:
           description: Артикул продавца
@@ -636,18 +630,16 @@ components:
         nmId: 0
         techSize: techSize
         sumW: 5.637376656633329
-        dayBeg: 2000-01-23
-        dayEnd: 2000-01-23
+        dayBeg: dayBeg
+        dayEnd: dayEnd
         stock: 1
         saleQty: 5
       properties:
         dayBeg:
           description: Дата начала периода хранения
-          format: date
           type: string
         dayEnd:
           description: Дата завершения периода хранения
-          format: date
           type: string
         nmId:
           description: Код wildberries

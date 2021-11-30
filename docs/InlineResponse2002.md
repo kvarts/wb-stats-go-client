@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LastChangeDate** | **time.Time** | Дата и время обновления данных в сервисе | 
+**LastChangeDate** | **string** | Дата и время обновления данных в сервисе | 
 **SupplierArticle** | **string** | Артикул продавца | 
 **TechSize** | **string** | Размер | 
 **Barcode** | **string** | Штрих-код | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2002
 
-`func NewInlineResponse2002(lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int64, isSupply bool, isRealization bool, quantityFull int64, quantityNotInOrders int64, warehouseName string, inWayToClient int32, inWayFromClient int32, nmId int64, subject string, category string, daysOnSite int32, brand string, sCCode string, price float32, discount float32, ) *InlineResponse2002`
+`func NewInlineResponse2002(lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, isSupply bool, isRealization bool, quantityFull int64, quantityNotInOrders int64, warehouseName string, inWayToClient int32, inWayFromClient int32, nmId int64, subject string, category string, daysOnSite int32, brand string, sCCode string, price float32, discount float32, ) *InlineResponse2002`
 
 NewInlineResponse2002 instantiates a new InlineResponse2002 object
 This constructor will assign default values to properties that have it defined,
@@ -46,20 +46,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLastChangeDate
 
-`func (o *InlineResponse2002) GetLastChangeDate() time.Time`
+`func (o *InlineResponse2002) GetLastChangeDate() string`
 
 GetLastChangeDate returns the LastChangeDate field if non-nil, zero value otherwise.
 
 ### GetLastChangeDateOk
 
-`func (o *InlineResponse2002) GetLastChangeDateOk() (*time.Time, bool)`
+`func (o *InlineResponse2002) GetLastChangeDateOk() (*string, bool)`
 
 GetLastChangeDateOk returns a tuple with the LastChangeDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastChangeDate
 
-`func (o *InlineResponse2002) SetLastChangeDate(v time.Time)`
+`func (o *InlineResponse2002) SetLastChangeDate(v string)`
 
 SetLastChangeDate sets LastChangeDate field to given value.
 
