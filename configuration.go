@@ -76,6 +76,10 @@ type ServerConfiguration struct {
 // ServerConfigurations stores multiple ServerConfiguration items
 type ServerConfigurations []ServerConfiguration
 
+type HTTPDoyer interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	Host             string            `json:"host,omitempty"`
@@ -85,7 +89,7 @@ type Configuration struct {
 	Debug            bool              `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
-	HTTPClient       *http.Client
+	HTTPClient       HTTPDoyer
 }
 
 // NewConfiguration returns a new Configuration object
