@@ -231,14 +231,15 @@ import (
     "context"
     "fmt"
     "os"
+    "time"
     openapiclient "./openapi"
 )
 
 func main() {
-    dateFrom := "dateFrom_example" // string | Начальная дата периода (optional)
-    dateTo := "dateTo_example" // string | Конечная дата периода (optional)
-    limit := int32(56) // int32 | Максимальное количество записей, получаемых при запросе (optional)
-    rrdid := int32(56) // int32 | Идентификатор записи, начиная с которой нужно получать данные при запросе (optional)
+    dateFrom := time.Now() // string | Начальная дата периода
+    dateTo := time.Now() // string | Конечная дата периода
+    limit := int64(789) // int64 | Максимальное количество записей, получаемых при запросе
+    rrdid := int64(789) // int64 | Идентификатор записи, начиная с которой нужно получать данные при запросе
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -265,8 +266,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateFrom** | **string** | Начальная дата периода | 
  **dateTo** | **string** | Конечная дата периода | 
- **limit** | **int32** | Максимальное количество записей, получаемых при запросе | 
- **rrdid** | **int32** | Идентификатор записи, начиная с которой нужно получать данные при запросе | 
+ **limit** | **int64** | Максимальное количество записей, получаемых при запросе | 
+ **rrdid** | **int64** | Идентификатор записи, начиная с которой нужно получать данные при запросе | 
 
 ### Return type
 

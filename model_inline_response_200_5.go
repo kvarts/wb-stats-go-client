@@ -21,13 +21,13 @@ type InlineResponse2005 struct {
 	// Договор
 	SuppliercontractCode *int32 `json:"suppliercontract_code,omitempty"`
 	// Идентификатор записи
-	RrdId float32 `json:"rrd_id"`
+	RrdId int64 `json:"rrd_id"`
 	// Идентификатор поставки
-	GiId float32 `json:"gi_id"`
+	GiId int64 `json:"gi_id"`
 	// Наименование товара
 	SubjectName string `json:"subject_name"`
 	// SKU товара
-	NmId float32 `json:"nm_id"`
+	NmId int64 `json:"nm_id"`
 	// Бренд товара
 	BrandName string `json:"brand_name"`
 	// Артикул поставщика
@@ -39,7 +39,7 @@ type InlineResponse2005 struct {
 	// Тип документа
 	DocTypeName string `json:"doc_type_name"`
 	// Количество
-	Quantity float32 `json:"quantity"`
+	Quantity int32 `json:"quantity"`
 	// Розничная цена
 	RetailPrice float32 `json:"retail_price"`
 	// Сумма продаж (возвратов)
@@ -59,7 +59,7 @@ type InlineResponse2005 struct {
 	// Дата операции
 	RrDt string `json:"rr_dt"`
 	// Штрих код (короба?)
-	ShkId int32 `json:"shk_id"`
+	ShkId int64 `json:"shk_id"`
 	// Розничная цена с учётом согласованной скидки
 	RetailPriceWithdiscRub float32 `json:"retail_price_withdisc_rub"`
 	// Количество доставок
@@ -74,8 +74,8 @@ type InlineResponse2005 struct {
 	ProductDiscountForReport float32 `json:"product_discount_for_report"`
 	// Промокод
 	SupplierPromo float32 `json:"supplier_promo"`
-	// Идентификатор позиции заказа
-	Rid int32 `json:"rid"`
+	// Идентификатор заказа
+	Rid int64 `json:"rid"`
 	// Скидка постоянного покупателя
 	PpvzSppPrc float32 `json:"ppvz_spp_prc"`
 	// Базовый размер коэффициента вознаграждения вайлдберриз без НДС, %
@@ -93,11 +93,11 @@ type InlineResponse2005 struct {
 	// НДС с вознаграждения вайлдберриз
 	PpvzVwNds float32 `json:"ppvz_vw_nds"`
 	// Идентификатор ПВЗ?
-	PpvzOfficeId int32 `json:"ppvz_office_id"`
+	PpvzOfficeId int64 `json:"ppvz_office_id"`
 	// Наименование ПВЗ? (в случае если ppvz_office_id = 0)
 	PpvzOfficeName *string `json:"ppvz_office_name,omitempty"`
 	// Идентификатор владельца ПВЗ?
-	PpvzSupplierId int32 `json:"ppvz_supplier_id"`
+	PpvzSupplierId int64 `json:"ppvz_supplier_id"`
 	// Наименование владельца ПВЗ
 	PpvzSupplierName *string `json:"ppvz_supplier_name,omitempty"`
 	// ИНН владельца ПВЗ
@@ -108,7 +108,7 @@ type InlineResponse2005 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2005(realizationreportId int32, rrdId float32, giId float32, subjectName string, nmId float32, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity float32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int32, retailPriceWithdiscRub float32, deliveryAmount float32, returnAmount float32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int32, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int32, ppvzSupplierId int32) *InlineResponse2005 {
+func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount float32, returnAmount float32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64) *InlineResponse2005 {
 	this := InlineResponse2005{}
 	this.RealizationreportId = realizationreportId
 	this.RrdId = rrdId
@@ -217,9 +217,9 @@ func (o *InlineResponse2005) SetSuppliercontractCode(v int32) {
 }
 
 // GetRrdId returns the RrdId field value
-func (o *InlineResponse2005) GetRrdId() float32 {
+func (o *InlineResponse2005) GetRrdId() int64 {
 	if o == nil {
-		var ret float32
+		var ret int64
 		return ret
 	}
 
@@ -228,7 +228,7 @@ func (o *InlineResponse2005) GetRrdId() float32 {
 
 // GetRrdIdOk returns a tuple with the RrdId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetRrdIdOk() (*float32, bool) {
+func (o *InlineResponse2005) GetRrdIdOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -236,14 +236,14 @@ func (o *InlineResponse2005) GetRrdIdOk() (*float32, bool) {
 }
 
 // SetRrdId sets field value
-func (o *InlineResponse2005) SetRrdId(v float32) {
+func (o *InlineResponse2005) SetRrdId(v int64) {
 	o.RrdId = v
 }
 
 // GetGiId returns the GiId field value
-func (o *InlineResponse2005) GetGiId() float32 {
+func (o *InlineResponse2005) GetGiId() int64 {
 	if o == nil {
-		var ret float32
+		var ret int64
 		return ret
 	}
 
@@ -252,7 +252,7 @@ func (o *InlineResponse2005) GetGiId() float32 {
 
 // GetGiIdOk returns a tuple with the GiId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetGiIdOk() (*float32, bool) {
+func (o *InlineResponse2005) GetGiIdOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -260,7 +260,7 @@ func (o *InlineResponse2005) GetGiIdOk() (*float32, bool) {
 }
 
 // SetGiId sets field value
-func (o *InlineResponse2005) SetGiId(v float32) {
+func (o *InlineResponse2005) SetGiId(v int64) {
 	o.GiId = v
 }
 
@@ -289,9 +289,9 @@ func (o *InlineResponse2005) SetSubjectName(v string) {
 }
 
 // GetNmId returns the NmId field value
-func (o *InlineResponse2005) GetNmId() float32 {
+func (o *InlineResponse2005) GetNmId() int64 {
 	if o == nil {
-		var ret float32
+		var ret int64
 		return ret
 	}
 
@@ -300,7 +300,7 @@ func (o *InlineResponse2005) GetNmId() float32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetNmIdOk() (*float32, bool) {
+func (o *InlineResponse2005) GetNmIdOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -308,7 +308,7 @@ func (o *InlineResponse2005) GetNmIdOk() (*float32, bool) {
 }
 
 // SetNmId sets field value
-func (o *InlineResponse2005) SetNmId(v float32) {
+func (o *InlineResponse2005) SetNmId(v int64) {
 	o.NmId = v
 }
 
@@ -433,9 +433,9 @@ func (o *InlineResponse2005) SetDocTypeName(v string) {
 }
 
 // GetQuantity returns the Quantity field value
-func (o *InlineResponse2005) GetQuantity() float32 {
+func (o *InlineResponse2005) GetQuantity() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -444,7 +444,7 @@ func (o *InlineResponse2005) GetQuantity() float32 {
 
 // GetQuantityOk returns a tuple with the Quantity field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetQuantityOk() (*float32, bool) {
+func (o *InlineResponse2005) GetQuantityOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -452,7 +452,7 @@ func (o *InlineResponse2005) GetQuantityOk() (*float32, bool) {
 }
 
 // SetQuantity sets field value
-func (o *InlineResponse2005) SetQuantity(v float32) {
+func (o *InlineResponse2005) SetQuantity(v int32) {
 	o.Quantity = v
 }
 
@@ -673,9 +673,9 @@ func (o *InlineResponse2005) SetRrDt(v string) {
 }
 
 // GetShkId returns the ShkId field value
-func (o *InlineResponse2005) GetShkId() int32 {
+func (o *InlineResponse2005) GetShkId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -684,7 +684,7 @@ func (o *InlineResponse2005) GetShkId() int32 {
 
 // GetShkIdOk returns a tuple with the ShkId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetShkIdOk() (*int32, bool) {
+func (o *InlineResponse2005) GetShkIdOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -692,7 +692,7 @@ func (o *InlineResponse2005) GetShkIdOk() (*int32, bool) {
 }
 
 // SetShkId sets field value
-func (o *InlineResponse2005) SetShkId(v int32) {
+func (o *InlineResponse2005) SetShkId(v int64) {
 	o.ShkId = v
 }
 
@@ -865,9 +865,9 @@ func (o *InlineResponse2005) SetSupplierPromo(v float32) {
 }
 
 // GetRid returns the Rid field value
-func (o *InlineResponse2005) GetRid() int32 {
+func (o *InlineResponse2005) GetRid() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -876,7 +876,7 @@ func (o *InlineResponse2005) GetRid() int32 {
 
 // GetRidOk returns a tuple with the Rid field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetRidOk() (*int32, bool) {
+func (o *InlineResponse2005) GetRidOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -884,7 +884,7 @@ func (o *InlineResponse2005) GetRidOk() (*int32, bool) {
 }
 
 // SetRid sets field value
-func (o *InlineResponse2005) SetRid(v int32) {
+func (o *InlineResponse2005) SetRid(v int64) {
 	o.Rid = v
 }
 
@@ -1081,9 +1081,9 @@ func (o *InlineResponse2005) SetPpvzVwNds(v float32) {
 }
 
 // GetPpvzOfficeId returns the PpvzOfficeId field value
-func (o *InlineResponse2005) GetPpvzOfficeId() int32 {
+func (o *InlineResponse2005) GetPpvzOfficeId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -1092,7 +1092,7 @@ func (o *InlineResponse2005) GetPpvzOfficeId() int32 {
 
 // GetPpvzOfficeIdOk returns a tuple with the PpvzOfficeId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetPpvzOfficeIdOk() (*int32, bool) {
+func (o *InlineResponse2005) GetPpvzOfficeIdOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -1100,7 +1100,7 @@ func (o *InlineResponse2005) GetPpvzOfficeIdOk() (*int32, bool) {
 }
 
 // SetPpvzOfficeId sets field value
-func (o *InlineResponse2005) SetPpvzOfficeId(v int32) {
+func (o *InlineResponse2005) SetPpvzOfficeId(v int64) {
 	o.PpvzOfficeId = v
 }
 
@@ -1137,9 +1137,9 @@ func (o *InlineResponse2005) SetPpvzOfficeName(v string) {
 }
 
 // GetPpvzSupplierId returns the PpvzSupplierId field value
-func (o *InlineResponse2005) GetPpvzSupplierId() int32 {
+func (o *InlineResponse2005) GetPpvzSupplierId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -1148,7 +1148,7 @@ func (o *InlineResponse2005) GetPpvzSupplierId() int32 {
 
 // GetPpvzSupplierIdOk returns a tuple with the PpvzSupplierId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetPpvzSupplierIdOk() (*int32, bool) {
+func (o *InlineResponse2005) GetPpvzSupplierIdOk() (*int64, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -1156,7 +1156,7 @@ func (o *InlineResponse2005) GetPpvzSupplierIdOk() (*int32, bool) {
 }
 
 // SetPpvzSupplierId sets field value
-func (o *InlineResponse2005) SetPpvzSupplierId(v int32) {
+func (o *InlineResponse2005) SetPpvzSupplierId(v int64) {
 	o.PpvzSupplierId = v
 }
 

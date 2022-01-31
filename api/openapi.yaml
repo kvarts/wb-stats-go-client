@@ -178,24 +178,28 @@ paths:
         explode: true
         in: query
         name: dateFrom
-        required: false
+        required: true
         schema:
+          format: date
           type: string
         style: form
       - description: Конечная дата периода
         explode: true
         in: query
         name: dateTo
-        required: false
+        required: true
         schema:
+          format: date
           type: string
         style: form
       - description: Максимальное количество записей, получаемых при запросе
         explode: true
         in: query
         name: limit
-        required: false
+        required: true
         schema:
+          format: int64
+          minimum: 0
           type: integer
         style: form
       - description: Идентификатор записи, начиная с которой нужно получать данные
@@ -203,8 +207,10 @@ paths:
         explode: true
         in: query
         name: rrdid
-        required: false
+        required: true
         schema:
+          format: int64
+          minimum: 0
           type: integer
         style: form
       responses:
@@ -772,13 +778,13 @@ components:
         return_amount: 1.0246457001441578
         ppvz_sales_commission: 9.369310271410669
         ppvz_reward: 8.762042012749001
-        gi_id: 5.962133916683182
+        gi_id: 0
         sale_percent: 3.616076749251911
-        ppvz_supplier_id: 6
+        ppvz_supplier_id: 0
         retail_amount: 9.301444243932576
         realizationreport_id: 0
         delivery_amount: 1.2315135367772556
-        rid: 1
+        rid: 0
         ppvz_vw: 9.018348186070783
         gi_box_type_name: gi_box_type_name
         retail_price: 7.061401241503109
@@ -787,20 +793,20 @@ components:
         ppvz_for_pay: 6.683562403749608
         rr_dt: rr_dt
         ppvz_vw_nds: 6.438423552598547
-        nm_id: 5.637376656633329
+        nm_id: 0
         supplier_oper_name: supplier_oper_name
         product_discount_for_report: 6.84685269835264
         sale_dt: sale_dt
         barcode: barcode
         delivery_rub: 1.4894159098541704
         ppvz_supplier_name: ppvz_supplier_name
-        quantity: 2.3021358869347655
+        quantity: 2
         ppvz_supplier_inn: ppvz_supplier_inn
         suppliercontract_code: 6
-        ppvz_office_id: 3
+        ppvz_office_id: 0
         brand_name: brand_name
-        rrd_id: 1.4658129805029452
-        shk_id: 4
+        rrd_id: 0
+        shk_id: 0
         supplier_promo: 7.457744773683766
         commission_percent: 2.027123023002322
         doc_type_name: doc_type_name
@@ -821,17 +827,24 @@ components:
           type: integer
         rrd_id:
           description: Идентификатор записи
-          type: number
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
         gi_id:
           description: Идентификатор поставки
-          type: number
+          format: int64
+          minimum: 0
+          type: integer
         subject_name:
           description: Наименование товара
           minLength: 1
           type: string
         nm_id:
           description: SKU товара
-          type: number
+          format: int64
+          minimum: 0
+          type: integer
         brand_name:
           description: Бренд товара
           minLength: 1
@@ -854,7 +867,7 @@ components:
           type: string
         quantity:
           description: Количество
-          type: number
+          type: integer
         retail_price:
           description: Розничная цена
           type: number
@@ -889,6 +902,8 @@ components:
           type: string
         shk_id:
           description: Штрих код (короба?)
+          format: int64
+          minimum: 0
           type: integer
         retail_price_withdisc_rub:
           description: Розничная цена с учётом согласованной скидки
@@ -913,7 +928,9 @@ components:
           description: Промокод
           type: number
         rid:
-          description: Идентификатор позиции заказа
+          description: Идентификатор заказа
+          format: int64
+          minimum: 0
           type: integer
         ppvz_spp_prc:
           description: Скидка постоянного покупателя
@@ -945,6 +962,8 @@ components:
           type: number
         ppvz_office_id:
           description: Идентификатор ПВЗ?
+          format: int64
+          minimum: 0
           type: integer
         ppvz_office_name:
           description: Наименование ПВЗ? (в случае если ppvz_office_id = 0)
@@ -952,6 +971,8 @@ components:
           type: string
         ppvz_supplier_id:
           description: Идентификатор владельца ПВЗ?
+          format: int64
+          minimum: 0
           type: integer
         ppvz_supplier_name:
           description: Наименование владельца ПВЗ

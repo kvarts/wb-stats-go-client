@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RealizationreportId** | **int32** | Идентификатор отчёта | 
 **SuppliercontractCode** | Pointer to **int32** | Договор | [optional] 
-**RrdId** | **float32** | Идентификатор записи | 
-**GiId** | **float32** | Идентификатор поставки | 
+**RrdId** | **int64** | Идентификатор записи | 
+**GiId** | **int64** | Идентификатор поставки | 
 **SubjectName** | **string** | Наименование товара | 
-**NmId** | **float32** | SKU товара | 
+**NmId** | **int64** | SKU товара | 
 **BrandName** | **string** | Бренд товара | 
 **SaName** | **string** | Артикул поставщика | 
 **TsName** | **string** | Размер | 
 **Barcode** | **string** | Баркод | 
 **DocTypeName** | **string** | Тип документа | 
-**Quantity** | **float32** | Количество | 
+**Quantity** | **int32** | Количество | 
 **RetailPrice** | **float32** | Розничная цена | 
 **RetailAmount** | **float32** | Сумма продаж (возвратов) | 
 **SalePercent** | **float32** | Согласованная скидка | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **OrderDt** | **string** | Дата заказа | 
 **SaleDt** | **string** | Дата продажи | 
 **RrDt** | **string** | Дата операции | 
-**ShkId** | **int32** | Штрих код (короба?) | 
+**ShkId** | **int64** | Штрих код (короба?) | 
 **RetailPriceWithdiscRub** | **float32** | Розничная цена с учётом согласованной скидки | 
 **DeliveryAmount** | **float32** | Количество доставок | 
 **ReturnAmount** | **float32** | Количество возвратов | 
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **GiBoxTypeName** | **string** | Тип коробов | 
 **ProductDiscountForReport** | **float32** | Согласованный продуктовый дисконт | 
 **SupplierPromo** | **float32** | Промокод | 
-**Rid** | **int32** | Идентификатор позиции заказа | 
+**Rid** | **int64** | Идентификатор заказа | 
 **PpvzSppPrc** | **float32** | Скидка постоянного покупателя | 
 **PpvzKvwPrcBase** | **float32** | Базовый размер коэффициента вознаграждения вайлдберриз без НДС, % | 
 **PpvzKvwPrc** | **float32** | Итоговый размер коэффициента вознаграждения вайлдберриз без НДС, % | 
@@ -42,9 +42,9 @@ Name | Type | Description | Notes
 **PpvzReward** | **float32** | Возмещение расходов услуг поверенного | 
 **PpvzVw** | **float32** | Вознаграждение вайлдберриз, без НДС | 
 **PpvzVwNds** | **float32** | НДС с вознаграждения вайлдберриз | 
-**PpvzOfficeId** | **int32** | Идентификатор ПВЗ? | 
+**PpvzOfficeId** | **int64** | Идентификатор ПВЗ? | 
 **PpvzOfficeName** | Pointer to **string** | Наименование ПВЗ? (в случае если ppvz_office_id &#x3D; 0) | [optional] 
-**PpvzSupplierId** | **int32** | Идентификатор владельца ПВЗ? | 
+**PpvzSupplierId** | **int64** | Идентификатор владельца ПВЗ? | 
 **PpvzSupplierName** | Pointer to **string** | Наименование владельца ПВЗ | [optional] 
 **PpvzSupplierInn** | Pointer to **string** | ИНН владельца ПВЗ | [optional] 
 
@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2005
 
-`func NewInlineResponse2005(realizationreportId int32, rrdId float32, giId float32, subjectName string, nmId float32, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity float32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int32, retailPriceWithdiscRub float32, deliveryAmount float32, returnAmount float32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int32, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int32, ppvzSupplierId int32, ) *InlineResponse2005`
+`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount float32, returnAmount float32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, ) *InlineResponse2005`
 
 NewInlineResponse2005 instantiates a new InlineResponse2005 object
 This constructor will assign default values to properties that have it defined,
@@ -114,40 +114,40 @@ HasSuppliercontractCode returns a boolean if a field has been set.
 
 ### GetRrdId
 
-`func (o *InlineResponse2005) GetRrdId() float32`
+`func (o *InlineResponse2005) GetRrdId() int64`
 
 GetRrdId returns the RrdId field if non-nil, zero value otherwise.
 
 ### GetRrdIdOk
 
-`func (o *InlineResponse2005) GetRrdIdOk() (*float32, bool)`
+`func (o *InlineResponse2005) GetRrdIdOk() (*int64, bool)`
 
 GetRrdIdOk returns a tuple with the RrdId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRrdId
 
-`func (o *InlineResponse2005) SetRrdId(v float32)`
+`func (o *InlineResponse2005) SetRrdId(v int64)`
 
 SetRrdId sets RrdId field to given value.
 
 
 ### GetGiId
 
-`func (o *InlineResponse2005) GetGiId() float32`
+`func (o *InlineResponse2005) GetGiId() int64`
 
 GetGiId returns the GiId field if non-nil, zero value otherwise.
 
 ### GetGiIdOk
 
-`func (o *InlineResponse2005) GetGiIdOk() (*float32, bool)`
+`func (o *InlineResponse2005) GetGiIdOk() (*int64, bool)`
 
 GetGiIdOk returns a tuple with the GiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGiId
 
-`func (o *InlineResponse2005) SetGiId(v float32)`
+`func (o *InlineResponse2005) SetGiId(v int64)`
 
 SetGiId sets GiId field to given value.
 
@@ -174,20 +174,20 @@ SetSubjectName sets SubjectName field to given value.
 
 ### GetNmId
 
-`func (o *InlineResponse2005) GetNmId() float32`
+`func (o *InlineResponse2005) GetNmId() int64`
 
 GetNmId returns the NmId field if non-nil, zero value otherwise.
 
 ### GetNmIdOk
 
-`func (o *InlineResponse2005) GetNmIdOk() (*float32, bool)`
+`func (o *InlineResponse2005) GetNmIdOk() (*int64, bool)`
 
 GetNmIdOk returns a tuple with the NmId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNmId
 
-`func (o *InlineResponse2005) SetNmId(v float32)`
+`func (o *InlineResponse2005) SetNmId(v int64)`
 
 SetNmId sets NmId field to given value.
 
@@ -294,20 +294,20 @@ SetDocTypeName sets DocTypeName field to given value.
 
 ### GetQuantity
 
-`func (o *InlineResponse2005) GetQuantity() float32`
+`func (o *InlineResponse2005) GetQuantity() int32`
 
 GetQuantity returns the Quantity field if non-nil, zero value otherwise.
 
 ### GetQuantityOk
 
-`func (o *InlineResponse2005) GetQuantityOk() (*float32, bool)`
+`func (o *InlineResponse2005) GetQuantityOk() (*int32, bool)`
 
 GetQuantityOk returns a tuple with the Quantity field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetQuantity
 
-`func (o *InlineResponse2005) SetQuantity(v float32)`
+`func (o *InlineResponse2005) SetQuantity(v int32)`
 
 SetQuantity sets Quantity field to given value.
 
@@ -494,20 +494,20 @@ SetRrDt sets RrDt field to given value.
 
 ### GetShkId
 
-`func (o *InlineResponse2005) GetShkId() int32`
+`func (o *InlineResponse2005) GetShkId() int64`
 
 GetShkId returns the ShkId field if non-nil, zero value otherwise.
 
 ### GetShkIdOk
 
-`func (o *InlineResponse2005) GetShkIdOk() (*int32, bool)`
+`func (o *InlineResponse2005) GetShkIdOk() (*int64, bool)`
 
 GetShkIdOk returns a tuple with the ShkId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetShkId
 
-`func (o *InlineResponse2005) SetShkId(v int32)`
+`func (o *InlineResponse2005) SetShkId(v int64)`
 
 SetShkId sets ShkId field to given value.
 
@@ -654,20 +654,20 @@ SetSupplierPromo sets SupplierPromo field to given value.
 
 ### GetRid
 
-`func (o *InlineResponse2005) GetRid() int32`
+`func (o *InlineResponse2005) GetRid() int64`
 
 GetRid returns the Rid field if non-nil, zero value otherwise.
 
 ### GetRidOk
 
-`func (o *InlineResponse2005) GetRidOk() (*int32, bool)`
+`func (o *InlineResponse2005) GetRidOk() (*int64, bool)`
 
 GetRidOk returns a tuple with the Rid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRid
 
-`func (o *InlineResponse2005) SetRid(v int32)`
+`func (o *InlineResponse2005) SetRid(v int64)`
 
 SetRid sets Rid field to given value.
 
@@ -834,20 +834,20 @@ SetPpvzVwNds sets PpvzVwNds field to given value.
 
 ### GetPpvzOfficeId
 
-`func (o *InlineResponse2005) GetPpvzOfficeId() int32`
+`func (o *InlineResponse2005) GetPpvzOfficeId() int64`
 
 GetPpvzOfficeId returns the PpvzOfficeId field if non-nil, zero value otherwise.
 
 ### GetPpvzOfficeIdOk
 
-`func (o *InlineResponse2005) GetPpvzOfficeIdOk() (*int32, bool)`
+`func (o *InlineResponse2005) GetPpvzOfficeIdOk() (*int64, bool)`
 
 GetPpvzOfficeIdOk returns a tuple with the PpvzOfficeId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPpvzOfficeId
 
-`func (o *InlineResponse2005) SetPpvzOfficeId(v int32)`
+`func (o *InlineResponse2005) SetPpvzOfficeId(v int64)`
 
 SetPpvzOfficeId sets PpvzOfficeId field to given value.
 
@@ -879,20 +879,20 @@ HasPpvzOfficeName returns a boolean if a field has been set.
 
 ### GetPpvzSupplierId
 
-`func (o *InlineResponse2005) GetPpvzSupplierId() int32`
+`func (o *InlineResponse2005) GetPpvzSupplierId() int64`
 
 GetPpvzSupplierId returns the PpvzSupplierId field if non-nil, zero value otherwise.
 
 ### GetPpvzSupplierIdOk
 
-`func (o *InlineResponse2005) GetPpvzSupplierIdOk() (*int32, bool)`
+`func (o *InlineResponse2005) GetPpvzSupplierIdOk() (*int64, bool)`
 
 GetPpvzSupplierIdOk returns a tuple with the PpvzSupplierId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPpvzSupplierId
 
-`func (o *InlineResponse2005) SetPpvzSupplierId(v int32)`
+`func (o *InlineResponse2005) SetPpvzSupplierId(v int64)`
 
 SetPpvzSupplierId sets PpvzSupplierId field to given value.
 

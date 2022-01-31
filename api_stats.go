@@ -418,8 +418,8 @@ type ApiGetReportDetailByPeriodRequest struct {
 	ApiService *StatsApiService
 	dateFrom *string
 	dateTo *string
-	limit *int32
-	rrdid *int32
+	limit *int64
+	rrdid *int64
 }
 
 // Начальная дата периода
@@ -433,12 +433,12 @@ func (r ApiGetReportDetailByPeriodRequest) DateTo(dateTo string) ApiGetReportDet
 	return r
 }
 // Максимальное количество записей, получаемых при запросе
-func (r ApiGetReportDetailByPeriodRequest) Limit(limit int32) ApiGetReportDetailByPeriodRequest {
+func (r ApiGetReportDetailByPeriodRequest) Limit(limit int64) ApiGetReportDetailByPeriodRequest {
 	r.limit = &limit
 	return r
 }
 // Идентификатор записи, начиная с которой нужно получать данные при запросе
-func (r ApiGetReportDetailByPeriodRequest) Rrdid(rrdid int32) ApiGetReportDetailByPeriodRequest {
+func (r ApiGetReportDetailByPeriodRequest) Rrdid(rrdid int64) ApiGetReportDetailByPeriodRequest {
 	r.rrdid = &rrdid
 	return r
 }
@@ -482,19 +482,29 @@ func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if r.dateFrom == nil {
+		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
+	}
+	if r.dateTo == nil {
+		return localVarReturnValue, nil, reportError("dateTo is required and must be specified")
+	}
+	if r.limit == nil {
+		return localVarReturnValue, nil, reportError("limit is required and must be specified")
+	}
+	if *r.limit < 0 {
+		return localVarReturnValue, nil, reportError("limit must be greater than 0")
+	}
+	if r.rrdid == nil {
+		return localVarReturnValue, nil, reportError("rrdid is required and must be specified")
+	}
+	if *r.rrdid < 0 {
+		return localVarReturnValue, nil, reportError("rrdid must be greater than 0")
+	}
 
-	if r.dateFrom != nil {
-		localVarQueryParams.Add("dateFrom", parameterToString(*r.dateFrom, ""))
-	}
-	if r.dateTo != nil {
-		localVarQueryParams.Add("dateTo", parameterToString(*r.dateTo, ""))
-	}
-	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
-	}
-	if r.rrdid != nil {
-		localVarQueryParams.Add("rrdid", parameterToString(*r.rrdid, ""))
-	}
+	localVarQueryParams.Add("dateFrom", parameterToString(*r.dateFrom, ""))
+	localVarQueryParams.Add("dateTo", parameterToString(*r.dateTo, ""))
+	localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	localVarQueryParams.Add("rrdid", parameterToString(*r.rrdid, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
