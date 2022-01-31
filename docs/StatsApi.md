@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetIncomes**](StatsApi.md#GetIncomes) | **Get** /incomes | Get Incomes
 [**GetOrders**](StatsApi.md#GetOrders) | **Get** /orders | Get Orders
 [**GetPaidStorage**](StatsApi.md#GetPaidStorage) | **Get** /stochrancost | Get Paid Storage
+[**GetReportDetailByPeriod**](StatsApi.md#GetReportDetailByPeriod) | **Get** /reportDetailByPeriod | Ger Report Detail By Period
 [**GetSales**](StatsApi.md#GetSales) | **Get** /sales | Get Sales
 [**GetStocks**](StatsApi.md#GetStocks) | **Get** /stocks | Get Stocks
 
@@ -198,6 +199,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+[Key](../README.md#Key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetReportDetailByPeriod
+
+> []InlineResponse2005 GetReportDetailByPeriod(ctx).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
+
+Ger Report Detail By Period
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    dateFrom := "dateFrom_example" // string | Начальная дата периода (optional)
+    dateTo := "dateTo_example" // string | Конечная дата периода (optional)
+    limit := int32(56) // int32 | Максимальное количество записей, получаемых при запросе (optional)
+    rrdid := int32(56) // int32 | Идентификатор записи, начиная с которой нужно получать данные при запросе (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.StatsApi.GetReportDetailByPeriod(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetReportDetailByPeriod``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetReportDetailByPeriod`: []InlineResponse2005
+    fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetReportDetailByPeriod`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetReportDetailByPeriodRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dateFrom** | **string** | Начальная дата периода | 
+ **dateTo** | **string** | Конечная дата периода | 
+ **limit** | **int32** | Максимальное количество записей, получаемых при запросе | 
+ **rrdid** | **int32** | Идентификатор записи, начиная с которой нужно получать данные при запросе | 
+
+### Return type
+
+[**[]InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 

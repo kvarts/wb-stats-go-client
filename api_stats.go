@@ -62,9 +62,7 @@ func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineRes
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2001
 	)
 
@@ -114,7 +112,7 @@ func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineRes
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -191,9 +189,7 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineRespo
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  []InlineResponse200
 	)
 
@@ -246,7 +242,7 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineRespo
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -326,9 +322,7 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2004
 	)
 
@@ -382,7 +376,157 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetReportDetailByPeriodRequest struct {
+	ctx _context.Context
+	ApiService *StatsApiService
+	dateFrom *string
+	dateTo *string
+	limit *int32
+	rrdid *int32
+}
+
+// Начальная дата периода
+func (r ApiGetReportDetailByPeriodRequest) DateFrom(dateFrom string) ApiGetReportDetailByPeriodRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+// Конечная дата периода
+func (r ApiGetReportDetailByPeriodRequest) DateTo(dateTo string) ApiGetReportDetailByPeriodRequest {
+	r.dateTo = &dateTo
+	return r
+}
+// Максимальное количество записей, получаемых при запросе
+func (r ApiGetReportDetailByPeriodRequest) Limit(limit int32) ApiGetReportDetailByPeriodRequest {
+	r.limit = &limit
+	return r
+}
+// Идентификатор записи, начиная с которой нужно получать данные при запросе
+func (r ApiGetReportDetailByPeriodRequest) Rrdid(rrdid int32) ApiGetReportDetailByPeriodRequest {
+	r.rrdid = &rrdid
+	return r
+}
+
+func (r ApiGetReportDetailByPeriodRequest) Execute() ([]InlineResponse2005, *_nethttp.Response, error) {
+	return r.ApiService.GetReportDetailByPeriodExecute(r)
+}
+
+/*
+GetReportDetailByPeriod Ger Report Detail By Period
+
+Получить информацию об отчёте о продажах по реализации
+
+ @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetReportDetailByPeriodRequest
+*/
+func (a *StatsApiService) GetReportDetailByPeriod(ctx _context.Context) ApiGetReportDetailByPeriodRequest {
+	return ApiGetReportDetailByPeriodRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []InlineResponse2005
+func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByPeriodRequest) ([]InlineResponse2005, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []InlineResponse2005
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetReportDetailByPeriod")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/reportDetailByPeriod"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.dateFrom != nil {
+		localVarQueryParams.Add("dateFrom", parameterToString(*r.dateFrom, ""))
+	}
+	if r.dateTo != nil {
+		localVarQueryParams.Add("dateTo", parameterToString(*r.dateTo, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.rrdid != nil {
+		localVarQueryParams.Add("rrdid", parameterToString(*r.rrdid, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("key", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -460,9 +604,7 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2003
 	)
 
@@ -515,7 +657,7 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -587,9 +729,7 @@ func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineRespo
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2002
 	)
 
@@ -639,7 +779,7 @@ func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineRespo
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

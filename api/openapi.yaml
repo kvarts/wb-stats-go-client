@@ -169,6 +169,100 @@ paths:
       summary: Get Paid Storage
       tags:
       - stats
+  /reportDetailByPeriod:
+    get:
+      description: Получить информацию об отчёте о продажах по реализации
+      operationId: get-report-detail-by-period
+      parameters:
+      - description: Начальная дата периода
+        explode: true
+        in: query
+        name: dateFrom
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Конечная дата периода
+        explode: true
+        in: query
+        name: dateTo
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Максимальное количество записей, получаемых при запросе
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Идентификатор записи, начиная с которой нужно получать данные
+          при запросе
+        explode: true
+        in: query
+        name: rrdid
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200_5'
+                minItems: 1
+                type: array
+                uniqueItems: true
+                x-examples:
+                  example-1:
+                  - realizationreport_id: 5672617
+                    rrd_id: 4938703342
+                    gi_id: 5247027
+                    subject_name: Куртки
+                    nm_id: 47548690
+                    brand_name: Fenix Wear
+                    sa_name: H328темно-синий
+                    ts_name: "48"
+                    barcode: "2013339065006"
+                    doc_type_name: Продажа
+                    quantity: 0
+                    retail_price: 0
+                    retail_amount: 0
+                    sale_percent: 0
+                    commission_percent: 0
+                    office_name: Электросталь
+                    supplier_oper_name: Логистика
+                    order_dt: 2021-12-03T00:00:00Z
+                    sale_dt: 2021-12-03T00:00:00Z
+                    rr_dt: 2021-12-03T00:00:00Z
+                    shk_id: 4471876369
+                    retail_price_withdisc_rub: 0
+                    delivery_amount: 0
+                    return_amount: 1
+                    delivery_rub: 33
+                    gi_box_type_name: Микс
+                    product_discount_for_report: 0
+                    supplier_promo: 0
+                    rid: 150108717021
+                    ppvz_spp_prc: 0
+                    ppvz_kvw_prc_base: 0
+                    ppvz_kvw_prc: 0
+                    ppvz_sales_commission: 0
+                    ppvz_for_pay: 0
+                    ppvz_reward: 0
+                    ppvz_vw: 0
+                    ppvz_vw_nds: 0
+                    ppvz_office_id: 0
+                    ppvz_office_name: Пункт самовывоза (ПВЗ)
+                    ppvz_supplier_id: 0
+          description: OK
+      summary: Ger Report Detail By Period
+      tags:
+      - stats
 components:
   schemas:
     inline_response_200:
@@ -672,6 +766,239 @@ components:
       - stock
       - sumW
       - techSize
+      type: object
+    inline_response_200_5:
+      example:
+        return_amount: 1.0246457001441578
+        ppvz_sales_commission: 9.369310271410669
+        ppvz_reward: 8.762042012749001
+        gi_id: 5.962133916683182
+        sale_percent: 3.616076749251911
+        ppvz_supplier_id: 6
+        retail_amount: 9.301444243932576
+        realizationreport_id: 0
+        delivery_amount: 1.2315135367772556
+        rid: 1
+        ppvz_vw: 9.018348186070783
+        gi_box_type_name: gi_box_type_name
+        retail_price: 7.061401241503109
+        ppvz_kvw_prc: 9.965781217890562
+        ppvz_kvw_prc_base: 5.025004791520295
+        ppvz_for_pay: 6.683562403749608
+        rr_dt: rr_dt
+        ppvz_vw_nds: 6.438423552598547
+        nm_id: 5.637376656633329
+        supplier_oper_name: supplier_oper_name
+        product_discount_for_report: 6.84685269835264
+        sale_dt: sale_dt
+        barcode: barcode
+        delivery_rub: 1.4894159098541704
+        ppvz_supplier_name: ppvz_supplier_name
+        quantity: 2.3021358869347655
+        ppvz_supplier_inn: ppvz_supplier_inn
+        suppliercontract_code: 6
+        ppvz_office_id: 3
+        brand_name: brand_name
+        rrd_id: 1.4658129805029452
+        shk_id: 4
+        supplier_promo: 7.457744773683766
+        commission_percent: 2.027123023002322
+        doc_type_name: doc_type_name
+        order_dt: order_dt
+        office_name: office_name
+        retail_price_withdisc_rub: 7.386281948385884
+        ts_name: ts_name
+        ppvz_spp_prc: 4.965218492984954
+        ppvz_office_name: ppvz_office_name
+        subject_name: subject_name
+        sa_name: sa_name
+      properties:
+        realizationreport_id:
+          description: Идентификатор отчёта
+          type: integer
+        suppliercontract_code:
+          description: Договор
+          type: integer
+        rrd_id:
+          description: Идентификатор записи
+          type: number
+        gi_id:
+          description: Идентификатор поставки
+          type: number
+        subject_name:
+          description: Наименование товара
+          minLength: 1
+          type: string
+        nm_id:
+          description: SKU товара
+          type: number
+        brand_name:
+          description: Бренд товара
+          minLength: 1
+          type: string
+        sa_name:
+          description: Артикул поставщика
+          minLength: 1
+          type: string
+        ts_name:
+          description: Размер
+          minLength: 1
+          type: string
+        barcode:
+          description: Баркод
+          minLength: 1
+          type: string
+        doc_type_name:
+          description: Тип документа
+          minLength: 1
+          type: string
+        quantity:
+          description: Количество
+          type: number
+        retail_price:
+          description: Розничная цена
+          type: number
+        retail_amount:
+          description: Сумма продаж (возвратов)
+          type: number
+        sale_percent:
+          description: Согласованная скидка
+          type: number
+        commission_percent:
+          description: Процент комиссии
+          type: number
+        office_name:
+          description: Наименование склада
+          minLength: 1
+          type: string
+        supplier_oper_name:
+          description: Обоснование для оплаты (Тип операции?)
+          minLength: 1
+          type: string
+        order_dt:
+          description: Дата заказа
+          minLength: 1
+          type: string
+        sale_dt:
+          description: Дата продажи
+          minLength: 1
+          type: string
+        rr_dt:
+          description: Дата операции
+          minLength: 1
+          type: string
+        shk_id:
+          description: Штрих код (короба?)
+          type: integer
+        retail_price_withdisc_rub:
+          description: Розничная цена с учётом согласованной скидки
+          type: number
+        delivery_amount:
+          description: Количество доставок
+          type: number
+        return_amount:
+          description: Количество возвратов
+          type: number
+        delivery_rub:
+          description: Стоимость логистики
+          type: number
+        gi_box_type_name:
+          description: Тип коробов
+          minLength: 1
+          type: string
+        product_discount_for_report:
+          description: Согласованный продуктовый дисконт
+          type: number
+        supplier_promo:
+          description: Промокод
+          type: number
+        rid:
+          description: Идентификатор позиции заказа
+          type: integer
+        ppvz_spp_prc:
+          description: Скидка постоянного покупателя
+          type: number
+        ppvz_kvw_prc_base:
+          description: Базовый размер коэффициента вознаграждения вайлдберриз без
+            НДС, %
+          type: number
+        ppvz_kvw_prc:
+          description: Итоговый размер коэффициента вознаграждения вайлдберриз без
+            НДС, %
+          type: number
+        ppvz_sales_commission:
+          description: |-
+            Вознаграждение с продаж до вычета услуг поверенного,
+            без НДС
+          type: number
+        ppvz_for_pay:
+          description: К перечислению продавцу за реализованный Товар
+          type: number
+        ppvz_reward:
+          description: Возмещение расходов услуг поверенного
+          type: number
+        ppvz_vw:
+          description: Вознаграждение вайлдберриз, без НДС
+          type: number
+        ppvz_vw_nds:
+          description: НДС с вознаграждения вайлдберриз
+          type: number
+        ppvz_office_id:
+          description: Идентификатор ПВЗ?
+          type: integer
+        ppvz_office_name:
+          description: Наименование ПВЗ? (в случае если ppvz_office_id = 0)
+          minLength: 1
+          type: string
+        ppvz_supplier_id:
+          description: Идентификатор владельца ПВЗ?
+          type: integer
+        ppvz_supplier_name:
+          description: Наименование владельца ПВЗ
+          type: string
+        ppvz_supplier_inn:
+          description: ИНН владельца ПВЗ
+          type: string
+      required:
+      - barcode
+      - brand_name
+      - commission_percent
+      - delivery_amount
+      - delivery_rub
+      - doc_type_name
+      - gi_box_type_name
+      - gi_id
+      - nm_id
+      - office_name
+      - order_dt
+      - ppvz_for_pay
+      - ppvz_kvw_prc
+      - ppvz_kvw_prc_base
+      - ppvz_office_id
+      - ppvz_reward
+      - ppvz_sales_commission
+      - ppvz_spp_prc
+      - ppvz_supplier_id
+      - ppvz_vw
+      - ppvz_vw_nds
+      - product_discount_for_report
+      - quantity
+      - realizationreport_id
+      - retail_amount
+      - retail_price
+      - retail_price_withdisc_rub
+      - return_amount
+      - rid
+      - rr_dt
+      - rrd_id
+      - sa_name
+      - sale_dt
+      - sale_percent
+      - shk_id
+      - subject_name
+      - supplier_oper_name
+      - supplier_promo
+      - ts_name
       type: object
   securitySchemes:
     Key:
