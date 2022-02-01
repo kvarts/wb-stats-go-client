@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**GetIncomes**](StatsApi.md#GetIncomes) | **Get** /incomes | Get Incomes
 [**GetOrders**](StatsApi.md#GetOrders) | **Get** /orders | Get Orders
 [**GetPaidStorage**](StatsApi.md#GetPaidStorage) | **Get** /stochrancost | Get Paid Storage
-[**GetReportDetailByPeriod**](StatsApi.md#GetReportDetailByPeriod) | **Get** /reportDetailByPeriod | Ger Report Detail By Period
+[**GetReportDetailByPeriod**](StatsApi.md#GetReportDetailByPeriod) | **Get** /reportDetailByPeriod | Get Report Detail By Period
 [**GetSales**](StatsApi.md#GetSales) | **Get** /sales | Get Sales
 [**GetStocks**](StatsApi.md#GetStocks) | **Get** /stocks | Get Stocks
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 > []InlineResponse2005 GetReportDetailByPeriod(ctx).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
 
-Ger Report Detail By Period
+Get Report Detail By Period
 
 
 
@@ -236,8 +236,8 @@ import (
 )
 
 func main() {
-    dateFrom := time.Now() // string | Начальная дата периода
-    dateTo := time.Now() // string | Конечная дата периода
+    dateFrom := time.Now() // time.Time | Начальная дата периода
+    dateTo := time.Now() // time.Time | Конечная дата периода
     limit := int64(789) // int64 | Максимальное количество записей, получаемых при запросе
     rrdid := int64(789) // int64 | Идентификатор записи, начиная с которой нужно получать данные при запросе
 
@@ -264,8 +264,8 @@ Other parameters are passed through a pointer to a apiGetReportDetailByPeriodReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dateFrom** | **string** | Начальная дата периода | 
- **dateTo** | **string** | Конечная дата периода | 
+ **dateFrom** | **time.Time** | Начальная дата периода | 
+ **dateTo** | **time.Time** | Конечная дата периода | 
  **limit** | **int64** | Максимальное количество записей, получаемых при запросе | 
  **rrdid** | **int64** | Идентификатор записи, начиная с которой нужно получать данные при запросе | 
 

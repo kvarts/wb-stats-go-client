@@ -416,19 +416,19 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 type ApiGetReportDetailByPeriodRequest struct {
 	ctx _context.Context
 	ApiService *StatsApiService
-	dateFrom *string
-	dateTo *string
+	dateFrom *time.Time
+	dateTo *time.Time
 	limit *int64
 	rrdid *int64
 }
 
 // Начальная дата периода
-func (r ApiGetReportDetailByPeriodRequest) DateFrom(dateFrom string) ApiGetReportDetailByPeriodRequest {
+func (r ApiGetReportDetailByPeriodRequest) DateFrom(dateFrom time.Time) ApiGetReportDetailByPeriodRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
 // Конечная дата периода
-func (r ApiGetReportDetailByPeriodRequest) DateTo(dateTo string) ApiGetReportDetailByPeriodRequest {
+func (r ApiGetReportDetailByPeriodRequest) DateTo(dateTo time.Time) ApiGetReportDetailByPeriodRequest {
 	r.dateTo = &dateTo
 	return r
 }
@@ -448,7 +448,7 @@ func (r ApiGetReportDetailByPeriodRequest) Execute() ([]InlineResponse2005, *_ne
 }
 
 /*
-GetReportDetailByPeriod Ger Report Detail By Period
+GetReportDetailByPeriod Get Report Detail By Period
 
 Получить информацию об отчёте о продажах по реализации
 

@@ -180,7 +180,8 @@ paths:
         name: dateFrom
         required: true
         schema:
-          format: date
+          example: 2021-01-06T21:00:00Z
+          format: date-time
           type: string
         style: form
       - description: Конечная дата периода
@@ -189,7 +190,8 @@ paths:
         name: dateTo
         required: true
         schema:
-          format: date
+          example: 2021-01-06T21:00:00Z
+          format: date-time
           type: string
         style: form
       - description: Максимальное количество записей, получаемых при запросе
@@ -266,7 +268,7 @@ paths:
                     ppvz_office_name: Пункт самовывоза (ПВЗ)
                     ppvz_supplier_id: 0
           description: OK
-      summary: Ger Report Detail By Period
+      summary: Get Report Detail By Period
       tags:
       - stats
 components:
