@@ -63,9 +63,9 @@ type InlineResponse2005 struct {
 	// Розничная цена с учётом согласованной скидки
 	RetailPriceWithdiscRub float32 `json:"retail_price_withdisc_rub"`
 	// Количество доставок
-	DeliveryAmount float32 `json:"delivery_amount"`
+	DeliveryAmount int32 `json:"delivery_amount"`
 	// Количество возвратов
-	ReturnAmount float32 `json:"return_amount"`
+	ReturnAmount int32 `json:"return_amount"`
 	// Стоимость логистики
 	DeliveryRub float32 `json:"delivery_rub"`
 	// Тип коробов
@@ -108,7 +108,7 @@ type InlineResponse2005 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount float32, returnAmount float32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64) *InlineResponse2005 {
+func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64) *InlineResponse2005 {
 	this := InlineResponse2005{}
 	this.RealizationreportId = realizationreportId
 	this.RrdId = rrdId
@@ -721,9 +721,9 @@ func (o *InlineResponse2005) SetRetailPriceWithdiscRub(v float32) {
 }
 
 // GetDeliveryAmount returns the DeliveryAmount field value
-func (o *InlineResponse2005) GetDeliveryAmount() float32 {
+func (o *InlineResponse2005) GetDeliveryAmount() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -732,7 +732,7 @@ func (o *InlineResponse2005) GetDeliveryAmount() float32 {
 
 // GetDeliveryAmountOk returns a tuple with the DeliveryAmount field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetDeliveryAmountOk() (*float32, bool) {
+func (o *InlineResponse2005) GetDeliveryAmountOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -740,14 +740,14 @@ func (o *InlineResponse2005) GetDeliveryAmountOk() (*float32, bool) {
 }
 
 // SetDeliveryAmount sets field value
-func (o *InlineResponse2005) SetDeliveryAmount(v float32) {
+func (o *InlineResponse2005) SetDeliveryAmount(v int32) {
 	o.DeliveryAmount = v
 }
 
 // GetReturnAmount returns the ReturnAmount field value
-func (o *InlineResponse2005) GetReturnAmount() float32 {
+func (o *InlineResponse2005) GetReturnAmount() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -756,7 +756,7 @@ func (o *InlineResponse2005) GetReturnAmount() float32 {
 
 // GetReturnAmountOk returns a tuple with the ReturnAmount field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetReturnAmountOk() (*float32, bool) {
+func (o *InlineResponse2005) GetReturnAmountOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -764,7 +764,7 @@ func (o *InlineResponse2005) GetReturnAmountOk() (*float32, bool) {
 }
 
 // SetReturnAmount sets field value
-func (o *InlineResponse2005) SetReturnAmount(v float32) {
+func (o *InlineResponse2005) SetReturnAmount(v int32) {
 	o.ReturnAmount = v
 }
 

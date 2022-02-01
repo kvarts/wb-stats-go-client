@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **RrDt** | **string** | Дата операции | 
 **ShkId** | **int64** | Штрих код (короба?) | 
 **RetailPriceWithdiscRub** | **float32** | Розничная цена с учётом согласованной скидки | 
-**DeliveryAmount** | **float32** | Количество доставок | 
-**ReturnAmount** | **float32** | Количество возвратов | 
+**DeliveryAmount** | **int32** | Количество доставок | 
+**ReturnAmount** | **int32** | Количество возвратов | 
 **DeliveryRub** | **float32** | Стоимость логистики | 
 **GiBoxTypeName** | **string** | Тип коробов | 
 **ProductDiscountForReport** | **float32** | Согласованный продуктовый дисконт | 
@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2005
 
-`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount float32, returnAmount float32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, ) *InlineResponse2005`
+`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, ) *InlineResponse2005`
 
 NewInlineResponse2005 instantiates a new InlineResponse2005 object
 This constructor will assign default values to properties that have it defined,
@@ -534,40 +534,40 @@ SetRetailPriceWithdiscRub sets RetailPriceWithdiscRub field to given value.
 
 ### GetDeliveryAmount
 
-`func (o *InlineResponse2005) GetDeliveryAmount() float32`
+`func (o *InlineResponse2005) GetDeliveryAmount() int32`
 
 GetDeliveryAmount returns the DeliveryAmount field if non-nil, zero value otherwise.
 
 ### GetDeliveryAmountOk
 
-`func (o *InlineResponse2005) GetDeliveryAmountOk() (*float32, bool)`
+`func (o *InlineResponse2005) GetDeliveryAmountOk() (*int32, bool)`
 
 GetDeliveryAmountOk returns a tuple with the DeliveryAmount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeliveryAmount
 
-`func (o *InlineResponse2005) SetDeliveryAmount(v float32)`
+`func (o *InlineResponse2005) SetDeliveryAmount(v int32)`
 
 SetDeliveryAmount sets DeliveryAmount field to given value.
 
 
 ### GetReturnAmount
 
-`func (o *InlineResponse2005) GetReturnAmount() float32`
+`func (o *InlineResponse2005) GetReturnAmount() int32`
 
 GetReturnAmount returns the ReturnAmount field if non-nil, zero value otherwise.
 
 ### GetReturnAmountOk
 
-`func (o *InlineResponse2005) GetReturnAmountOk() (*float32, bool)`
+`func (o *InlineResponse2005) GetReturnAmountOk() (*int32, bool)`
 
 GetReturnAmountOk returns a tuple with the ReturnAmount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReturnAmount
 
-`func (o *InlineResponse2005) SetReturnAmount(v float32)`
+`func (o *InlineResponse2005) SetReturnAmount(v int32)`
 
 SetReturnAmount sets ReturnAmount field to given value.
 

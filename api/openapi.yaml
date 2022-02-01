@@ -777,7 +777,7 @@ components:
       type: object
     inline_response_200_5:
       example:
-        return_amount: 1.0246457001441578
+        return_amount: 1
         ppvz_sales_commission: 9.369310271410669
         ppvz_reward: 8.762042012749001
         gi_id: 0
@@ -785,7 +785,7 @@ components:
         ppvz_supplier_id: 0
         retail_amount: 9.301444243932576
         realizationreport_id: 0
-        delivery_amount: 1.2315135367772556
+        delivery_amount: 1
         rid: 0
         ppvz_vw: 9.018348186070783
         gi_box_type_name: gi_box_type_name
@@ -912,10 +912,12 @@ components:
           type: number
         delivery_amount:
           description: Количество доставок
-          type: number
+          format: int32
+          type: integer
         return_amount:
           description: Количество возвратов
-          type: number
+          format: int32
+          type: integer
         delivery_rub:
           description: Стоимость логистики
           type: number
