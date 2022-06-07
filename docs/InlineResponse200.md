@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **SupplierArticle** | **string** | ваш артикул | 
 **TechSize** | **string** | размер | 
 **Barcode** | **string** | штрих-код | 
-**Quantity** | **int32** | кол-во | 
 **TotalPrice** | **float32** | цена до согласованной скидки/промо/спп | 
 **DiscountPercent** | **float32** | согласованный итоговый дисконт | 
 **WarehouseName** | **string** | склад отгрузки | 
@@ -29,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
+`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -162,26 +161,6 @@ and a boolean to check if the value has been set.
 `func (o *InlineResponse200) SetBarcode(v string)`
 
 SetBarcode sets Barcode field to given value.
-
-
-### GetQuantity
-
-`func (o *InlineResponse200) GetQuantity() int32`
-
-GetQuantity returns the Quantity field if non-nil, zero value otherwise.
-
-### GetQuantityOk
-
-`func (o *InlineResponse200) GetQuantityOk() (*int32, bool)`
-
-GetQuantityOk returns a tuple with the Quantity field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQuantity
-
-`func (o *InlineResponse200) SetQuantity(v int32)`
-
-SetQuantity sets Quantity field to given value.
 
 
 ### GetTotalPrice

@@ -19,6 +19,8 @@ Method | HTTP request | Description
 
 Get Incomes
 
+
+
 ### Example
 
 ```go
@@ -36,8 +38,8 @@ func main() {
     dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetIncomes(context.Background()).DateFrom(dateFrom).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetIncomes(context.Background()).DateFrom(dateFrom).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetIncomes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -84,6 +86,8 @@ Name | Type | Description  | Notes
 
 Get Orders
 
+
+
 ### Example
 
 ```go
@@ -102,8 +106,8 @@ func main() {
     flag := int32(56) // int32 | 1 - то за одну дату, 0 - за все что больше переданной даты (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetOrders(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetOrders(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetOrders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -171,8 +175,8 @@ func main() {
     dateTo := time.Now() // time.Time | Дата и время до которых выгружается информация
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetPaidStorage(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetPaidStorage(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetPaidStorage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -242,8 +246,8 @@ func main() {
     rrdid := int64(789) // int64 | Идентификатор записи, начиная с которой нужно получать данные при запросе
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetReportDetailByPeriod(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetReportDetailByPeriod(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetReportDetailByPeriod``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -293,6 +297,8 @@ Name | Type | Description  | Notes
 
 Get Sales
 
+
+
 ### Example
 
 ```go
@@ -311,8 +317,8 @@ func main() {
     flag := int32(56) // int32 | 1 - то за одну дату, 0 - за все что больше переданной даты (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetSales(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetSales(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetSales``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -360,6 +366,8 @@ Name | Type | Description  | Notes
 
 Get Stocks
 
+
+
 ### Example
 
 ```go
@@ -377,8 +385,8 @@ func main() {
     dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetStocks(context.Background()).DateFrom(dateFrom).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetStocks(context.Background()).DateFrom(dateFrom).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetStocks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -173,7 +173,7 @@ func (o *InlineResponse2005) GetRealizationreportId() int32 {
 // GetRealizationreportIdOk returns a tuple with the RealizationreportId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRealizationreportIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RealizationreportId, true
@@ -229,7 +229,7 @@ func (o *InlineResponse2005) GetRrdId() int64 {
 // GetRrdIdOk returns a tuple with the RrdId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRrdIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RrdId, true
@@ -253,7 +253,7 @@ func (o *InlineResponse2005) GetGiId() int64 {
 // GetGiIdOk returns a tuple with the GiId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetGiIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GiId, true
@@ -277,7 +277,7 @@ func (o *InlineResponse2005) GetSubjectName() string {
 // GetSubjectNameOk returns a tuple with the SubjectName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSubjectNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SubjectName, true
@@ -301,7 +301,7 @@ func (o *InlineResponse2005) GetNmId() int64 {
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetNmIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NmId, true
@@ -325,7 +325,7 @@ func (o *InlineResponse2005) GetBrandName() string {
 // GetBrandNameOk returns a tuple with the BrandName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetBrandNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BrandName, true
@@ -349,7 +349,7 @@ func (o *InlineResponse2005) GetSaName() string {
 // GetSaNameOk returns a tuple with the SaName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSaNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SaName, true
@@ -373,7 +373,7 @@ func (o *InlineResponse2005) GetTsName() string {
 // GetTsNameOk returns a tuple with the TsName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetTsNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TsName, true
@@ -397,7 +397,7 @@ func (o *InlineResponse2005) GetBarcode() string {
 // GetBarcodeOk returns a tuple with the Barcode field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetBarcodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Barcode, true
@@ -421,7 +421,7 @@ func (o *InlineResponse2005) GetDocTypeName() string {
 // GetDocTypeNameOk returns a tuple with the DocTypeName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetDocTypeNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DocTypeName, true
@@ -445,7 +445,7 @@ func (o *InlineResponse2005) GetQuantity() int32 {
 // GetQuantityOk returns a tuple with the Quantity field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetQuantityOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Quantity, true
@@ -469,7 +469,7 @@ func (o *InlineResponse2005) GetRetailPrice() float32 {
 // GetRetailPriceOk returns a tuple with the RetailPrice field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRetailPriceOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RetailPrice, true
@@ -493,7 +493,7 @@ func (o *InlineResponse2005) GetRetailAmount() float32 {
 // GetRetailAmountOk returns a tuple with the RetailAmount field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRetailAmountOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RetailAmount, true
@@ -517,7 +517,7 @@ func (o *InlineResponse2005) GetSalePercent() float32 {
 // GetSalePercentOk returns a tuple with the SalePercent field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSalePercentOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SalePercent, true
@@ -541,7 +541,7 @@ func (o *InlineResponse2005) GetCommissionPercent() float32 {
 // GetCommissionPercentOk returns a tuple with the CommissionPercent field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetCommissionPercentOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CommissionPercent, true
@@ -565,7 +565,7 @@ func (o *InlineResponse2005) GetOfficeName() string {
 // GetOfficeNameOk returns a tuple with the OfficeName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetOfficeNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OfficeName, true
@@ -589,7 +589,7 @@ func (o *InlineResponse2005) GetSupplierOperName() string {
 // GetSupplierOperNameOk returns a tuple with the SupplierOperName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSupplierOperNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SupplierOperName, true
@@ -613,7 +613,7 @@ func (o *InlineResponse2005) GetOrderDt() string {
 // GetOrderDtOk returns a tuple with the OrderDt field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetOrderDtOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OrderDt, true
@@ -637,7 +637,7 @@ func (o *InlineResponse2005) GetSaleDt() string {
 // GetSaleDtOk returns a tuple with the SaleDt field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSaleDtOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SaleDt, true
@@ -661,7 +661,7 @@ func (o *InlineResponse2005) GetRrDt() string {
 // GetRrDtOk returns a tuple with the RrDt field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRrDtOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RrDt, true
@@ -685,7 +685,7 @@ func (o *InlineResponse2005) GetShkId() int64 {
 // GetShkIdOk returns a tuple with the ShkId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetShkIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ShkId, true
@@ -709,7 +709,7 @@ func (o *InlineResponse2005) GetRetailPriceWithdiscRub() float32 {
 // GetRetailPriceWithdiscRubOk returns a tuple with the RetailPriceWithdiscRub field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRetailPriceWithdiscRubOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RetailPriceWithdiscRub, true
@@ -733,7 +733,7 @@ func (o *InlineResponse2005) GetDeliveryAmount() int32 {
 // GetDeliveryAmountOk returns a tuple with the DeliveryAmount field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetDeliveryAmountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DeliveryAmount, true
@@ -757,7 +757,7 @@ func (o *InlineResponse2005) GetReturnAmount() int32 {
 // GetReturnAmountOk returns a tuple with the ReturnAmount field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetReturnAmountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReturnAmount, true
@@ -781,7 +781,7 @@ func (o *InlineResponse2005) GetDeliveryRub() float32 {
 // GetDeliveryRubOk returns a tuple with the DeliveryRub field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetDeliveryRubOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DeliveryRub, true
@@ -805,7 +805,7 @@ func (o *InlineResponse2005) GetGiBoxTypeName() string {
 // GetGiBoxTypeNameOk returns a tuple with the GiBoxTypeName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetGiBoxTypeNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GiBoxTypeName, true
@@ -829,7 +829,7 @@ func (o *InlineResponse2005) GetProductDiscountForReport() float32 {
 // GetProductDiscountForReportOk returns a tuple with the ProductDiscountForReport field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetProductDiscountForReportOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ProductDiscountForReport, true
@@ -853,7 +853,7 @@ func (o *InlineResponse2005) GetSupplierPromo() float32 {
 // GetSupplierPromoOk returns a tuple with the SupplierPromo field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSupplierPromoOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SupplierPromo, true
@@ -877,7 +877,7 @@ func (o *InlineResponse2005) GetRid() int64 {
 // GetRidOk returns a tuple with the Rid field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetRidOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Rid, true
@@ -901,7 +901,7 @@ func (o *InlineResponse2005) GetPpvzSppPrc() float32 {
 // GetPpvzSppPrcOk returns a tuple with the PpvzSppPrc field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzSppPrcOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzSppPrc, true
@@ -925,7 +925,7 @@ func (o *InlineResponse2005) GetPpvzKvwPrcBase() float32 {
 // GetPpvzKvwPrcBaseOk returns a tuple with the PpvzKvwPrcBase field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzKvwPrcBaseOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzKvwPrcBase, true
@@ -949,7 +949,7 @@ func (o *InlineResponse2005) GetPpvzKvwPrc() float32 {
 // GetPpvzKvwPrcOk returns a tuple with the PpvzKvwPrc field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzKvwPrcOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzKvwPrc, true
@@ -973,7 +973,7 @@ func (o *InlineResponse2005) GetPpvzSalesCommission() float32 {
 // GetPpvzSalesCommissionOk returns a tuple with the PpvzSalesCommission field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzSalesCommissionOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzSalesCommission, true
@@ -997,7 +997,7 @@ func (o *InlineResponse2005) GetPpvzForPay() float32 {
 // GetPpvzForPayOk returns a tuple with the PpvzForPay field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzForPayOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzForPay, true
@@ -1021,7 +1021,7 @@ func (o *InlineResponse2005) GetPpvzReward() float32 {
 // GetPpvzRewardOk returns a tuple with the PpvzReward field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzRewardOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzReward, true
@@ -1045,7 +1045,7 @@ func (o *InlineResponse2005) GetPpvzVw() float32 {
 // GetPpvzVwOk returns a tuple with the PpvzVw field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzVwOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzVw, true
@@ -1069,7 +1069,7 @@ func (o *InlineResponse2005) GetPpvzVwNds() float32 {
 // GetPpvzVwNdsOk returns a tuple with the PpvzVwNds field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzVwNdsOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzVwNds, true
@@ -1093,7 +1093,7 @@ func (o *InlineResponse2005) GetPpvzOfficeId() int64 {
 // GetPpvzOfficeIdOk returns a tuple with the PpvzOfficeId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzOfficeIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzOfficeId, true
@@ -1149,7 +1149,7 @@ func (o *InlineResponse2005) GetPpvzSupplierId() int64 {
 // GetPpvzSupplierIdOk returns a tuple with the PpvzSupplierId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetPpvzSupplierIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PpvzSupplierId, true

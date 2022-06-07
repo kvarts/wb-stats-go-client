@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse2004 struct for InlineResponse2004
+// InlineResponse2004 
 type InlineResponse2004 struct {
 	// Дата начала периода хранения
 	DayBeg string `json:"dayBeg"`
@@ -72,7 +72,7 @@ func (o *InlineResponse2004) GetDayBeg() string {
 // GetDayBegOk returns a tuple with the DayBeg field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetDayBegOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DayBeg, true
@@ -96,7 +96,7 @@ func (o *InlineResponse2004) GetDayEnd() string {
 // GetDayEndOk returns a tuple with the DayEnd field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetDayEndOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DayEnd, true
@@ -120,7 +120,7 @@ func (o *InlineResponse2004) GetNmId() int64 {
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetNmIdOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NmId, true
@@ -144,7 +144,7 @@ func (o *InlineResponse2004) GetTechSize() string {
 // GetTechSizeOk returns a tuple with the TechSize field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetTechSizeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TechSize, true
@@ -168,7 +168,7 @@ func (o *InlineResponse2004) GetDaysOnSite() int32 {
 // GetDaysOnSiteOk returns a tuple with the DaysOnSite field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetDaysOnSiteOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DaysOnSite, true
@@ -192,7 +192,7 @@ func (o *InlineResponse2004) GetStock() int64 {
 // GetStockOk returns a tuple with the Stock field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetStockOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Stock, true
@@ -216,7 +216,7 @@ func (o *InlineResponse2004) GetSaleQty() int64 {
 // GetSaleQtyOk returns a tuple with the SaleQty field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetSaleQtyOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SaleQty, true
@@ -240,7 +240,7 @@ func (o *InlineResponse2004) GetSumW() float32 {
 // GetSumWOk returns a tuple with the SumW field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2004) GetSumWOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SumW, true

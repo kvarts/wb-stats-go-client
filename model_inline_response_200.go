@@ -28,8 +28,6 @@ type InlineResponse200 struct {
 	TechSize string `json:"techSize"`
 	// штрих-код
 	Barcode string `json:"barcode"`
-	// кол-во
-	Quantity int32 `json:"quantity"`
 	// цена до согласованной скидки/промо/спп
 	TotalPrice float32 `json:"totalPrice"`
 	// согласованный итоговый дисконт
@@ -61,7 +59,7 @@ type InlineResponse200 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
+func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.Number = number
 	this.Date = date
@@ -69,7 +67,6 @@ func NewInlineResponse200(number int64, date string, lastChangeDate string, supp
 	this.SupplierArticle = supplierArticle
 	this.TechSize = techSize
 	this.Barcode = barcode
-	this.Quantity = quantity
 	this.TotalPrice = totalPrice
 	this.DiscountPercent = discountPercent
 	this.WarehouseName = warehouseName
@@ -107,7 +104,7 @@ func (o *InlineResponse200) GetNumber() int64 {
 // GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetNumberOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Number, true
@@ -131,7 +128,7 @@ func (o *InlineResponse200) GetDate() string {
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetDateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Date, true
@@ -155,7 +152,7 @@ func (o *InlineResponse200) GetLastChangeDate() string {
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetLastChangeDateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.LastChangeDate, true
@@ -179,7 +176,7 @@ func (o *InlineResponse200) GetSupplierArticle() string {
 // GetSupplierArticleOk returns a tuple with the SupplierArticle field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetSupplierArticleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SupplierArticle, true
@@ -203,7 +200,7 @@ func (o *InlineResponse200) GetTechSize() string {
 // GetTechSizeOk returns a tuple with the TechSize field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetTechSizeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TechSize, true
@@ -227,7 +224,7 @@ func (o *InlineResponse200) GetBarcode() string {
 // GetBarcodeOk returns a tuple with the Barcode field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetBarcodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Barcode, true
@@ -236,30 +233,6 @@ func (o *InlineResponse200) GetBarcodeOk() (*string, bool) {
 // SetBarcode sets field value
 func (o *InlineResponse200) SetBarcode(v string) {
 	o.Barcode = v
-}
-
-// GetQuantity returns the Quantity field value
-func (o *InlineResponse200) GetQuantity() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Quantity
-}
-
-// GetQuantityOk returns a tuple with the Quantity field value
-// and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetQuantityOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Quantity, true
-}
-
-// SetQuantity sets field value
-func (o *InlineResponse200) SetQuantity(v int32) {
-	o.Quantity = v
 }
 
 // GetTotalPrice returns the TotalPrice field value
@@ -275,7 +248,7 @@ func (o *InlineResponse200) GetTotalPrice() float32 {
 // GetTotalPriceOk returns a tuple with the TotalPrice field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetTotalPriceOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalPrice, true
@@ -299,7 +272,7 @@ func (o *InlineResponse200) GetDiscountPercent() float32 {
 // GetDiscountPercentOk returns a tuple with the DiscountPercent field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetDiscountPercentOk() (*float32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DiscountPercent, true
@@ -323,7 +296,7 @@ func (o *InlineResponse200) GetWarehouseName() string {
 // GetWarehouseNameOk returns a tuple with the WarehouseName field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetWarehouseNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.WarehouseName, true
@@ -347,7 +320,7 @@ func (o *InlineResponse200) GetOblast() string {
 // GetOblastOk returns a tuple with the Oblast field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetOblastOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Oblast, true
@@ -371,7 +344,7 @@ func (o *InlineResponse200) GetIncomeID() int64 {
 // GetIncomeIDOk returns a tuple with the IncomeID field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetIncomeIDOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomeID, true
@@ -395,7 +368,7 @@ func (o *InlineResponse200) GetOdid() int64 {
 // GetOdidOk returns a tuple with the Odid field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetOdidOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Odid, true
@@ -419,7 +392,7 @@ func (o *InlineResponse200) GetNmId() int32 {
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetNmIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NmId, true
@@ -443,7 +416,7 @@ func (o *InlineResponse200) GetSubject() string {
 // GetSubjectOk returns a tuple with the Subject field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetSubjectOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Subject, true
@@ -467,7 +440,7 @@ func (o *InlineResponse200) GetCategory() string {
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetCategoryOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Category, true
@@ -491,7 +464,7 @@ func (o *InlineResponse200) GetBrand() string {
 // GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetBrandOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Brand, true
@@ -515,7 +488,7 @@ func (o *InlineResponse200) GetIsCancel() bool {
 // GetIsCancelOk returns a tuple with the IsCancel field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetIsCancelOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsCancel, true
@@ -539,7 +512,7 @@ func (o *InlineResponse200) GetCancelDt() string {
 // GetCancelDtOk returns a tuple with the CancelDt field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetCancelDtOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CancelDt, true
@@ -563,7 +536,7 @@ func (o *InlineResponse200) GetGNumber() string {
 // GetGNumberOk returns a tuple with the GNumber field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse200) GetGNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GNumber, true
@@ -593,9 +566,6 @@ func (o InlineResponse200) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["barcode"] = o.Barcode
-	}
-	if true {
-		toSerialize["quantity"] = o.Quantity
 	}
 	if true {
 		toSerialize["totalPrice"] = o.TotalPrice

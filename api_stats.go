@@ -12,23 +12,19 @@ package openapi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"time"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // StatsApiService StatsApi service
 type StatsApiService service
 
 type ApiGetIncomesRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
 }
@@ -39,17 +35,19 @@ func (r ApiGetIncomesRequest) DateFrom(dateFrom time.Time) ApiGetIncomesRequest 
 	return r
 }
 
-func (r ApiGetIncomesRequest) Execute() ([]InlineResponse2001, *_nethttp.Response, error) {
+func (r ApiGetIncomesRequest) Execute() ([]InlineResponse2001, *http.Response, error) {
 	return r.ApiService.GetIncomesExecute(r)
 }
 
 /*
 GetIncomes Get Incomes
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetIncomesRequest
 */
-func (a *StatsApiService) GetIncomes(ctx _context.Context) ApiGetIncomesRequest {
+func (a *StatsApiService) GetIncomes(ctx context.Context) ApiGetIncomesRequest {
 	return ApiGetIncomesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -58,9 +56,9 @@ func (a *StatsApiService) GetIncomes(ctx _context.Context) ApiGetIncomesRequest 
 
 // Execute executes the request
 //  @return []InlineResponse2001
-func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineResponse2001, *_nethttp.Response, error) {
+func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineResponse2001, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2001
@@ -68,14 +66,14 @@ func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineRes
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetIncomes")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/incomes"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.dateFrom == nil {
 		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
 	}
@@ -122,15 +120,15 @@ func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineRes
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -139,7 +137,7 @@ func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineRes
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -150,7 +148,7 @@ func (a *StatsApiService) GetIncomesExecute(r ApiGetIncomesRequest) ([]InlineRes
 }
 
 type ApiGetOrdersRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
 	flag *int32
@@ -160,23 +158,26 @@ func (r ApiGetOrdersRequest) DateFrom(dateFrom time.Time) ApiGetOrdersRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
+
 // 1 - то за одну дату, 0 - за все что больше переданной даты
 func (r ApiGetOrdersRequest) Flag(flag int32) ApiGetOrdersRequest {
 	r.flag = &flag
 	return r
 }
 
-func (r ApiGetOrdersRequest) Execute() ([]InlineResponse200, *_nethttp.Response, error) {
+func (r ApiGetOrdersRequest) Execute() ([]InlineResponse200, *http.Response, error) {
 	return r.ApiService.GetOrdersExecute(r)
 }
 
 /*
 GetOrders Get Orders
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetOrdersRequest
 */
-func (a *StatsApiService) GetOrders(ctx _context.Context) ApiGetOrdersRequest {
+func (a *StatsApiService) GetOrders(ctx context.Context) ApiGetOrdersRequest {
 	return ApiGetOrdersRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -185,9 +186,9 @@ func (a *StatsApiService) GetOrders(ctx _context.Context) ApiGetOrdersRequest {
 
 // Execute executes the request
 //  @return []InlineResponse200
-func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineResponse200, *_nethttp.Response, error) {
+func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineResponse200, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InlineResponse200
@@ -195,14 +196,14 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineRespo
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetOrders")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/orders"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.dateFrom == nil {
 		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
 	}
@@ -252,15 +253,15 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineRespo
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -269,7 +270,7 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineRespo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -280,7 +281,7 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]InlineRespo
 }
 
 type ApiGetPaidStorageRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
 	dateTo *time.Time
@@ -291,13 +292,14 @@ func (r ApiGetPaidStorageRequest) DateFrom(dateFrom time.Time) ApiGetPaidStorage
 	r.dateFrom = &dateFrom
 	return r
 }
+
 // Дата и время до которых выгружается информация
 func (r ApiGetPaidStorageRequest) DateTo(dateTo time.Time) ApiGetPaidStorageRequest {
 	r.dateTo = &dateTo
 	return r
 }
 
-func (r ApiGetPaidStorageRequest) Execute() ([]InlineResponse2004, *_nethttp.Response, error) {
+func (r ApiGetPaidStorageRequest) Execute() ([]InlineResponse2004, *http.Response, error) {
 	return r.ApiService.GetPaidStorageExecute(r)
 }
 
@@ -306,10 +308,10 @@ GetPaidStorage Get Paid Storage
 
 Получить информацию о платном хранилище - факт
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetPaidStorageRequest
 */
-func (a *StatsApiService) GetPaidStorage(ctx _context.Context) ApiGetPaidStorageRequest {
+func (a *StatsApiService) GetPaidStorage(ctx context.Context) ApiGetPaidStorageRequest {
 	return ApiGetPaidStorageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -318,9 +320,9 @@ func (a *StatsApiService) GetPaidStorage(ctx _context.Context) ApiGetPaidStorage
 
 // Execute executes the request
 //  @return []InlineResponse2004
-func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]InlineResponse2004, *_nethttp.Response, error) {
+func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]InlineResponse2004, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2004
@@ -328,14 +330,14 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetPaidStorage")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/stochrancost"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.dateFrom == nil {
 		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
 	}
@@ -386,15 +388,15 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -403,7 +405,7 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -414,7 +416,7 @@ func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]I
 }
 
 type ApiGetReportDetailByPeriodRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
 	dateTo *time.Time
@@ -427,23 +429,26 @@ func (r ApiGetReportDetailByPeriodRequest) DateFrom(dateFrom time.Time) ApiGetRe
 	r.dateFrom = &dateFrom
 	return r
 }
+
 // Конечная дата периода
 func (r ApiGetReportDetailByPeriodRequest) DateTo(dateTo time.Time) ApiGetReportDetailByPeriodRequest {
 	r.dateTo = &dateTo
 	return r
 }
+
 // Максимальное количество записей, получаемых при запросе
 func (r ApiGetReportDetailByPeriodRequest) Limit(limit int64) ApiGetReportDetailByPeriodRequest {
 	r.limit = &limit
 	return r
 }
+
 // Идентификатор записи, начиная с которой нужно получать данные при запросе
 func (r ApiGetReportDetailByPeriodRequest) Rrdid(rrdid int64) ApiGetReportDetailByPeriodRequest {
 	r.rrdid = &rrdid
 	return r
 }
 
-func (r ApiGetReportDetailByPeriodRequest) Execute() ([]InlineResponse2005, *_nethttp.Response, error) {
+func (r ApiGetReportDetailByPeriodRequest) Execute() ([]InlineResponse2005, *http.Response, error) {
 	return r.ApiService.GetReportDetailByPeriodExecute(r)
 }
 
@@ -452,10 +457,10 @@ GetReportDetailByPeriod Get Report Detail By Period
 
 Получить информацию об отчёте о продажах по реализации
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetReportDetailByPeriodRequest
 */
-func (a *StatsApiService) GetReportDetailByPeriod(ctx _context.Context) ApiGetReportDetailByPeriodRequest {
+func (a *StatsApiService) GetReportDetailByPeriod(ctx context.Context) ApiGetReportDetailByPeriodRequest {
 	return ApiGetReportDetailByPeriodRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -464,9 +469,9 @@ func (a *StatsApiService) GetReportDetailByPeriod(ctx _context.Context) ApiGetRe
 
 // Execute executes the request
 //  @return []InlineResponse2005
-func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByPeriodRequest) ([]InlineResponse2005, *_nethttp.Response, error) {
+func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByPeriodRequest) ([]InlineResponse2005, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2005
@@ -474,14 +479,14 @@ func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByP
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetReportDetailByPeriod")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/reportDetailByPeriod"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.dateFrom == nil {
 		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
 	}
@@ -546,15 +551,15 @@ func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByP
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -563,7 +568,7 @@ func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByP
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -574,7 +579,7 @@ func (a *StatsApiService) GetReportDetailByPeriodExecute(r ApiGetReportDetailByP
 }
 
 type ApiGetSalesRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
 	flag *int32
@@ -585,23 +590,26 @@ func (r ApiGetSalesRequest) DateFrom(dateFrom time.Time) ApiGetSalesRequest {
 	r.dateFrom = &dateFrom
 	return r
 }
+
 // 1 - то за одну дату, 0 - за все что больше переданной даты
 func (r ApiGetSalesRequest) Flag(flag int32) ApiGetSalesRequest {
 	r.flag = &flag
 	return r
 }
 
-func (r ApiGetSalesRequest) Execute() ([]InlineResponse2003, *_nethttp.Response, error) {
+func (r ApiGetSalesRequest) Execute() ([]InlineResponse2003, *http.Response, error) {
 	return r.ApiService.GetSalesExecute(r)
 }
 
 /*
 GetSales Get Sales
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSalesRequest
 */
-func (a *StatsApiService) GetSales(ctx _context.Context) ApiGetSalesRequest {
+func (a *StatsApiService) GetSales(ctx context.Context) ApiGetSalesRequest {
 	return ApiGetSalesRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -610,9 +618,9 @@ func (a *StatsApiService) GetSales(ctx _context.Context) ApiGetSalesRequest {
 
 // Execute executes the request
 //  @return []InlineResponse2003
-func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineResponse2003, *_nethttp.Response, error) {
+func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineResponse2003, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2003
@@ -620,14 +628,14 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetSales")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/sales"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.dateFrom == nil {
 		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
 	}
@@ -677,15 +685,15 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -694,7 +702,7 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -705,7 +713,7 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]InlineRespons
 }
 
 type ApiGetStocksRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *StatsApiService
 	dateFrom *time.Time
 }
@@ -716,17 +724,19 @@ func (r ApiGetStocksRequest) DateFrom(dateFrom time.Time) ApiGetStocksRequest {
 	return r
 }
 
-func (r ApiGetStocksRequest) Execute() ([]InlineResponse2002, *_nethttp.Response, error) {
+func (r ApiGetStocksRequest) Execute() ([]InlineResponse2002, *http.Response, error) {
 	return r.ApiService.GetStocksExecute(r)
 }
 
 /*
 GetStocks Get Stocks
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetStocksRequest
 */
-func (a *StatsApiService) GetStocks(ctx _context.Context) ApiGetStocksRequest {
+func (a *StatsApiService) GetStocks(ctx context.Context) ApiGetStocksRequest {
 	return ApiGetStocksRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -735,9 +745,9 @@ func (a *StatsApiService) GetStocks(ctx _context.Context) ApiGetStocksRequest {
 
 // Execute executes the request
 //  @return []InlineResponse2002
-func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineResponse2002, *_nethttp.Response, error) {
+func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineResponse2002, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []InlineResponse2002
@@ -745,14 +755,14 @@ func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineRespo
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetStocks")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/stocks"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 	if r.dateFrom == nil {
 		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
 	}
@@ -799,15 +809,15 @@ func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineRespo
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -816,7 +826,7 @@ func (a *StatsApiService) GetStocksExecute(r ApiGetStocksRequest) ([]InlineRespo
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

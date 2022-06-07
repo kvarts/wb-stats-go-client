@@ -9,9 +9,10 @@ security:
 paths:
   /orders:
     get:
+      description: ""
       operationId: get-orders
       parameters:
-      - description: 1 - то за одну дату, 0 - за все что больше переданной даты
+      - description: "1 - то за одну дату, 0 - за все что больше переданной даты"
         explode: true
         in: query
         name: flag
@@ -43,6 +44,7 @@ paths:
       - stats
   /incomes:
     get:
+      description: ""
       operationId: get-incomes
       parameters:
       - description: Дата и время от которых выгружается информация
@@ -70,6 +72,7 @@ paths:
       - stats
   /stocks:
     get:
+      description: ""
       operationId: get-stocks
       parameters:
       - description: Дата и время от которых выгружается информация
@@ -97,6 +100,7 @@ paths:
       - stats
   /sales:
     get:
+      description: ""
       operationId: get-sales
       parameters:
       - description: Дата и время от которых выгружается информация
@@ -109,7 +113,7 @@ paths:
           format: date-time
           type: string
         style: form
-      - description: 1 - то за одну дату, 0 - за все что больше переданной даты
+      - description: "1 - то за одну дату, 0 - за все что больше переданной даты"
         explode: true
         in: query
         name: flag
@@ -194,7 +198,7 @@ paths:
           format: date-time
           type: string
         style: form
-      - description: Максимальное количество записей, получаемых при запросе
+      - description: "Максимальное количество записей, получаемых при запросе"
         explode: true
         in: query
         name: limit
@@ -204,8 +208,8 @@ paths:
           minimum: 0
           type: integer
         style: form
-      - description: Идентификатор записи, начиная с которой нужно получать данные
-          при запросе
+      - description: "Идентификатор записи, начиная с которой нужно получать данны\
+          е при запросе"
         explode: true
         in: query
         name: rrdid
@@ -220,6 +224,7 @@ paths:
           content:
             application/json:
               schema:
+                description: ""
                 items:
                   $ref: '#/components/schemas/inline_response_200_5'
                 minItems: 1
@@ -277,16 +282,15 @@ components:
       example:
         date: date
         supplierArticle: supplierArticle
-        quantity: 6
-        discountPercent: 5.962133916683182
+        discountPercent: 1.4658129805029452
         incomeID: 5
-        odid: 2
+        odid: 5
         isCancel: true
-        totalPrice: 1.4658129805029452
+        totalPrice: 6.027456183070403
         subject: subject
         lastChangeDate: lastChangeDate
         oblast: oblast
-        nmId: 7
+        nmId: 2
         warehouseName: warehouseName
         gNumber: gNumber
         number: 0
@@ -315,9 +319,6 @@ components:
         barcode:
           description: штрих-код
           type: string
-        quantity:
-          description: кол-во
-          type: integer
         totalPrice:
           description: цена до согласованной скидки/промо/спп
           type: number
@@ -351,7 +352,7 @@ components:
           description: бренд
           type: string
         isCancel:
-          description: признак отмены заказа (0 – отмены не было, 1 – отмена была
+          description: "признак отмены заказа (0 – отмены не было, 1 – отмена была"
           type: boolean
         cancel_dt:
           description: дата отмены заказа
@@ -373,7 +374,6 @@ components:
       - number
       - oblast
       - odid
-      - quantity
       - subject
       - supplierArticle
       - techSize
@@ -381,6 +381,7 @@ components:
       - warehouseName
       type: object
     inline_response_200_1:
+      description: ""
       example:
         date: date
         supplierArticle: supplierArticle
@@ -454,6 +455,7 @@ components:
       - warehouseName
       type: object
     inline_response_200_2:
+      description: ""
       example:
         daysOnSite: 7
         supplierArticle: supplierArticle
@@ -566,6 +568,7 @@ components:
       - warehouseName
       type: object
     inline_response_200_3:
+      description: ""
       example:
         date: date
         forPay: 3.616076749251911
@@ -672,8 +675,8 @@ components:
           description: Фактическая цена из заказа с учетом всех скидок
           type: number
         priceWithDisc:
-          description: Цена, от которой считается вознаграждение поставщика forpay
-            (с учетом всех согласованных скидок)
+          description: "Цена, от которой считается вознаграждение поставщика forpay\
+            \ (с учетом всех согласованных скидок)"
           type: number
         nmId:
           description: код wildberries
@@ -727,6 +730,7 @@ components:
       - warehouseName
       type: object
     inline_response_200_4:
+      description: ""
       example:
         daysOnSite: 6
         nmId: 0
@@ -763,7 +767,7 @@ components:
           format: int64
           type: integer
         sumW:
-          description: Сумма за хранение, руб.
+          description: "Сумма за хранение, руб."
           type: number
       required:
       - dayBeg
@@ -940,17 +944,16 @@ components:
           description: Скидка постоянного покупателя
           type: number
         ppvz_kvw_prc_base:
-          description: Базовый размер коэффициента вознаграждения вайлдберриз без
-            НДС, %
+          description: "Базовый размер коэффициента вознаграждения вайлдберриз без\
+            \ НДС, %"
           type: number
         ppvz_kvw_prc:
-          description: Итоговый размер коэффициента вознаграждения вайлдберриз без
-            НДС, %
+          description: "Итоговый размер коэффициента вознаграждения вайлдберриз бе\
+            з НДС, %"
           type: number
         ppvz_sales_commission:
-          description: |-
-            Вознаграждение с продаж до вычета услуг поверенного,
-            без НДС
+          description: "Вознаграждение с продаж до вычета услуг поверенного,\nбез\
+            \ НДС"
           type: number
         ppvz_for_pay:
           description: К перечислению продавцу за реализованный Товар
@@ -959,7 +962,7 @@ components:
           description: Возмещение расходов услуг поверенного
           type: number
         ppvz_vw:
-          description: Вознаграждение вайлдберриз, без НДС
+          description: "Вознаграждение вайлдберриз, без НДС"
           type: number
         ppvz_vw_nds:
           description: НДС с вознаграждения вайлдберриз
