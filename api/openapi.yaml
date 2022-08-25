@@ -996,7 +996,6 @@ components:
       - doc_type_name
       - gi_box_type_name
       - gi_id
-      - nm_id
       - office_name
       - order_dt
       - ppvz_for_pay

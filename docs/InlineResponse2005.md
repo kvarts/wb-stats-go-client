@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **RrdId** | **int64** | Идентификатор записи | 
 **GiId** | **int64** | Идентификатор поставки | 
 **SubjectName** | **string** | Наименование товара | 
-**NmId** | **int64** | SKU товара | 
+**NmId** | Pointer to **int64** | SKU товара | [optional] 
 **BrandName** | **string** | Бренд товара | 
 **SaName** | **string** | Артикул поставщика | 
 **TsName** | **string** | Размер | 
@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 
 ### NewInlineResponse2005
 
-`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, ) *InlineResponse2005`
+`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, ) *InlineResponse2005`
 
 NewInlineResponse2005 instantiates a new InlineResponse2005 object
 This constructor will assign default values to properties that have it defined,
@@ -191,6 +191,11 @@ and a boolean to check if the value has been set.
 
 SetNmId sets NmId field to given value.
 
+### HasNmId
+
+`func (o *InlineResponse2005) HasNmId() bool`
+
+HasNmId returns a boolean if a field has been set.
 
 ### GetBrandName
 

@@ -27,7 +27,7 @@ type InlineResponse2005 struct {
 	// Наименование товара
 	SubjectName string `json:"subject_name"`
 	// SKU товара
-	NmId int64 `json:"nm_id"`
+	NmId *int64 `json:"nm_id,omitempty"`
 	// Бренд товара
 	BrandName string `json:"brand_name"`
 	// Артикул поставщика
@@ -108,13 +108,12 @@ type InlineResponse2005 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, nmId int64, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64) *InlineResponse2005 {
+func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64) *InlineResponse2005 {
 	this := InlineResponse2005{}
 	this.RealizationreportId = realizationreportId
 	this.RrdId = rrdId
 	this.GiId = giId
 	this.SubjectName = subjectName
-	this.NmId = nmId
 	this.BrandName = brandName
 	this.SaName = saName
 	this.TsName = tsName
@@ -288,28 +287,36 @@ func (o *InlineResponse2005) SetSubjectName(v string) {
 	o.SubjectName = v
 }
 
-// GetNmId returns the NmId field value
+// GetNmId returns the NmId field value if set, zero value otherwise.
 func (o *InlineResponse2005) GetNmId() int64 {
-	if o == nil {
+	if o == nil || o.NmId == nil {
 		var ret int64
 		return ret
 	}
-
-	return o.NmId
+	return *o.NmId
 }
 
-// GetNmIdOk returns a tuple with the NmId field value
+// GetNmIdOk returns a tuple with the NmId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetNmIdOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || o.NmId == nil {
 		return nil, false
 	}
-	return &o.NmId, true
+	return o.NmId, true
 }
 
-// SetNmId sets field value
+// HasNmId returns a boolean if a field has been set.
+func (o *InlineResponse2005) HasNmId() bool {
+	if o != nil && o.NmId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNmId gets a reference to the given int64 and assigns it to the NmId field.
 func (o *InlineResponse2005) SetNmId(v int64) {
-	o.NmId = v
+	o.NmId = &v
 }
 
 // GetBrandName returns the BrandName field value
@@ -1241,7 +1248,7 @@ func (o InlineResponse2005) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["subject_name"] = o.SubjectName
 	}
-	if true {
+	if o.NmId != nil {
 		toSerialize["nm_id"] = o.NmId
 	}
 	if true {
