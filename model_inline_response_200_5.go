@@ -102,13 +102,25 @@ type InlineResponse2005 struct {
 	PpvzSupplierName *string `json:"ppvz_supplier_name,omitempty"`
 	// ИНН владельца ПВЗ
 	PpvzSupplierInn *string `json:"ppvz_supplier_inn,omitempty"`
+	// Номер таможенной декларации
+	DeclarationNumber *string `json:"declaration_number,omitempty"`
+	// Цифровое значение стикера, который клеится на товар в процессе сборки заказа по системе Маркетплейс.
+	StickerId *string `json:"sticker_id,omitempty"`
+	// Страна продажи
+	SiteCountry string `json:"site_country"`
+	// Штрафы
+	Penalty float32 `json:"penalty"`
+	// Доплаты
+	AdditionalPayment float32 `json:"additional_payment"`
+	// Новый идентификатор заказа
+	Srid *string `json:"srid,omitempty"`
 }
 
 // NewInlineResponse2005 instantiates a new InlineResponse2005 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64) *InlineResponse2005 {
+func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32) *InlineResponse2005 {
 	this := InlineResponse2005{}
 	this.RealizationreportId = realizationreportId
 	this.RrdId = rrdId
@@ -148,6 +160,9 @@ func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, s
 	this.PpvzVwNds = ppvzVwNds
 	this.PpvzOfficeId = ppvzOfficeId
 	this.PpvzSupplierId = ppvzSupplierId
+	this.SiteCountry = siteCountry
+	this.Penalty = penalty
+	this.AdditionalPayment = additionalPayment
 	return &this
 }
 
@@ -1231,6 +1246,174 @@ func (o *InlineResponse2005) SetPpvzSupplierInn(v string) {
 	o.PpvzSupplierInn = &v
 }
 
+// GetDeclarationNumber returns the DeclarationNumber field value if set, zero value otherwise.
+func (o *InlineResponse2005) GetDeclarationNumber() string {
+	if o == nil || o.DeclarationNumber == nil {
+		var ret string
+		return ret
+	}
+	return *o.DeclarationNumber
+}
+
+// GetDeclarationNumberOk returns a tuple with the DeclarationNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2005) GetDeclarationNumberOk() (*string, bool) {
+	if o == nil || o.DeclarationNumber == nil {
+		return nil, false
+	}
+	return o.DeclarationNumber, true
+}
+
+// HasDeclarationNumber returns a boolean if a field has been set.
+func (o *InlineResponse2005) HasDeclarationNumber() bool {
+	if o != nil && o.DeclarationNumber != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDeclarationNumber gets a reference to the given string and assigns it to the DeclarationNumber field.
+func (o *InlineResponse2005) SetDeclarationNumber(v string) {
+	o.DeclarationNumber = &v
+}
+
+// GetStickerId returns the StickerId field value if set, zero value otherwise.
+func (o *InlineResponse2005) GetStickerId() string {
+	if o == nil || o.StickerId == nil {
+		var ret string
+		return ret
+	}
+	return *o.StickerId
+}
+
+// GetStickerIdOk returns a tuple with the StickerId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2005) GetStickerIdOk() (*string, bool) {
+	if o == nil || o.StickerId == nil {
+		return nil, false
+	}
+	return o.StickerId, true
+}
+
+// HasStickerId returns a boolean if a field has been set.
+func (o *InlineResponse2005) HasStickerId() bool {
+	if o != nil && o.StickerId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStickerId gets a reference to the given string and assigns it to the StickerId field.
+func (o *InlineResponse2005) SetStickerId(v string) {
+	o.StickerId = &v
+}
+
+// GetSiteCountry returns the SiteCountry field value
+func (o *InlineResponse2005) GetSiteCountry() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SiteCountry
+}
+
+// GetSiteCountryOk returns a tuple with the SiteCountry field value
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2005) GetSiteCountryOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SiteCountry, true
+}
+
+// SetSiteCountry sets field value
+func (o *InlineResponse2005) SetSiteCountry(v string) {
+	o.SiteCountry = v
+}
+
+// GetPenalty returns the Penalty field value
+func (o *InlineResponse2005) GetPenalty() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Penalty
+}
+
+// GetPenaltyOk returns a tuple with the Penalty field value
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2005) GetPenaltyOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Penalty, true
+}
+
+// SetPenalty sets field value
+func (o *InlineResponse2005) SetPenalty(v float32) {
+	o.Penalty = v
+}
+
+// GetAdditionalPayment returns the AdditionalPayment field value
+func (o *InlineResponse2005) GetAdditionalPayment() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AdditionalPayment
+}
+
+// GetAdditionalPaymentOk returns a tuple with the AdditionalPayment field value
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2005) GetAdditionalPaymentOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AdditionalPayment, true
+}
+
+// SetAdditionalPayment sets field value
+func (o *InlineResponse2005) SetAdditionalPayment(v float32) {
+	o.AdditionalPayment = v
+}
+
+// GetSrid returns the Srid field value if set, zero value otherwise.
+func (o *InlineResponse2005) GetSrid() string {
+	if o == nil || o.Srid == nil {
+		var ret string
+		return ret
+	}
+	return *o.Srid
+}
+
+// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2005) GetSridOk() (*string, bool) {
+	if o == nil || o.Srid == nil {
+		return nil, false
+	}
+	return o.Srid, true
+}
+
+// HasSrid returns a boolean if a field has been set.
+func (o *InlineResponse2005) HasSrid() bool {
+	if o != nil && o.Srid != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSrid gets a reference to the given string and assigns it to the Srid field.
+func (o *InlineResponse2005) SetSrid(v string) {
+	o.Srid = &v
+}
+
 func (o InlineResponse2005) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -1361,6 +1544,24 @@ func (o InlineResponse2005) MarshalJSON() ([]byte, error) {
 	}
 	if o.PpvzSupplierInn != nil {
 		toSerialize["ppvz_supplier_inn"] = o.PpvzSupplierInn
+	}
+	if o.DeclarationNumber != nil {
+		toSerialize["declaration_number"] = o.DeclarationNumber
+	}
+	if o.StickerId != nil {
+		toSerialize["sticker_id"] = o.StickerId
+	}
+	if true {
+		toSerialize["site_country"] = o.SiteCountry
+	}
+	if true {
+		toSerialize["penalty"] = o.Penalty
+	}
+	if true {
+		toSerialize["additional_payment"] = o.AdditionalPayment
+	}
+	if o.Srid != nil {
+		toSerialize["srid"] = o.Srid
 	}
 	return json.Marshal(toSerialize)
 }

@@ -47,12 +47,18 @@ Name | Type | Description | Notes
 **PpvzSupplierId** | **int64** | Идентификатор владельца ПВЗ? | 
 **PpvzSupplierName** | Pointer to **string** | Наименование владельца ПВЗ | [optional] 
 **PpvzSupplierInn** | Pointer to **string** | ИНН владельца ПВЗ | [optional] 
+**DeclarationNumber** | Pointer to **string** | Номер таможенной декларации | [optional] 
+**StickerId** | Pointer to **string** | Цифровое значение стикера, который клеится на товар в процессе сборки заказа по системе Маркетплейс. | [optional] 
+**SiteCountry** | **string** | Страна продажи | 
+**Penalty** | **float32** | Штрафы | 
+**AdditionalPayment** | **float32** | Доплаты | 
+**Srid** | Pointer to **string** | Новый идентификатор заказа | [optional] 
 
 ## Methods
 
 ### NewInlineResponse2005
 
-`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, ) *InlineResponse2005`
+`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32, ) *InlineResponse2005`
 
 NewInlineResponse2005 instantiates a new InlineResponse2005 object
 This constructor will assign default values to properties that have it defined,
@@ -951,6 +957,141 @@ SetPpvzSupplierInn sets PpvzSupplierInn field to given value.
 `func (o *InlineResponse2005) HasPpvzSupplierInn() bool`
 
 HasPpvzSupplierInn returns a boolean if a field has been set.
+
+### GetDeclarationNumber
+
+`func (o *InlineResponse2005) GetDeclarationNumber() string`
+
+GetDeclarationNumber returns the DeclarationNumber field if non-nil, zero value otherwise.
+
+### GetDeclarationNumberOk
+
+`func (o *InlineResponse2005) GetDeclarationNumberOk() (*string, bool)`
+
+GetDeclarationNumberOk returns a tuple with the DeclarationNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeclarationNumber
+
+`func (o *InlineResponse2005) SetDeclarationNumber(v string)`
+
+SetDeclarationNumber sets DeclarationNumber field to given value.
+
+### HasDeclarationNumber
+
+`func (o *InlineResponse2005) HasDeclarationNumber() bool`
+
+HasDeclarationNumber returns a boolean if a field has been set.
+
+### GetStickerId
+
+`func (o *InlineResponse2005) GetStickerId() string`
+
+GetStickerId returns the StickerId field if non-nil, zero value otherwise.
+
+### GetStickerIdOk
+
+`func (o *InlineResponse2005) GetStickerIdOk() (*string, bool)`
+
+GetStickerIdOk returns a tuple with the StickerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStickerId
+
+`func (o *InlineResponse2005) SetStickerId(v string)`
+
+SetStickerId sets StickerId field to given value.
+
+### HasStickerId
+
+`func (o *InlineResponse2005) HasStickerId() bool`
+
+HasStickerId returns a boolean if a field has been set.
+
+### GetSiteCountry
+
+`func (o *InlineResponse2005) GetSiteCountry() string`
+
+GetSiteCountry returns the SiteCountry field if non-nil, zero value otherwise.
+
+### GetSiteCountryOk
+
+`func (o *InlineResponse2005) GetSiteCountryOk() (*string, bool)`
+
+GetSiteCountryOk returns a tuple with the SiteCountry field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSiteCountry
+
+`func (o *InlineResponse2005) SetSiteCountry(v string)`
+
+SetSiteCountry sets SiteCountry field to given value.
+
+
+### GetPenalty
+
+`func (o *InlineResponse2005) GetPenalty() float32`
+
+GetPenalty returns the Penalty field if non-nil, zero value otherwise.
+
+### GetPenaltyOk
+
+`func (o *InlineResponse2005) GetPenaltyOk() (*float32, bool)`
+
+GetPenaltyOk returns a tuple with the Penalty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPenalty
+
+`func (o *InlineResponse2005) SetPenalty(v float32)`
+
+SetPenalty sets Penalty field to given value.
+
+
+### GetAdditionalPayment
+
+`func (o *InlineResponse2005) GetAdditionalPayment() float32`
+
+GetAdditionalPayment returns the AdditionalPayment field if non-nil, zero value otherwise.
+
+### GetAdditionalPaymentOk
+
+`func (o *InlineResponse2005) GetAdditionalPaymentOk() (*float32, bool)`
+
+GetAdditionalPaymentOk returns a tuple with the AdditionalPayment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdditionalPayment
+
+`func (o *InlineResponse2005) SetAdditionalPayment(v float32)`
+
+SetAdditionalPayment sets AdditionalPayment field to given value.
+
+
+### GetSrid
+
+`func (o *InlineResponse2005) GetSrid() string`
+
+GetSrid returns the Srid field if non-nil, zero value otherwise.
+
+### GetSridOk
+
+`func (o *InlineResponse2005) GetSridOk() (*string, bool)`
+
+GetSridOk returns a tuple with the Srid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSrid
+
+`func (o *InlineResponse2005) SetSrid(v string)`
+
+SetSrid sets Srid field to given value.
+
+### HasSrid
+
+`func (o *InlineResponse2005) HasSrid() bool`
+
+HasSrid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
