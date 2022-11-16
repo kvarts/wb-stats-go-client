@@ -34,12 +34,13 @@ Name | Type | Description | Notes
 **Brand** | **string** | Бренд | 
 **IsStorno** | **float32** | (?) | 
 **GNumber** | **string** | Номер заказа | 
+**Srid** | **string** | Srid | 
 
 ## Methods
 
 ### NewInlineResponse2003
 
-`func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, ) *InlineResponse2003`
+`func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string, ) *InlineResponse2003`
 
 NewInlineResponse2003 instantiates a new InlineResponse2003 object
 This constructor will assign default values to properties that have it defined,
@@ -652,6 +653,26 @@ and a boolean to check if the value has been set.
 `func (o *InlineResponse2003) SetGNumber(v string)`
 
 SetGNumber sets GNumber field to given value.
+
+
+### GetSrid
+
+`func (o *InlineResponse2003) GetSrid() string`
+
+GetSrid returns the Srid field if non-nil, zero value otherwise.
+
+### GetSridOk
+
+`func (o *InlineResponse2003) GetSridOk() (*string, bool)`
+
+GetSridOk returns a tuple with the Srid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSrid
+
+`func (o *InlineResponse2003) SetSrid(v string)`
+
+SetSrid sets Srid field to given value.
 
 
 

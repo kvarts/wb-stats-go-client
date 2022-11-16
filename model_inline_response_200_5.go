@@ -113,14 +113,14 @@ type InlineResponse2005 struct {
 	// Доплаты
 	AdditionalPayment float32 `json:"additional_payment"`
 	// Новый идентификатор заказа
-	Srid *string `json:"srid,omitempty"`
+	Srid string `json:"srid"`
 }
 
 // NewInlineResponse2005 instantiates a new InlineResponse2005 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32) *InlineResponse2005 {
+func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32, srid string) *InlineResponse2005 {
 	this := InlineResponse2005{}
 	this.RealizationreportId = realizationreportId
 	this.RrdId = rrdId
@@ -163,6 +163,7 @@ func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, s
 	this.SiteCountry = siteCountry
 	this.Penalty = penalty
 	this.AdditionalPayment = additionalPayment
+	this.Srid = srid
 	return &this
 }
 
@@ -1382,36 +1383,28 @@ func (o *InlineResponse2005) SetAdditionalPayment(v float32) {
 	o.AdditionalPayment = v
 }
 
-// GetSrid returns the Srid field value if set, zero value otherwise.
+// GetSrid returns the Srid field value
 func (o *InlineResponse2005) GetSrid() string {
-	if o == nil || o.Srid == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Srid
+
+	return o.Srid
 }
 
-// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
+// GetSridOk returns a tuple with the Srid field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse2005) GetSridOk() (*string, bool) {
-	if o == nil || o.Srid == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Srid, true
+	return &o.Srid, true
 }
 
-// HasSrid returns a boolean if a field has been set.
-func (o *InlineResponse2005) HasSrid() bool {
-	if o != nil && o.Srid != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetSrid gets a reference to the given string and assigns it to the Srid field.
+// SetSrid sets field value
 func (o *InlineResponse2005) SetSrid(v string) {
-	o.Srid = &v
+	o.Srid = v
 }
 
 func (o InlineResponse2005) MarshalJSON() ([]byte, error) {
@@ -1560,7 +1553,7 @@ func (o InlineResponse2005) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["additional_payment"] = o.AdditionalPayment
 	}
-	if o.Srid != nil {
+	if true {
 		toSerialize["srid"] = o.Srid
 	}
 	return json.Marshal(toSerialize)

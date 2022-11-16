@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse2003 
+// InlineResponse2003 struct for InlineResponse2003
 type InlineResponse2003 struct {
 	// Номер документа
 	Number string `json:"number"`
@@ -76,13 +76,15 @@ type InlineResponse2003 struct {
 	IsStorno float32 `json:"IsStorno"`
 	// Номер заказа
 	GNumber string `json:"gNumber"`
+	// Srid
+	Srid string `json:"srid"`
 }
 
 // NewInlineResponse2003 instantiates a new InlineResponse2003 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string) *InlineResponse2003 {
+func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string) *InlineResponse2003 {
 	this := InlineResponse2003{}
 	this.Number = number
 	this.Date = date
@@ -114,6 +116,7 @@ func NewInlineResponse2003(number string, date string, lastChangeDate string, su
 	this.Brand = brand
 	this.IsStorno = isStorno
 	this.GNumber = gNumber
+	this.Srid = srid
 	return &this
 }
 
@@ -845,6 +848,30 @@ func (o *InlineResponse2003) SetGNumber(v string) {
 	o.GNumber = v
 }
 
+// GetSrid returns the Srid field value
+func (o *InlineResponse2003) GetSrid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Srid
+}
+
+// GetSridOk returns a tuple with the Srid field value
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2003) GetSridOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Srid, true
+}
+
+// SetSrid sets field value
+func (o *InlineResponse2003) SetSrid(v string) {
+	o.Srid = v
+}
+
 func (o InlineResponse2003) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -936,6 +963,9 @@ func (o InlineResponse2003) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["gNumber"] = o.GNumber
+	}
+	if true {
+		toSerialize["srid"] = o.Srid
 	}
 	return json.Marshal(toSerialize)
 }

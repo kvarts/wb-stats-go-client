@@ -22,13 +22,14 @@ Name | Type | Description | Notes
 **Brand** | **string** | бренд | 
 **IsCancel** | **bool** | признак отмены заказа (0 – отмены не было, 1 – отмена была | 
 **CancelDt** | **string** | дата отмены заказа | 
-**GNumber** | **string** |  | 
+**GNumber** | **string** | Номер заказа | 
+**Srid** | **string** | Srid | 
 
 ## Methods
 
 ### NewInlineResponse200
 
-`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, ) *InlineResponse200`
+`func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, srid string, ) *InlineResponse200`
 
 NewInlineResponse200 instantiates a new InlineResponse200 object
 This constructor will assign default values to properties that have it defined,
@@ -421,6 +422,26 @@ and a boolean to check if the value has been set.
 `func (o *InlineResponse200) SetGNumber(v string)`
 
 SetGNumber sets GNumber field to given value.
+
+
+### GetSrid
+
+`func (o *InlineResponse200) GetSrid() string`
+
+GetSrid returns the Srid field if non-nil, zero value otherwise.
+
+### GetSridOk
+
+`func (o *InlineResponse200) GetSridOk() (*string, bool)`
+
+GetSridOk returns a tuple with the Srid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSrid
+
+`func (o *InlineResponse200) SetSrid(v string)`
+
+SetSrid sets Srid field to given value.
 
 
 

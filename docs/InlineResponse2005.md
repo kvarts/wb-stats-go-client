@@ -52,13 +52,13 @@ Name | Type | Description | Notes
 **SiteCountry** | **string** | Страна продажи | 
 **Penalty** | **float32** | Штрафы | 
 **AdditionalPayment** | **float32** | Доплаты | 
-**Srid** | Pointer to **string** | Новый идентификатор заказа | [optional] 
+**Srid** | **string** | Новый идентификатор заказа | 
 
 ## Methods
 
 ### NewInlineResponse2005
 
-`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32, ) *InlineResponse2005`
+`func NewInlineResponse2005(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32, srid string, ) *InlineResponse2005`
 
 NewInlineResponse2005 instantiates a new InlineResponse2005 object
 This constructor will assign default values to properties that have it defined,
@@ -1087,11 +1087,6 @@ and a boolean to check if the value has been set.
 
 SetSrid sets Srid field to given value.
 
-### HasSrid
-
-`func (o *InlineResponse2005) HasSrid() bool`
-
-HasSrid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -52,14 +52,17 @@ type InlineResponse200 struct {
 	IsCancel bool `json:"isCancel"`
 	// дата отмены заказа
 	CancelDt string `json:"cancel_dt"`
+	// Номер заказа
 	GNumber string `json:"gNumber"`
+	// Srid
+	Srid string `json:"srid"`
 }
 
 // NewInlineResponse200 instantiates a new InlineResponse200 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
+func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, srid string) *InlineResponse200 {
 	this := InlineResponse200{}
 	this.Number = number
 	this.Date = date
@@ -80,6 +83,7 @@ func NewInlineResponse200(number int64, date string, lastChangeDate string, supp
 	this.IsCancel = isCancel
 	this.CancelDt = cancelDt
 	this.GNumber = gNumber
+	this.Srid = srid
 	return &this
 }
 
@@ -547,6 +551,30 @@ func (o *InlineResponse200) SetGNumber(v string) {
 	o.GNumber = v
 }
 
+// GetSrid returns the Srid field value
+func (o *InlineResponse200) GetSrid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Srid
+}
+
+// GetSridOk returns a tuple with the Srid field value
+// and a boolean to check if the value has been set.
+func (o *InlineResponse200) GetSridOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Srid, true
+}
+
+// SetSrid sets field value
+func (o *InlineResponse200) SetSrid(v string) {
+	o.Srid = v
+}
+
 func (o InlineResponse200) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -605,6 +633,9 @@ func (o InlineResponse200) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["gNumber"] = o.GNumber
+	}
+	if true {
+		toSerialize["srid"] = o.Srid
 	}
 	return json.Marshal(toSerialize)
 }

@@ -224,7 +224,6 @@ paths:
           content:
             application/json:
               schema:
-                description: ""
                 items:
                   $ref: '#/components/schemas/inline_response_200_5'
                 minItems: 1
@@ -293,6 +292,7 @@ components:
         nmId: 2
         warehouseName: warehouseName
         gNumber: gNumber
+        srid: srid
         number: 0
         cancel_dt: cancel_dt
         techSize: techSize
@@ -358,6 +358,10 @@ components:
           description: дата отмены заказа
           type: string
         gNumber:
+          description: Номер заказа
+          type: string
+        srid:
+          description: Srid
           type: string
       required:
       - barcode
@@ -374,6 +378,7 @@ components:
       - number
       - oblast
       - odid
+      - srid
       - subject
       - supplierArticle
       - techSize
@@ -568,7 +573,6 @@ components:
       - warehouseName
       type: object
     inline_response_200_3:
-      description: ""
       example:
         date: date
         forPay: 3.616076749251911
@@ -582,6 +586,7 @@ components:
         nmId: 7
         warehouseName: warehouseName
         gNumber: gNumber
+        srid: srid
         number: number
         techSize: techSize
         barcode: barcode
@@ -697,6 +702,9 @@ components:
         gNumber:
           description: Номер заказа
           type: string
+        srid:
+          description: Srid
+          type: string
       required:
       - IsStorno
       - barcode
@@ -723,6 +731,7 @@ components:
       - regionName
       - saleID
       - spp
+      - srid
       - subject
       - supplierArticle
       - techSize
@@ -1050,6 +1059,7 @@ components:
       - sale_percent
       - shk_id
       - site_country
+      - srid
       - subject_name
       - supplier_oper_name
       - supplier_promo
