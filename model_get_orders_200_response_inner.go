@@ -14,8 +14,11 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse200 struct for InlineResponse200
-type InlineResponse200 struct {
+// checks if the GetOrders200ResponseInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetOrders200ResponseInner{}
+
+// GetOrders200ResponseInner struct for GetOrders200ResponseInner
+type GetOrders200ResponseInner struct {
 	// номер заказа
 	Number int64 `json:"number"`
 	// дата заказа
@@ -28,8 +31,6 @@ type InlineResponse200 struct {
 	TechSize string `json:"techSize"`
 	// штрих-код
 	Barcode string `json:"barcode"`
-	// кол-во
-	Quantity int32 `json:"quantity"`
 	// цена до согласованной скидки/промо/спп
 	TotalPrice float32 `json:"totalPrice"`
 	// согласованный итоговый дисконт
@@ -54,22 +55,24 @@ type InlineResponse200 struct {
 	IsCancel bool `json:"isCancel"`
 	// дата отмены заказа
 	CancelDt string `json:"cancel_dt"`
+	// Номер заказа
 	GNumber string `json:"gNumber"`
+	// Srid
+	Srid string `json:"srid"`
 }
 
-// NewInlineResponse200 instantiates a new InlineResponse200 object
+// NewGetOrders200ResponseInner instantiates a new GetOrders200ResponseInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse200(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int32, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string) *InlineResponse200 {
-	this := InlineResponse200{}
+func NewGetOrders200ResponseInner(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, srid string) *GetOrders200ResponseInner {
+	this := GetOrders200ResponseInner{}
 	this.Number = number
 	this.Date = date
 	this.LastChangeDate = lastChangeDate
 	this.SupplierArticle = supplierArticle
 	this.TechSize = techSize
 	this.Barcode = barcode
-	this.Quantity = quantity
 	this.TotalPrice = totalPrice
 	this.DiscountPercent = discountPercent
 	this.WarehouseName = warehouseName
@@ -83,19 +86,20 @@ func NewInlineResponse200(number int64, date string, lastChangeDate string, supp
 	this.IsCancel = isCancel
 	this.CancelDt = cancelDt
 	this.GNumber = gNumber
+	this.Srid = srid
 	return &this
 }
 
-// NewInlineResponse200WithDefaults instantiates a new InlineResponse200 object
+// NewGetOrders200ResponseInnerWithDefaults instantiates a new GetOrders200ResponseInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse200WithDefaults() *InlineResponse200 {
-	this := InlineResponse200{}
+func NewGetOrders200ResponseInnerWithDefaults() *GetOrders200ResponseInner {
+	this := GetOrders200ResponseInner{}
 	return &this
 }
 
 // GetNumber returns the Number field value
-func (o *InlineResponse200) GetNumber() int64 {
+func (o *GetOrders200ResponseInner) GetNumber() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -106,20 +110,20 @@ func (o *InlineResponse200) GetNumber() int64 {
 
 // GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetNumberOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetNumberOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Number, true
 }
 
 // SetNumber sets field value
-func (o *InlineResponse200) SetNumber(v int64) {
+func (o *GetOrders200ResponseInner) SetNumber(v int64) {
 	o.Number = v
 }
 
 // GetDate returns the Date field value
-func (o *InlineResponse200) GetDate() string {
+func (o *GetOrders200ResponseInner) GetDate() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -130,20 +134,20 @@ func (o *InlineResponse200) GetDate() string {
 
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetDateOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetDateOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Date, true
 }
 
 // SetDate sets field value
-func (o *InlineResponse200) SetDate(v string) {
+func (o *GetOrders200ResponseInner) SetDate(v string) {
 	o.Date = v
 }
 
 // GetLastChangeDate returns the LastChangeDate field value
-func (o *InlineResponse200) GetLastChangeDate() string {
+func (o *GetOrders200ResponseInner) GetLastChangeDate() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -154,20 +158,20 @@ func (o *InlineResponse200) GetLastChangeDate() string {
 
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetLastChangeDateOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetLastChangeDateOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.LastChangeDate, true
 }
 
 // SetLastChangeDate sets field value
-func (o *InlineResponse200) SetLastChangeDate(v string) {
+func (o *GetOrders200ResponseInner) SetLastChangeDate(v string) {
 	o.LastChangeDate = v
 }
 
 // GetSupplierArticle returns the SupplierArticle field value
-func (o *InlineResponse200) GetSupplierArticle() string {
+func (o *GetOrders200ResponseInner) GetSupplierArticle() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -178,20 +182,20 @@ func (o *InlineResponse200) GetSupplierArticle() string {
 
 // GetSupplierArticleOk returns a tuple with the SupplierArticle field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetSupplierArticleOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetSupplierArticleOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SupplierArticle, true
 }
 
 // SetSupplierArticle sets field value
-func (o *InlineResponse200) SetSupplierArticle(v string) {
+func (o *GetOrders200ResponseInner) SetSupplierArticle(v string) {
 	o.SupplierArticle = v
 }
 
 // GetTechSize returns the TechSize field value
-func (o *InlineResponse200) GetTechSize() string {
+func (o *GetOrders200ResponseInner) GetTechSize() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -202,20 +206,20 @@ func (o *InlineResponse200) GetTechSize() string {
 
 // GetTechSizeOk returns a tuple with the TechSize field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetTechSizeOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetTechSizeOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TechSize, true
 }
 
 // SetTechSize sets field value
-func (o *InlineResponse200) SetTechSize(v string) {
+func (o *GetOrders200ResponseInner) SetTechSize(v string) {
 	o.TechSize = v
 }
 
 // GetBarcode returns the Barcode field value
-func (o *InlineResponse200) GetBarcode() string {
+func (o *GetOrders200ResponseInner) GetBarcode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -226,44 +230,20 @@ func (o *InlineResponse200) GetBarcode() string {
 
 // GetBarcodeOk returns a tuple with the Barcode field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetBarcodeOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetBarcodeOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Barcode, true
 }
 
 // SetBarcode sets field value
-func (o *InlineResponse200) SetBarcode(v string) {
+func (o *GetOrders200ResponseInner) SetBarcode(v string) {
 	o.Barcode = v
 }
 
-// GetQuantity returns the Quantity field value
-func (o *InlineResponse200) GetQuantity() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Quantity
-}
-
-// GetQuantityOk returns a tuple with the Quantity field value
-// and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetQuantityOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Quantity, true
-}
-
-// SetQuantity sets field value
-func (o *InlineResponse200) SetQuantity(v int32) {
-	o.Quantity = v
-}
-
 // GetTotalPrice returns the TotalPrice field value
-func (o *InlineResponse200) GetTotalPrice() float32 {
+func (o *GetOrders200ResponseInner) GetTotalPrice() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -274,20 +254,20 @@ func (o *InlineResponse200) GetTotalPrice() float32 {
 
 // GetTotalPriceOk returns a tuple with the TotalPrice field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetTotalPriceOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetTotalPriceOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalPrice, true
 }
 
 // SetTotalPrice sets field value
-func (o *InlineResponse200) SetTotalPrice(v float32) {
+func (o *GetOrders200ResponseInner) SetTotalPrice(v float32) {
 	o.TotalPrice = v
 }
 
 // GetDiscountPercent returns the DiscountPercent field value
-func (o *InlineResponse200) GetDiscountPercent() float32 {
+func (o *GetOrders200ResponseInner) GetDiscountPercent() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -298,20 +278,20 @@ func (o *InlineResponse200) GetDiscountPercent() float32 {
 
 // GetDiscountPercentOk returns a tuple with the DiscountPercent field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetDiscountPercentOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetDiscountPercentOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DiscountPercent, true
 }
 
 // SetDiscountPercent sets field value
-func (o *InlineResponse200) SetDiscountPercent(v float32) {
+func (o *GetOrders200ResponseInner) SetDiscountPercent(v float32) {
 	o.DiscountPercent = v
 }
 
 // GetWarehouseName returns the WarehouseName field value
-func (o *InlineResponse200) GetWarehouseName() string {
+func (o *GetOrders200ResponseInner) GetWarehouseName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -322,20 +302,20 @@ func (o *InlineResponse200) GetWarehouseName() string {
 
 // GetWarehouseNameOk returns a tuple with the WarehouseName field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetWarehouseNameOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetWarehouseNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.WarehouseName, true
 }
 
 // SetWarehouseName sets field value
-func (o *InlineResponse200) SetWarehouseName(v string) {
+func (o *GetOrders200ResponseInner) SetWarehouseName(v string) {
 	o.WarehouseName = v
 }
 
 // GetOblast returns the Oblast field value
-func (o *InlineResponse200) GetOblast() string {
+func (o *GetOrders200ResponseInner) GetOblast() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -346,20 +326,20 @@ func (o *InlineResponse200) GetOblast() string {
 
 // GetOblastOk returns a tuple with the Oblast field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetOblastOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetOblastOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Oblast, true
 }
 
 // SetOblast sets field value
-func (o *InlineResponse200) SetOblast(v string) {
+func (o *GetOrders200ResponseInner) SetOblast(v string) {
 	o.Oblast = v
 }
 
 // GetIncomeID returns the IncomeID field value
-func (o *InlineResponse200) GetIncomeID() int64 {
+func (o *GetOrders200ResponseInner) GetIncomeID() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -370,20 +350,20 @@ func (o *InlineResponse200) GetIncomeID() int64 {
 
 // GetIncomeIDOk returns a tuple with the IncomeID field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetIncomeIDOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetIncomeIDOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomeID, true
 }
 
 // SetIncomeID sets field value
-func (o *InlineResponse200) SetIncomeID(v int64) {
+func (o *GetOrders200ResponseInner) SetIncomeID(v int64) {
 	o.IncomeID = v
 }
 
 // GetOdid returns the Odid field value
-func (o *InlineResponse200) GetOdid() int64 {
+func (o *GetOrders200ResponseInner) GetOdid() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -394,20 +374,20 @@ func (o *InlineResponse200) GetOdid() int64 {
 
 // GetOdidOk returns a tuple with the Odid field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetOdidOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetOdidOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Odid, true
 }
 
 // SetOdid sets field value
-func (o *InlineResponse200) SetOdid(v int64) {
+func (o *GetOrders200ResponseInner) SetOdid(v int64) {
 	o.Odid = v
 }
 
 // GetNmId returns the NmId field value
-func (o *InlineResponse200) GetNmId() int32 {
+func (o *GetOrders200ResponseInner) GetNmId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -418,20 +398,20 @@ func (o *InlineResponse200) GetNmId() int32 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetNmIdOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetNmIdOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NmId, true
 }
 
 // SetNmId sets field value
-func (o *InlineResponse200) SetNmId(v int32) {
+func (o *GetOrders200ResponseInner) SetNmId(v int32) {
 	o.NmId = v
 }
 
 // GetSubject returns the Subject field value
-func (o *InlineResponse200) GetSubject() string {
+func (o *GetOrders200ResponseInner) GetSubject() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -442,20 +422,20 @@ func (o *InlineResponse200) GetSubject() string {
 
 // GetSubjectOk returns a tuple with the Subject field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetSubjectOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetSubjectOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Subject, true
 }
 
 // SetSubject sets field value
-func (o *InlineResponse200) SetSubject(v string) {
+func (o *GetOrders200ResponseInner) SetSubject(v string) {
 	o.Subject = v
 }
 
 // GetCategory returns the Category field value
-func (o *InlineResponse200) GetCategory() string {
+func (o *GetOrders200ResponseInner) GetCategory() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -466,20 +446,20 @@ func (o *InlineResponse200) GetCategory() string {
 
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetCategoryOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetCategoryOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Category, true
 }
 
 // SetCategory sets field value
-func (o *InlineResponse200) SetCategory(v string) {
+func (o *GetOrders200ResponseInner) SetCategory(v string) {
 	o.Category = v
 }
 
 // GetBrand returns the Brand field value
-func (o *InlineResponse200) GetBrand() string {
+func (o *GetOrders200ResponseInner) GetBrand() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -490,20 +470,20 @@ func (o *InlineResponse200) GetBrand() string {
 
 // GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetBrandOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetBrandOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Brand, true
 }
 
 // SetBrand sets field value
-func (o *InlineResponse200) SetBrand(v string) {
+func (o *GetOrders200ResponseInner) SetBrand(v string) {
 	o.Brand = v
 }
 
 // GetIsCancel returns the IsCancel field value
-func (o *InlineResponse200) GetIsCancel() bool {
+func (o *GetOrders200ResponseInner) GetIsCancel() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -514,20 +494,20 @@ func (o *InlineResponse200) GetIsCancel() bool {
 
 // GetIsCancelOk returns a tuple with the IsCancel field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetIsCancelOk() (*bool, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetIsCancelOk() (*bool, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsCancel, true
 }
 
 // SetIsCancel sets field value
-func (o *InlineResponse200) SetIsCancel(v bool) {
+func (o *GetOrders200ResponseInner) SetIsCancel(v bool) {
 	o.IsCancel = v
 }
 
 // GetCancelDt returns the CancelDt field value
-func (o *InlineResponse200) GetCancelDt() string {
+func (o *GetOrders200ResponseInner) GetCancelDt() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -538,20 +518,20 @@ func (o *InlineResponse200) GetCancelDt() string {
 
 // GetCancelDtOk returns a tuple with the CancelDt field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetCancelDtOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetCancelDtOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CancelDt, true
 }
 
 // SetCancelDt sets field value
-func (o *InlineResponse200) SetCancelDt(v string) {
+func (o *GetOrders200ResponseInner) SetCancelDt(v string) {
 	o.CancelDt = v
 }
 
 // GetGNumber returns the GNumber field value
-func (o *InlineResponse200) GetGNumber() string {
+func (o *GetOrders200ResponseInner) GetGNumber() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -562,115 +542,107 @@ func (o *InlineResponse200) GetGNumber() string {
 
 // GetGNumberOk returns a tuple with the GNumber field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetGNumberOk() (*string, bool) {
-	if o == nil  {
+func (o *GetOrders200ResponseInner) GetGNumberOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GNumber, true
 }
 
 // SetGNumber sets field value
-func (o *InlineResponse200) SetGNumber(v string) {
+func (o *GetOrders200ResponseInner) SetGNumber(v string) {
 	o.GNumber = v
 }
 
-func (o InlineResponse200) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["number"] = o.Number
+// GetSrid returns the Srid field value
+func (o *GetOrders200ResponseInner) GetSrid() string {
+	if o == nil {
+		var ret string
+		return ret
 	}
-	if true {
-		toSerialize["date"] = o.Date
+
+	return o.Srid
+}
+
+// GetSridOk returns a tuple with the Srid field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetSridOk() (*string, bool) {
+	if o == nil {
+		return nil, false
 	}
-	if true {
-		toSerialize["lastChangeDate"] = o.LastChangeDate
-	}
-	if true {
-		toSerialize["supplierArticle"] = o.SupplierArticle
-	}
-	if true {
-		toSerialize["techSize"] = o.TechSize
-	}
-	if true {
-		toSerialize["barcode"] = o.Barcode
-	}
-	if true {
-		toSerialize["quantity"] = o.Quantity
-	}
-	if true {
-		toSerialize["totalPrice"] = o.TotalPrice
-	}
-	if true {
-		toSerialize["discountPercent"] = o.DiscountPercent
-	}
-	if true {
-		toSerialize["warehouseName"] = o.WarehouseName
-	}
-	if true {
-		toSerialize["oblast"] = o.Oblast
-	}
-	if true {
-		toSerialize["incomeID"] = o.IncomeID
-	}
-	if true {
-		toSerialize["odid"] = o.Odid
-	}
-	if true {
-		toSerialize["nmId"] = o.NmId
-	}
-	if true {
-		toSerialize["subject"] = o.Subject
-	}
-	if true {
-		toSerialize["category"] = o.Category
-	}
-	if true {
-		toSerialize["brand"] = o.Brand
-	}
-	if true {
-		toSerialize["isCancel"] = o.IsCancel
-	}
-	if true {
-		toSerialize["cancel_dt"] = o.CancelDt
-	}
-	if true {
-		toSerialize["gNumber"] = o.GNumber
+	return &o.Srid, true
+}
+
+// SetSrid sets field value
+func (o *GetOrders200ResponseInner) SetSrid(v string) {
+	o.Srid = v
+}
+
+func (o GetOrders200ResponseInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse200 struct {
-	value *InlineResponse200
+func (o GetOrders200ResponseInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["number"] = o.Number
+	toSerialize["date"] = o.Date
+	toSerialize["lastChangeDate"] = o.LastChangeDate
+	toSerialize["supplierArticle"] = o.SupplierArticle
+	toSerialize["techSize"] = o.TechSize
+	toSerialize["barcode"] = o.Barcode
+	toSerialize["totalPrice"] = o.TotalPrice
+	toSerialize["discountPercent"] = o.DiscountPercent
+	toSerialize["warehouseName"] = o.WarehouseName
+	toSerialize["oblast"] = o.Oblast
+	toSerialize["incomeID"] = o.IncomeID
+	toSerialize["odid"] = o.Odid
+	toSerialize["nmId"] = o.NmId
+	toSerialize["subject"] = o.Subject
+	toSerialize["category"] = o.Category
+	toSerialize["brand"] = o.Brand
+	toSerialize["isCancel"] = o.IsCancel
+	toSerialize["cancel_dt"] = o.CancelDt
+	toSerialize["gNumber"] = o.GNumber
+	toSerialize["srid"] = o.Srid
+	return toSerialize, nil
+}
+
+type NullableGetOrders200ResponseInner struct {
+	value *GetOrders200ResponseInner
 	isSet bool
 }
 
-func (v NullableInlineResponse200) Get() *InlineResponse200 {
+func (v NullableGetOrders200ResponseInner) Get() *GetOrders200ResponseInner {
 	return v.value
 }
 
-func (v *NullableInlineResponse200) Set(val *InlineResponse200) {
+func (v *NullableGetOrders200ResponseInner) Set(val *GetOrders200ResponseInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse200) IsSet() bool {
+func (v NullableGetOrders200ResponseInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse200) Unset() {
+func (v *NullableGetOrders200ResponseInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse200(val *InlineResponse200) *NullableInlineResponse200 {
-	return &NullableInlineResponse200{value: val, isSet: true}
+func NewNullableGetOrders200ResponseInner(val *GetOrders200ResponseInner) *NullableGetOrders200ResponseInner {
+	return &NullableGetOrders200ResponseInner{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse200) MarshalJSON() ([]byte, error) {
+func (v NullableGetOrders200ResponseInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse200) UnmarshalJSON(src []byte) error {
+func (v *NullableGetOrders200ResponseInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -9,9 +9,10 @@ security:
 paths:
   /orders:
     get:
+      description: ""
       operationId: get-orders
       parameters:
-      - description: 1 - то за одну дату, 0 - за все что больше переданной даты
+      - description: "1 - то за одну дату, 0 - за все что больше переданной даты"
         explode: true
         in: query
         name: flag
@@ -35,7 +36,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/inline_response_200'
+                  $ref: '#/components/schemas/get_orders_200_response_inner'
                 type: array
           description: OK
       summary: Get Orders
@@ -43,6 +44,7 @@ paths:
       - stats
   /incomes:
     get:
+      description: ""
       operationId: get-incomes
       parameters:
       - description: Дата и время от которых выгружается информация
@@ -62,7 +64,7 @@ paths:
               examples: {}
               schema:
                 items:
-                  $ref: '#/components/schemas/inline_response_200_1'
+                  $ref: '#/components/schemas/get_incomes_200_response_inner'
                 type: array
           description: OK
       summary: Get Incomes
@@ -70,6 +72,7 @@ paths:
       - stats
   /stocks:
     get:
+      description: ""
       operationId: get-stocks
       parameters:
       - description: Дата и время от которых выгружается информация
@@ -89,7 +92,7 @@ paths:
               examples: {}
               schema:
                 items:
-                  $ref: '#/components/schemas/inline_response_200_2'
+                  $ref: '#/components/schemas/get_stocks_200_response_inner'
                 type: array
           description: OK
       summary: Get Stocks
@@ -97,6 +100,7 @@ paths:
       - stats
   /sales:
     get:
+      description: ""
       operationId: get-sales
       parameters:
       - description: Дата и время от которых выгружается информация
@@ -109,7 +113,7 @@ paths:
           format: date-time
           type: string
         style: form
-      - description: 1 - то за одну дату, 0 - за все что больше переданной даты
+      - description: "1 - то за одну дату, 0 - за все что больше переданной даты"
         explode: true
         in: query
         name: flag
@@ -125,18 +129,18 @@ paths:
               examples: {}
               schema:
                 items:
-                  $ref: '#/components/schemas/inline_response_200_3'
+                  $ref: '#/components/schemas/get_sales_200_response_inner'
                 type: array
           description: OK
       summary: Get Sales
       tags:
       - stats
-  /stochrancost:
+  /reportDetailByPeriod:
     get:
-      description: Получить информацию о платном хранилище - факт
-      operationId: get-paid-storage
+      description: Получить информацию об отчёте о продажах по реализации
+      operationId: get-report-detail-by-period
       parameters:
-      - description: Дата и время от которых выгружается информация
+      - description: Начальная дата периода
         explode: true
         in: query
         name: dateFrom
@@ -146,7 +150,7 @@ paths:
           format: date-time
           type: string
         style: form
-      - description: Дата и время до которых выгружается информация
+      - description: Конечная дата периода
         explode: true
         in: query
         name: dateTo
@@ -156,37 +160,101 @@ paths:
           format: date-time
           type: string
         style: form
+      - description: "Максимальное количество записей, получаемых при запросе"
+        explode: true
+        in: query
+        name: limit
+        required: true
+        schema:
+          format: int64
+          minimum: 0
+          type: integer
+        style: form
+      - description: "Идентификатор записи, начиная с которой нужно получать данны\
+          е при запросе"
+        explode: true
+        in: query
+        name: rrdid
+        required: true
+        schema:
+          format: int64
+          minimum: 0
+          type: integer
+        style: form
       responses:
         "200":
           content:
             application/json:
-              examples: {}
               schema:
                 items:
-                  $ref: '#/components/schemas/inline_response_200_4'
+                  $ref: '#/components/schemas/get_report_detail_by_period_200_response_inner'
+                minItems: 1
                 type: array
+                uniqueItems: true
+                x-examples:
+                  example-1:
+                  - realizationreport_id: 5672617
+                    rrd_id: 4938703342
+                    gi_id: 5247027
+                    subject_name: Куртки
+                    nm_id: 47548690
+                    brand_name: Fenix Wear
+                    sa_name: H328темно-синий
+                    ts_name: "48"
+                    barcode: "2013339065006"
+                    doc_type_name: Продажа
+                    quantity: 0
+                    retail_price: 0
+                    retail_amount: 0
+                    sale_percent: 0
+                    commission_percent: 0
+                    office_name: Электросталь
+                    supplier_oper_name: Логистика
+                    order_dt: 2021-12-03T00:00:00Z
+                    sale_dt: 2021-12-03T00:00:00Z
+                    rr_dt: 2021-12-03T00:00:00Z
+                    shk_id: 4471876369
+                    retail_price_withdisc_rub: 0
+                    delivery_amount: 0
+                    return_amount: 1
+                    delivery_rub: 33
+                    gi_box_type_name: Микс
+                    product_discount_for_report: 0
+                    supplier_promo: 0
+                    rid: 150108717021
+                    ppvz_spp_prc: 0
+                    ppvz_kvw_prc_base: 0
+                    ppvz_kvw_prc: 0
+                    ppvz_sales_commission: 0
+                    ppvz_for_pay: 0
+                    ppvz_reward: 0
+                    ppvz_vw: 0
+                    ppvz_vw_nds: 0
+                    ppvz_office_id: 0
+                    ppvz_office_name: Пункт самовывоза (ПВЗ)
+                    ppvz_supplier_id: 0
           description: OK
-      summary: Get Paid Storage
+      summary: Get Report Detail By Period
       tags:
       - stats
 components:
   schemas:
-    inline_response_200:
+    get_orders_200_response_inner:
       example:
         date: date
         supplierArticle: supplierArticle
-        quantity: 6
-        discountPercent: 5.962133916683182
+        discountPercent: 1.4658129805029452
         incomeID: 5
-        odid: 2
+        odid: 5
         isCancel: true
-        totalPrice: 1.4658129805029452
+        totalPrice: 6.027456183070403
         subject: subject
         lastChangeDate: lastChangeDate
         oblast: oblast
-        nmId: 7
+        nmId: 2
         warehouseName: warehouseName
         gNumber: gNumber
+        srid: srid
         number: 0
         cancel_dt: cancel_dt
         techSize: techSize
@@ -213,9 +281,6 @@ components:
         barcode:
           description: штрих-код
           type: string
-        quantity:
-          description: кол-во
-          type: integer
         totalPrice:
           description: цена до согласованной скидки/промо/спп
           type: number
@@ -249,12 +314,16 @@ components:
           description: бренд
           type: string
         isCancel:
-          description: признак отмены заказа (0 – отмены не было, 1 – отмена была
+          description: "признак отмены заказа (0 – отмены не было, 1 – отмена была"
           type: boolean
         cancel_dt:
           description: дата отмены заказа
           type: string
         gNumber:
+          description: Номер заказа
+          type: string
+        srid:
+          description: Srid
           type: string
       required:
       - barcode
@@ -271,14 +340,15 @@ components:
       - number
       - oblast
       - odid
-      - quantity
+      - srid
       - subject
       - supplierArticle
       - techSize
       - totalPrice
       - warehouseName
       type: object
-    inline_response_200_1:
+    get_incomes_200_response_inner:
+      description: ""
       example:
         date: date
         supplierArticle: supplierArticle
@@ -351,24 +421,21 @@ components:
       - totalPrice
       - warehouseName
       type: object
-    inline_response_200_2:
+    get_stocks_200_response_inner:
       example:
-        daysOnSite: 7
+        daysOnSite: 5
         supplierArticle: supplierArticle
         isRealization: true
         quantity: 0
-        Discount: 3.616076749251911
+        Discount: 2.3021358869347655
         quantityFull: 6
-        quantityNotInOrders: 1
         subject: subject
-        lastChangeDate: lastChangeDate
-        nmId: 2
+        lastChangeDate: 2000-01-23T04:56:07.000+00:00
+        nmId: 1
         warehouseName: warehouseName
         SCCode: SCCode
-        inWayFromClient: 5
-        Price: 9.301444243932576
+        Price: 5.637376656633329
         isSupply: true
-        inWayToClient: 5
         techSize: techSize
         category: category
         barcode: barcode
@@ -376,6 +443,7 @@ components:
       properties:
         lastChangeDate:
           description: Дата и время обновления данных в сервисе
+          format: date-time
           type: string
         supplierArticle:
           description: Артикул продавца
@@ -400,21 +468,9 @@ components:
           description: Полное количество
           format: int64
           type: integer
-        quantityNotInOrders:
-          description: Количество не в заказе
-          format: int64
-          type: integer
         warehouseName:
           description: Название склада
           type: string
-        inWayToClient:
-          description: Количество штук в пути к клиенту
-          format: int32
-          type: integer
-        inWayFromClient:
-          description: Количество штук в пути от клиента
-          format: int32
-          type: integer
         nmId:
           description: Код wildberries
           format: int64
@@ -449,21 +505,18 @@ components:
       - brand
       - category
       - daysOnSite
-      - inWayFromClient
-      - inWayToClient
       - isRealization
       - isSupply
       - lastChangeDate
       - nmId
       - quantity
       - quantityFull
-      - quantityNotInOrders
       - subject
       - supplierArticle
       - techSize
       - warehouseName
       type: object
-    inline_response_200_3:
+    get_sales_200_response_inner:
       example:
         date: date
         forPay: 3.616076749251911
@@ -477,6 +530,7 @@ components:
         nmId: 7
         warehouseName: warehouseName
         gNumber: gNumber
+        srid: srid
         number: number
         techSize: techSize
         barcode: barcode
@@ -570,8 +624,8 @@ components:
           description: Фактическая цена из заказа с учетом всех скидок
           type: number
         priceWithDisc:
-          description: Цена, от которой считается вознаграждение поставщика forpay
-            (с учетом всех согласованных скидок)
+          description: "Цена, от которой считается вознаграждение поставщика forpay\
+            \ (с учетом всех согласованных скидок)"
           type: number
         nmId:
           description: код wildberries
@@ -591,6 +645,9 @@ components:
           type: number
         gNumber:
           description: Номер заказа
+          type: string
+        srid:
+          description: Srid
           type: string
       required:
       - IsStorno
@@ -618,60 +675,290 @@ components:
       - regionName
       - saleID
       - spp
+      - srid
       - subject
       - supplierArticle
       - techSize
       - totalPrice
       - warehouseName
       type: object
-    inline_response_200_4:
+    get_report_detail_by_period_200_response_inner:
       example:
-        daysOnSite: 6
-        nmId: 0
-        techSize: techSize
-        sumW: 5.637376656633329
-        dayBeg: dayBeg
-        dayEnd: dayEnd
-        stock: 1
-        saleQty: 5
+        ppvz_sales_commission: 9.369310271410669
+        retail_amount: 9.301444243932576
+        rid: 0
+        ppvz_vw: 9.018348186070783
+        declaration_number: declaration_number
+        retail_price: 7.061401241503109
+        srid: srid
+        ppvz_kvw_prc_base: 5.025004791520295
+        rr_dt: rr_dt
+        site_country: site_country
+        product_discount_for_report: 6.84685269835264
+        sale_dt: sale_dt
+        barcode: barcode
+        delivery_rub: 1.4894159098541704
+        ppvz_supplier_inn: ppvz_supplier_inn
+        ppvz_office_id: 0
+        brand_name: brand_name
+        commission_percent: 2.027123023002322
+        order_dt: order_dt
+        ts_name: ts_name
+        ppvz_spp_prc: 4.965218492984954
+        subject_name: subject_name
+        sa_name: sa_name
+        return_amount: 1
+        ppvz_reward: 8.762042012749001
+        gi_id: 0
+        sale_percent: 3.616076749251911
+        penalty: 1.284659006116532
+        ppvz_supplier_id: 0
+        realizationreport_id: 0
+        delivery_amount: 1
+        gi_box_type_name: gi_box_type_name
+        ppvz_kvw_prc: 9.965781217890562
+        ppvz_for_pay: 6.683562403749608
+        ppvz_vw_nds: 6.438423552598547
+        nm_id: 0
+        supplier_oper_name: supplier_oper_name
+        ppvz_supplier_name: ppvz_supplier_name
+        sticker_id: sticker_id
+        quantity: 2
+        suppliercontract_code: 6
+        rrd_id: 0
+        shk_id: 0
+        supplier_promo: 7.457744773683766
+        additional_payment: 2.8841621266687802
+        doc_type_name: doc_type_name
+        office_name: office_name
+        retail_price_withdisc_rub: 7.386281948385884
+        ppvz_office_name: ppvz_office_name
       properties:
-        dayBeg:
-          description: Дата начала периода хранения
-          type: string
-        dayEnd:
-          description: Дата завершения периода хранения
-          type: string
-        nmId:
-          description: Код wildberries
-          format: int64
+        realizationreport_id:
+          description: Идентификатор отчёта
           type: integer
-        techSize:
-          description: Размер
+        suppliercontract_code:
+          description: Договор
+          type: integer
+        rrd_id:
+          description: Идентификатор записи
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        gi_id:
+          description: Идентификатор поставки
+          format: int64
+          minimum: 0
+          type: integer
+        subject_name:
+          description: Наименование товара
+          minLength: 1
           type: string
-        daysOnSite:
-          description: Количество дней на сайте
+        nm_id:
+          description: SKU товара
+          format: int64
+          minimum: 0
+          type: integer
+        brand_name:
+          description: Бренд товара
+          minLength: 1
+          type: string
+        sa_name:
+          description: Артикул поставщика
+          minLength: 1
+          type: string
+        ts_name:
+          description: Размер
+          minLength: 1
+          type: string
+        barcode:
+          description: Баркод
+          minLength: 1
+          type: string
+        doc_type_name:
+          description: Тип документа
+          minLength: 1
+          type: string
+        quantity:
+          description: Количество
+          type: integer
+        retail_price:
+          description: Розничная цена
+          type: number
+        retail_amount:
+          description: Сумма продаж (возвратов)
+          type: number
+        sale_percent:
+          description: Согласованная скидка
+          type: number
+        commission_percent:
+          description: Процент комиссии
+          type: number
+        office_name:
+          description: Наименование склада
+          minLength: 1
+          type: string
+        supplier_oper_name:
+          description: Обоснование для оплаты (Тип операции?)
+          minLength: 1
+          type: string
+        order_dt:
+          description: Дата заказа
+          minLength: 1
+          type: string
+        sale_dt:
+          description: Дата продажи
+          minLength: 1
+          type: string
+        rr_dt:
+          description: Дата операции
+          minLength: 1
+          type: string
+        shk_id:
+          description: Штрих код (короба?)
+          format: int64
+          minimum: 0
+          type: integer
+        retail_price_withdisc_rub:
+          description: Розничная цена с учётом согласованной скидки
+          type: number
+        delivery_amount:
+          description: Количество доставок
           format: int32
           type: integer
-        stock:
-          description: Остаток на начало периода
-          format: int64
+        return_amount:
+          description: Количество возвратов
+          format: int32
           type: integer
-        saleQty:
-          description: Количество продано
-          format: int64
-          type: integer
-        sumW:
-          description: Сумма за хранение, руб.
+        delivery_rub:
+          description: Стоимость логистики
           type: number
+        gi_box_type_name:
+          description: Тип коробов
+          minLength: 1
+          type: string
+        product_discount_for_report:
+          description: Согласованный продуктовый дисконт
+          type: number
+        supplier_promo:
+          description: Промокод
+          type: number
+        rid:
+          description: Идентификатор заказа
+          format: int64
+          minimum: 0
+          type: integer
+        ppvz_spp_prc:
+          description: Скидка постоянного покупателя
+          type: number
+        ppvz_kvw_prc_base:
+          description: "Базовый размер коэффициента вознаграждения вайлдберриз без\
+            \ НДС, %"
+          type: number
+        ppvz_kvw_prc:
+          description: "Итоговый размер коэффициента вознаграждения вайлдберриз бе\
+            з НДС, %"
+          type: number
+        ppvz_sales_commission:
+          description: |-
+            Вознаграждение с продаж до вычета услуг поверенного,
+            без НДС
+          type: number
+        ppvz_for_pay:
+          description: К перечислению продавцу за реализованный Товар
+          type: number
+        ppvz_reward:
+          description: Возмещение расходов услуг поверенного
+          type: number
+        ppvz_vw:
+          description: "Вознаграждение вайлдберриз, без НДС"
+          type: number
+        ppvz_vw_nds:
+          description: НДС с вознаграждения вайлдберриз
+          type: number
+        ppvz_office_id:
+          description: Идентификатор ПВЗ?
+          format: int64
+          minimum: 0
+          type: integer
+        ppvz_office_name:
+          description: Наименование ПВЗ? (в случае если ppvz_office_id = 0)
+          minLength: 1
+          type: string
+        ppvz_supplier_id:
+          description: Идентификатор владельца ПВЗ?
+          format: int64
+          minimum: 0
+          type: integer
+        ppvz_supplier_name:
+          description: Наименование владельца ПВЗ
+          type: string
+        ppvz_supplier_inn:
+          description: ИНН владельца ПВЗ
+          type: string
+        declaration_number:
+          description: Номер таможенной декларации
+          type: string
+        sticker_id:
+          description: "Цифровое значение стикера, который клеится на товар в проц\
+            ессе сборки заказа по системе Маркетплейс."
+          type: string
+        site_country:
+          description: Страна продажи
+          type: string
+        penalty:
+          description: Штрафы
+          type: number
+        additional_payment:
+          description: Доплаты
+          type: number
+        srid:
+          description: Новый идентификатор заказа
+          type: string
       required:
-      - dayBeg
-      - dayEnd
-      - daysOnSite
-      - nmId
-      - saleQty
-      - stock
-      - sumW
-      - techSize
+      - additional_payment
+      - barcode
+      - brand_name
+      - commission_percent
+      - delivery_amount
+      - delivery_rub
+      - doc_type_name
+      - gi_box_type_name
+      - gi_id
+      - office_name
+      - order_dt
+      - penalty
+      - ppvz_for_pay
+      - ppvz_kvw_prc
+      - ppvz_kvw_prc_base
+      - ppvz_office_id
+      - ppvz_reward
+      - ppvz_sales_commission
+      - ppvz_spp_prc
+      - ppvz_supplier_id
+      - ppvz_vw
+      - ppvz_vw_nds
+      - product_discount_for_report
+      - quantity
+      - realizationreport_id
+      - retail_amount
+      - retail_price
+      - retail_price_withdisc_rub
+      - return_amount
+      - rid
+      - rr_dt
+      - rrd_id
+      - sa_name
+      - sale_dt
+      - sale_percent
+      - shk_id
+      - site_country
+      - srid
+      - subject_name
+      - supplier_oper_name
+      - supplier_promo
+      - ts_name
       type: object
   securitySchemes:
     Key:

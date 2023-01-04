@@ -22,10 +22,5 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-client.go
-configuration.go
-go.mod
-go.sum
-README.md
 .travis.yml
 git_push.sh

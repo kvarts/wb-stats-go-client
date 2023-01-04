@@ -14,8 +14,11 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse2003 struct for InlineResponse2003
-type InlineResponse2003 struct {
+// checks if the GetSales200ResponseInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetSales200ResponseInner{}
+
+// GetSales200ResponseInner struct for GetSales200ResponseInner
+type GetSales200ResponseInner struct {
 	// Номер документа
 	Number string `json:"number"`
 	// Дата продажи
@@ -76,14 +79,16 @@ type InlineResponse2003 struct {
 	IsStorno float32 `json:"IsStorno"`
 	// Номер заказа
 	GNumber string `json:"gNumber"`
+	// Srid
+	Srid string `json:"srid"`
 }
 
-// NewInlineResponse2003 instantiates a new InlineResponse2003 object
+// NewGetSales200ResponseInner instantiates a new GetSales200ResponseInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse2003(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string) *InlineResponse2003 {
-	this := InlineResponse2003{}
+func NewGetSales200ResponseInner(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string) *GetSales200ResponseInner {
+	this := GetSales200ResponseInner{}
 	this.Number = number
 	this.Date = date
 	this.LastChangeDate = lastChangeDate
@@ -114,19 +119,20 @@ func NewInlineResponse2003(number string, date string, lastChangeDate string, su
 	this.Brand = brand
 	this.IsStorno = isStorno
 	this.GNumber = gNumber
+	this.Srid = srid
 	return &this
 }
 
-// NewInlineResponse2003WithDefaults instantiates a new InlineResponse2003 object
+// NewGetSales200ResponseInnerWithDefaults instantiates a new GetSales200ResponseInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInlineResponse2003WithDefaults() *InlineResponse2003 {
-	this := InlineResponse2003{}
+func NewGetSales200ResponseInnerWithDefaults() *GetSales200ResponseInner {
+	this := GetSales200ResponseInner{}
 	return &this
 }
 
 // GetNumber returns the Number field value
-func (o *InlineResponse2003) GetNumber() string {
+func (o *GetSales200ResponseInner) GetNumber() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -137,20 +143,20 @@ func (o *InlineResponse2003) GetNumber() string {
 
 // GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetNumberOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetNumberOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Number, true
 }
 
 // SetNumber sets field value
-func (o *InlineResponse2003) SetNumber(v string) {
+func (o *GetSales200ResponseInner) SetNumber(v string) {
 	o.Number = v
 }
 
 // GetDate returns the Date field value
-func (o *InlineResponse2003) GetDate() string {
+func (o *GetSales200ResponseInner) GetDate() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -161,20 +167,20 @@ func (o *InlineResponse2003) GetDate() string {
 
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetDateOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetDateOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Date, true
 }
 
 // SetDate sets field value
-func (o *InlineResponse2003) SetDate(v string) {
+func (o *GetSales200ResponseInner) SetDate(v string) {
 	o.Date = v
 }
 
 // GetLastChangeDate returns the LastChangeDate field value
-func (o *InlineResponse2003) GetLastChangeDate() string {
+func (o *GetSales200ResponseInner) GetLastChangeDate() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -185,20 +191,20 @@ func (o *InlineResponse2003) GetLastChangeDate() string {
 
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetLastChangeDateOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetLastChangeDateOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.LastChangeDate, true
 }
 
 // SetLastChangeDate sets field value
-func (o *InlineResponse2003) SetLastChangeDate(v string) {
+func (o *GetSales200ResponseInner) SetLastChangeDate(v string) {
 	o.LastChangeDate = v
 }
 
 // GetSupplierArticle returns the SupplierArticle field value
-func (o *InlineResponse2003) GetSupplierArticle() string {
+func (o *GetSales200ResponseInner) GetSupplierArticle() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -209,20 +215,20 @@ func (o *InlineResponse2003) GetSupplierArticle() string {
 
 // GetSupplierArticleOk returns a tuple with the SupplierArticle field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetSupplierArticleOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetSupplierArticleOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SupplierArticle, true
 }
 
 // SetSupplierArticle sets field value
-func (o *InlineResponse2003) SetSupplierArticle(v string) {
+func (o *GetSales200ResponseInner) SetSupplierArticle(v string) {
 	o.SupplierArticle = v
 }
 
 // GetTechSize returns the TechSize field value
-func (o *InlineResponse2003) GetTechSize() string {
+func (o *GetSales200ResponseInner) GetTechSize() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -233,20 +239,20 @@ func (o *InlineResponse2003) GetTechSize() string {
 
 // GetTechSizeOk returns a tuple with the TechSize field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetTechSizeOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetTechSizeOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TechSize, true
 }
 
 // SetTechSize sets field value
-func (o *InlineResponse2003) SetTechSize(v string) {
+func (o *GetSales200ResponseInner) SetTechSize(v string) {
 	o.TechSize = v
 }
 
 // GetBarcode returns the Barcode field value
-func (o *InlineResponse2003) GetBarcode() string {
+func (o *GetSales200ResponseInner) GetBarcode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -257,20 +263,20 @@ func (o *InlineResponse2003) GetBarcode() string {
 
 // GetBarcodeOk returns a tuple with the Barcode field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetBarcodeOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetBarcodeOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Barcode, true
 }
 
 // SetBarcode sets field value
-func (o *InlineResponse2003) SetBarcode(v string) {
+func (o *GetSales200ResponseInner) SetBarcode(v string) {
 	o.Barcode = v
 }
 
 // GetQuantity returns the Quantity field value
-func (o *InlineResponse2003) GetQuantity() int64 {
+func (o *GetSales200ResponseInner) GetQuantity() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -281,20 +287,20 @@ func (o *InlineResponse2003) GetQuantity() int64 {
 
 // GetQuantityOk returns a tuple with the Quantity field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetQuantityOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetQuantityOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Quantity, true
 }
 
 // SetQuantity sets field value
-func (o *InlineResponse2003) SetQuantity(v int64) {
+func (o *GetSales200ResponseInner) SetQuantity(v int64) {
 	o.Quantity = v
 }
 
 // GetTotalPrice returns the TotalPrice field value
-func (o *InlineResponse2003) GetTotalPrice() float32 {
+func (o *GetSales200ResponseInner) GetTotalPrice() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -305,20 +311,20 @@ func (o *InlineResponse2003) GetTotalPrice() float32 {
 
 // GetTotalPriceOk returns a tuple with the TotalPrice field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetTotalPriceOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetTotalPriceOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalPrice, true
 }
 
 // SetTotalPrice sets field value
-func (o *InlineResponse2003) SetTotalPrice(v float32) {
+func (o *GetSales200ResponseInner) SetTotalPrice(v float32) {
 	o.TotalPrice = v
 }
 
 // GetDiscountPercent returns the DiscountPercent field value
-func (o *InlineResponse2003) GetDiscountPercent() float32 {
+func (o *GetSales200ResponseInner) GetDiscountPercent() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -329,20 +335,20 @@ func (o *InlineResponse2003) GetDiscountPercent() float32 {
 
 // GetDiscountPercentOk returns a tuple with the DiscountPercent field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetDiscountPercentOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetDiscountPercentOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DiscountPercent, true
 }
 
 // SetDiscountPercent sets field value
-func (o *InlineResponse2003) SetDiscountPercent(v float32) {
+func (o *GetSales200ResponseInner) SetDiscountPercent(v float32) {
 	o.DiscountPercent = v
 }
 
 // GetIsSupply returns the IsSupply field value
-func (o *InlineResponse2003) GetIsSupply() bool {
+func (o *GetSales200ResponseInner) GetIsSupply() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -353,20 +359,20 @@ func (o *InlineResponse2003) GetIsSupply() bool {
 
 // GetIsSupplyOk returns a tuple with the IsSupply field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetIsSupplyOk() (*bool, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetIsSupplyOk() (*bool, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsSupply, true
 }
 
 // SetIsSupply sets field value
-func (o *InlineResponse2003) SetIsSupply(v bool) {
+func (o *GetSales200ResponseInner) SetIsSupply(v bool) {
 	o.IsSupply = v
 }
 
 // GetIsRealization returns the IsRealization field value
-func (o *InlineResponse2003) GetIsRealization() bool {
+func (o *GetSales200ResponseInner) GetIsRealization() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -377,20 +383,20 @@ func (o *InlineResponse2003) GetIsRealization() bool {
 
 // GetIsRealizationOk returns a tuple with the IsRealization field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetIsRealizationOk() (*bool, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetIsRealizationOk() (*bool, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsRealization, true
 }
 
 // SetIsRealization sets field value
-func (o *InlineResponse2003) SetIsRealization(v bool) {
+func (o *GetSales200ResponseInner) SetIsRealization(v bool) {
 	o.IsRealization = v
 }
 
 // GetOrderId returns the OrderId field value
-func (o *InlineResponse2003) GetOrderId() int64 {
+func (o *GetSales200ResponseInner) GetOrderId() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -401,20 +407,20 @@ func (o *InlineResponse2003) GetOrderId() int64 {
 
 // GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetOrderIdOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetOrderIdOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OrderId, true
 }
 
 // SetOrderId sets field value
-func (o *InlineResponse2003) SetOrderId(v int64) {
+func (o *GetSales200ResponseInner) SetOrderId(v int64) {
 	o.OrderId = v
 }
 
 // GetPromoCodeDiscount returns the PromoCodeDiscount field value
-func (o *InlineResponse2003) GetPromoCodeDiscount() float32 {
+func (o *GetSales200ResponseInner) GetPromoCodeDiscount() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -425,20 +431,20 @@ func (o *InlineResponse2003) GetPromoCodeDiscount() float32 {
 
 // GetPromoCodeDiscountOk returns a tuple with the PromoCodeDiscount field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetPromoCodeDiscountOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetPromoCodeDiscountOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PromoCodeDiscount, true
 }
 
 // SetPromoCodeDiscount sets field value
-func (o *InlineResponse2003) SetPromoCodeDiscount(v float32) {
+func (o *GetSales200ResponseInner) SetPromoCodeDiscount(v float32) {
 	o.PromoCodeDiscount = v
 }
 
 // GetWarehouseName returns the WarehouseName field value
-func (o *InlineResponse2003) GetWarehouseName() string {
+func (o *GetSales200ResponseInner) GetWarehouseName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -449,20 +455,20 @@ func (o *InlineResponse2003) GetWarehouseName() string {
 
 // GetWarehouseNameOk returns a tuple with the WarehouseName field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetWarehouseNameOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetWarehouseNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.WarehouseName, true
 }
 
 // SetWarehouseName sets field value
-func (o *InlineResponse2003) SetWarehouseName(v string) {
+func (o *GetSales200ResponseInner) SetWarehouseName(v string) {
 	o.WarehouseName = v
 }
 
 // GetCountryName returns the CountryName field value
-func (o *InlineResponse2003) GetCountryName() string {
+func (o *GetSales200ResponseInner) GetCountryName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -473,20 +479,20 @@ func (o *InlineResponse2003) GetCountryName() string {
 
 // GetCountryNameOk returns a tuple with the CountryName field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetCountryNameOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetCountryNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CountryName, true
 }
 
 // SetCountryName sets field value
-func (o *InlineResponse2003) SetCountryName(v string) {
+func (o *GetSales200ResponseInner) SetCountryName(v string) {
 	o.CountryName = v
 }
 
 // GetOblastOkrugName returns the OblastOkrugName field value
-func (o *InlineResponse2003) GetOblastOkrugName() string {
+func (o *GetSales200ResponseInner) GetOblastOkrugName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -497,20 +503,20 @@ func (o *InlineResponse2003) GetOblastOkrugName() string {
 
 // GetOblastOkrugNameOk returns a tuple with the OblastOkrugName field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetOblastOkrugNameOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetOblastOkrugNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OblastOkrugName, true
 }
 
 // SetOblastOkrugName sets field value
-func (o *InlineResponse2003) SetOblastOkrugName(v string) {
+func (o *GetSales200ResponseInner) SetOblastOkrugName(v string) {
 	o.OblastOkrugName = v
 }
 
 // GetRegionName returns the RegionName field value
-func (o *InlineResponse2003) GetRegionName() string {
+func (o *GetSales200ResponseInner) GetRegionName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -521,20 +527,20 @@ func (o *InlineResponse2003) GetRegionName() string {
 
 // GetRegionNameOk returns a tuple with the RegionName field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetRegionNameOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetRegionNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RegionName, true
 }
 
 // SetRegionName sets field value
-func (o *InlineResponse2003) SetRegionName(v string) {
+func (o *GetSales200ResponseInner) SetRegionName(v string) {
 	o.RegionName = v
 }
 
 // GetIncomeID returns the IncomeID field value
-func (o *InlineResponse2003) GetIncomeID() int64 {
+func (o *GetSales200ResponseInner) GetIncomeID() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -545,20 +551,20 @@ func (o *InlineResponse2003) GetIncomeID() int64 {
 
 // GetIncomeIDOk returns a tuple with the IncomeID field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetIncomeIDOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetIncomeIDOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomeID, true
 }
 
 // SetIncomeID sets field value
-func (o *InlineResponse2003) SetIncomeID(v int64) {
+func (o *GetSales200ResponseInner) SetIncomeID(v int64) {
 	o.IncomeID = v
 }
 
 // GetSaleID returns the SaleID field value
-func (o *InlineResponse2003) GetSaleID() string {
+func (o *GetSales200ResponseInner) GetSaleID() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -569,20 +575,20 @@ func (o *InlineResponse2003) GetSaleID() string {
 
 // GetSaleIDOk returns a tuple with the SaleID field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetSaleIDOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetSaleIDOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SaleID, true
 }
 
 // SetSaleID sets field value
-func (o *InlineResponse2003) SetSaleID(v string) {
+func (o *GetSales200ResponseInner) SetSaleID(v string) {
 	o.SaleID = v
 }
 
 // GetOdid returns the Odid field value
-func (o *InlineResponse2003) GetOdid() int64 {
+func (o *GetSales200ResponseInner) GetOdid() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -593,20 +599,20 @@ func (o *InlineResponse2003) GetOdid() int64 {
 
 // GetOdidOk returns a tuple with the Odid field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetOdidOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetOdidOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Odid, true
 }
 
 // SetOdid sets field value
-func (o *InlineResponse2003) SetOdid(v int64) {
+func (o *GetSales200ResponseInner) SetOdid(v int64) {
 	o.Odid = v
 }
 
 // GetSpp returns the Spp field value
-func (o *InlineResponse2003) GetSpp() float32 {
+func (o *GetSales200ResponseInner) GetSpp() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -617,20 +623,20 @@ func (o *InlineResponse2003) GetSpp() float32 {
 
 // GetSppOk returns a tuple with the Spp field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetSppOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetSppOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Spp, true
 }
 
 // SetSpp sets field value
-func (o *InlineResponse2003) SetSpp(v float32) {
+func (o *GetSales200ResponseInner) SetSpp(v float32) {
 	o.Spp = v
 }
 
 // GetForPay returns the ForPay field value
-func (o *InlineResponse2003) GetForPay() float32 {
+func (o *GetSales200ResponseInner) GetForPay() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -641,20 +647,20 @@ func (o *InlineResponse2003) GetForPay() float32 {
 
 // GetForPayOk returns a tuple with the ForPay field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetForPayOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetForPayOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ForPay, true
 }
 
 // SetForPay sets field value
-func (o *InlineResponse2003) SetForPay(v float32) {
+func (o *GetSales200ResponseInner) SetForPay(v float32) {
 	o.ForPay = v
 }
 
 // GetFinishedPrice returns the FinishedPrice field value
-func (o *InlineResponse2003) GetFinishedPrice() float32 {
+func (o *GetSales200ResponseInner) GetFinishedPrice() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -665,20 +671,20 @@ func (o *InlineResponse2003) GetFinishedPrice() float32 {
 
 // GetFinishedPriceOk returns a tuple with the FinishedPrice field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetFinishedPriceOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetFinishedPriceOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FinishedPrice, true
 }
 
 // SetFinishedPrice sets field value
-func (o *InlineResponse2003) SetFinishedPrice(v float32) {
+func (o *GetSales200ResponseInner) SetFinishedPrice(v float32) {
 	o.FinishedPrice = v
 }
 
 // GetPriceWithDisc returns the PriceWithDisc field value
-func (o *InlineResponse2003) GetPriceWithDisc() float32 {
+func (o *GetSales200ResponseInner) GetPriceWithDisc() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -689,20 +695,20 @@ func (o *InlineResponse2003) GetPriceWithDisc() float32 {
 
 // GetPriceWithDiscOk returns a tuple with the PriceWithDisc field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetPriceWithDiscOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetPriceWithDiscOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PriceWithDisc, true
 }
 
 // SetPriceWithDisc sets field value
-func (o *InlineResponse2003) SetPriceWithDisc(v float32) {
+func (o *GetSales200ResponseInner) SetPriceWithDisc(v float32) {
 	o.PriceWithDisc = v
 }
 
 // GetNmId returns the NmId field value
-func (o *InlineResponse2003) GetNmId() int64 {
+func (o *GetSales200ResponseInner) GetNmId() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -713,20 +719,20 @@ func (o *InlineResponse2003) GetNmId() int64 {
 
 // GetNmIdOk returns a tuple with the NmId field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetNmIdOk() (*int64, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetNmIdOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NmId, true
 }
 
 // SetNmId sets field value
-func (o *InlineResponse2003) SetNmId(v int64) {
+func (o *GetSales200ResponseInner) SetNmId(v int64) {
 	o.NmId = v
 }
 
 // GetSubject returns the Subject field value
-func (o *InlineResponse2003) GetSubject() string {
+func (o *GetSales200ResponseInner) GetSubject() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -737,20 +743,20 @@ func (o *InlineResponse2003) GetSubject() string {
 
 // GetSubjectOk returns a tuple with the Subject field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetSubjectOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetSubjectOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Subject, true
 }
 
 // SetSubject sets field value
-func (o *InlineResponse2003) SetSubject(v string) {
+func (o *GetSales200ResponseInner) SetSubject(v string) {
 	o.Subject = v
 }
 
 // GetCategory returns the Category field value
-func (o *InlineResponse2003) GetCategory() string {
+func (o *GetSales200ResponseInner) GetCategory() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -761,20 +767,20 @@ func (o *InlineResponse2003) GetCategory() string {
 
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetCategoryOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetCategoryOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Category, true
 }
 
 // SetCategory sets field value
-func (o *InlineResponse2003) SetCategory(v string) {
+func (o *GetSales200ResponseInner) SetCategory(v string) {
 	o.Category = v
 }
 
 // GetBrand returns the Brand field value
-func (o *InlineResponse2003) GetBrand() string {
+func (o *GetSales200ResponseInner) GetBrand() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -785,20 +791,20 @@ func (o *InlineResponse2003) GetBrand() string {
 
 // GetBrandOk returns a tuple with the Brand field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetBrandOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetBrandOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Brand, true
 }
 
 // SetBrand sets field value
-func (o *InlineResponse2003) SetBrand(v string) {
+func (o *GetSales200ResponseInner) SetBrand(v string) {
 	o.Brand = v
 }
 
 // GetIsStorno returns the IsStorno field value
-func (o *InlineResponse2003) GetIsStorno() float32 {
+func (o *GetSales200ResponseInner) GetIsStorno() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -809,20 +815,20 @@ func (o *InlineResponse2003) GetIsStorno() float32 {
 
 // GetIsStornoOk returns a tuple with the IsStorno field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetIsStornoOk() (*float32, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetIsStornoOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsStorno, true
 }
 
 // SetIsStorno sets field value
-func (o *InlineResponse2003) SetIsStorno(v float32) {
+func (o *GetSales200ResponseInner) SetIsStorno(v float32) {
 	o.IsStorno = v
 }
 
 // GetGNumber returns the GNumber field value
-func (o *InlineResponse2003) GetGNumber() string {
+func (o *GetSales200ResponseInner) GetGNumber() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -833,145 +839,118 @@ func (o *InlineResponse2003) GetGNumber() string {
 
 // GetGNumberOk returns a tuple with the GNumber field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetGNumberOk() (*string, bool) {
-	if o == nil  {
+func (o *GetSales200ResponseInner) GetGNumberOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GNumber, true
 }
 
 // SetGNumber sets field value
-func (o *InlineResponse2003) SetGNumber(v string) {
+func (o *GetSales200ResponseInner) SetGNumber(v string) {
 	o.GNumber = v
 }
 
-func (o InlineResponse2003) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["number"] = o.Number
+// GetSrid returns the Srid field value
+func (o *GetSales200ResponseInner) GetSrid() string {
+	if o == nil {
+		var ret string
+		return ret
 	}
-	if true {
-		toSerialize["date"] = o.Date
+
+	return o.Srid
+}
+
+// GetSridOk returns a tuple with the Srid field value
+// and a boolean to check if the value has been set.
+func (o *GetSales200ResponseInner) GetSridOk() (*string, bool) {
+	if o == nil {
+		return nil, false
 	}
-	if true {
-		toSerialize["lastChangeDate"] = o.LastChangeDate
-	}
-	if true {
-		toSerialize["supplierArticle"] = o.SupplierArticle
-	}
-	if true {
-		toSerialize["techSize"] = o.TechSize
-	}
-	if true {
-		toSerialize["barcode"] = o.Barcode
-	}
-	if true {
-		toSerialize["quantity"] = o.Quantity
-	}
-	if true {
-		toSerialize["totalPrice"] = o.TotalPrice
-	}
-	if true {
-		toSerialize["discountPercent"] = o.DiscountPercent
-	}
-	if true {
-		toSerialize["isSupply"] = o.IsSupply
-	}
-	if true {
-		toSerialize["isRealization"] = o.IsRealization
-	}
-	if true {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if true {
-		toSerialize["promoCodeDiscount"] = o.PromoCodeDiscount
-	}
-	if true {
-		toSerialize["warehouseName"] = o.WarehouseName
-	}
-	if true {
-		toSerialize["countryName"] = o.CountryName
-	}
-	if true {
-		toSerialize["oblastOkrugName"] = o.OblastOkrugName
-	}
-	if true {
-		toSerialize["regionName"] = o.RegionName
-	}
-	if true {
-		toSerialize["incomeID"] = o.IncomeID
-	}
-	if true {
-		toSerialize["saleID"] = o.SaleID
-	}
-	if true {
-		toSerialize["odid"] = o.Odid
-	}
-	if true {
-		toSerialize["spp"] = o.Spp
-	}
-	if true {
-		toSerialize["forPay"] = o.ForPay
-	}
-	if true {
-		toSerialize["finishedPrice"] = o.FinishedPrice
-	}
-	if true {
-		toSerialize["priceWithDisc"] = o.PriceWithDisc
-	}
-	if true {
-		toSerialize["nmId"] = o.NmId
-	}
-	if true {
-		toSerialize["subject"] = o.Subject
-	}
-	if true {
-		toSerialize["category"] = o.Category
-	}
-	if true {
-		toSerialize["brand"] = o.Brand
-	}
-	if true {
-		toSerialize["IsStorno"] = o.IsStorno
-	}
-	if true {
-		toSerialize["gNumber"] = o.GNumber
+	return &o.Srid, true
+}
+
+// SetSrid sets field value
+func (o *GetSales200ResponseInner) SetSrid(v string) {
+	o.Srid = v
+}
+
+func (o GetSales200ResponseInner) MarshalJSON() ([]byte, error) {
+	toSerialize,err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
 	return json.Marshal(toSerialize)
 }
 
-type NullableInlineResponse2003 struct {
-	value *InlineResponse2003
+func (o GetSales200ResponseInner) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["number"] = o.Number
+	toSerialize["date"] = o.Date
+	toSerialize["lastChangeDate"] = o.LastChangeDate
+	toSerialize["supplierArticle"] = o.SupplierArticle
+	toSerialize["techSize"] = o.TechSize
+	toSerialize["barcode"] = o.Barcode
+	toSerialize["quantity"] = o.Quantity
+	toSerialize["totalPrice"] = o.TotalPrice
+	toSerialize["discountPercent"] = o.DiscountPercent
+	toSerialize["isSupply"] = o.IsSupply
+	toSerialize["isRealization"] = o.IsRealization
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["promoCodeDiscount"] = o.PromoCodeDiscount
+	toSerialize["warehouseName"] = o.WarehouseName
+	toSerialize["countryName"] = o.CountryName
+	toSerialize["oblastOkrugName"] = o.OblastOkrugName
+	toSerialize["regionName"] = o.RegionName
+	toSerialize["incomeID"] = o.IncomeID
+	toSerialize["saleID"] = o.SaleID
+	toSerialize["odid"] = o.Odid
+	toSerialize["spp"] = o.Spp
+	toSerialize["forPay"] = o.ForPay
+	toSerialize["finishedPrice"] = o.FinishedPrice
+	toSerialize["priceWithDisc"] = o.PriceWithDisc
+	toSerialize["nmId"] = o.NmId
+	toSerialize["subject"] = o.Subject
+	toSerialize["category"] = o.Category
+	toSerialize["brand"] = o.Brand
+	toSerialize["IsStorno"] = o.IsStorno
+	toSerialize["gNumber"] = o.GNumber
+	toSerialize["srid"] = o.Srid
+	return toSerialize, nil
+}
+
+type NullableGetSales200ResponseInner struct {
+	value *GetSales200ResponseInner
 	isSet bool
 }
 
-func (v NullableInlineResponse2003) Get() *InlineResponse2003 {
+func (v NullableGetSales200ResponseInner) Get() *GetSales200ResponseInner {
 	return v.value
 }
 
-func (v *NullableInlineResponse2003) Set(val *InlineResponse2003) {
+func (v *NullableGetSales200ResponseInner) Set(val *GetSales200ResponseInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInlineResponse2003) IsSet() bool {
+func (v NullableGetSales200ResponseInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInlineResponse2003) Unset() {
+func (v *NullableGetSales200ResponseInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInlineResponse2003(val *InlineResponse2003) *NullableInlineResponse2003 {
-	return &NullableInlineResponse2003{value: val, isSet: true}
+func NewNullableGetSales200ResponseInner(val *GetSales200ResponseInner) *NullableGetSales200ResponseInner {
+	return &NullableGetSales200ResponseInner{value: val, isSet: true}
 }
 
-func (v NullableInlineResponse2003) MarshalJSON() ([]byte, error) {
+func (v NullableGetSales200ResponseInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInlineResponse2003) UnmarshalJSON(src []byte) error {
+func (v *NullableGetSales200ResponseInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

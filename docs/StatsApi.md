@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIncomes**](StatsApi.md#GetIncomes) | **Get** /incomes | Get Incomes
 [**GetOrders**](StatsApi.md#GetOrders) | **Get** /orders | Get Orders
-[**GetPaidStorage**](StatsApi.md#GetPaidStorage) | **Get** /stochrancost | Get Paid Storage
+[**GetReportDetailByPeriod**](StatsApi.md#GetReportDetailByPeriod) | **Get** /reportDetailByPeriod | Get Report Detail By Period
 [**GetSales**](StatsApi.md#GetSales) | **Get** /sales | Get Sales
 [**GetStocks**](StatsApi.md#GetStocks) | **Get** /stocks | Get Stocks
 
@@ -14,9 +14,11 @@ Method | HTTP request | Description
 
 ## GetIncomes
 
-> []InlineResponse2001 GetIncomes(ctx).DateFrom(dateFrom).Execute()
+> []GetIncomes200ResponseInner GetIncomes(ctx).DateFrom(dateFrom).Execute()
 
 Get Incomes
+
+
 
 ### Example
 
@@ -35,13 +37,13 @@ func main() {
     dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetIncomes(context.Background()).DateFrom(dateFrom).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetIncomes(context.Background()).DateFrom(dateFrom).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetIncomes``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetIncomes`: []InlineResponse2001
+    // response from `GetIncomes`: []GetIncomes200ResponseInner
     fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetIncomes`: %v\n", resp)
 }
 ```
@@ -61,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]InlineResponse2001**](InlineResponse2001.md)
+[**[]GetIncomes200ResponseInner**](GetIncomes200ResponseInner.md)
 
 ### Authorization
 
@@ -79,9 +81,11 @@ Name | Type | Description  | Notes
 
 ## GetOrders
 
-> []InlineResponse200 GetOrders(ctx).DateFrom(dateFrom).Flag(flag).Execute()
+> []GetOrders200ResponseInner GetOrders(ctx).DateFrom(dateFrom).Flag(flag).Execute()
 
 Get Orders
+
+
 
 ### Example
 
@@ -101,13 +105,13 @@ func main() {
     flag := int32(56) // int32 | 1 - то за одну дату, 0 - за все что больше переданной даты (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetOrders(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetOrders(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetOrders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOrders`: []InlineResponse200
+    // response from `GetOrders`: []GetOrders200ResponseInner
     fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetOrders`: %v\n", resp)
 }
 ```
@@ -128,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]InlineResponse200**](InlineResponse200.md)
+[**[]GetOrders200ResponseInner**](GetOrders200ResponseInner.md)
 
 ### Authorization
 
@@ -144,11 +148,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetPaidStorage
+## GetReportDetailByPeriod
 
-> []InlineResponse2004 GetPaidStorage(ctx).DateFrom(dateFrom).DateTo(dateTo).Execute()
+> []GetReportDetailByPeriod200ResponseInner GetReportDetailByPeriod(ctx).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
 
-Get Paid Storage
+Get Report Detail By Period
 
 
 
@@ -166,18 +170,20 @@ import (
 )
 
 func main() {
-    dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
-    dateTo := time.Now() // time.Time | Дата и время до которых выгружается информация
+    dateFrom := time.Now() // time.Time | Начальная дата периода
+    dateTo := time.Now() // time.Time | Конечная дата периода
+    limit := int64(789) // int64 | Максимальное количество записей, получаемых при запросе
+    rrdid := int64(789) // int64 | Идентификатор записи, начиная с которой нужно получать данные при запросе
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetPaidStorage(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetReportDetailByPeriod(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Limit(limit).Rrdid(rrdid).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetPaidStorage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetReportDetailByPeriod``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetPaidStorage`: []InlineResponse2004
-    fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetPaidStorage`: %v\n", resp)
+    // response from `GetReportDetailByPeriod`: []GetReportDetailByPeriod200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetReportDetailByPeriod`: %v\n", resp)
 }
 ```
 
@@ -187,17 +193,19 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetPaidStorageRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetReportDetailByPeriodRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dateFrom** | **time.Time** | Дата и время от которых выгружается информация | 
- **dateTo** | **time.Time** | Дата и время до которых выгружается информация | 
+ **dateFrom** | **time.Time** | Начальная дата периода | 
+ **dateTo** | **time.Time** | Конечная дата периода | 
+ **limit** | **int64** | Максимальное количество записей, получаемых при запросе | 
+ **rrdid** | **int64** | Идентификатор записи, начиная с которой нужно получать данные при запросе | 
 
 ### Return type
 
-[**[]InlineResponse2004**](InlineResponse2004.md)
+[**[]GetReportDetailByPeriod200ResponseInner**](GetReportDetailByPeriod200ResponseInner.md)
 
 ### Authorization
 
@@ -215,9 +223,11 @@ Name | Type | Description  | Notes
 
 ## GetSales
 
-> []InlineResponse2003 GetSales(ctx).DateFrom(dateFrom).Flag(flag).Execute()
+> []GetSales200ResponseInner GetSales(ctx).DateFrom(dateFrom).Flag(flag).Execute()
 
 Get Sales
+
+
 
 ### Example
 
@@ -237,13 +247,13 @@ func main() {
     flag := int32(56) // int32 | 1 - то за одну дату, 0 - за все что больше переданной даты (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetSales(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetSales(context.Background()).DateFrom(dateFrom).Flag(flag).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetSales``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSales`: []InlineResponse2003
+    // response from `GetSales`: []GetSales200ResponseInner
     fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetSales`: %v\n", resp)
 }
 ```
@@ -264,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]InlineResponse2003**](InlineResponse2003.md)
+[**[]GetSales200ResponseInner**](GetSales200ResponseInner.md)
 
 ### Authorization
 
@@ -282,9 +292,11 @@ Name | Type | Description  | Notes
 
 ## GetStocks
 
-> []InlineResponse2002 GetStocks(ctx).DateFrom(dateFrom).Execute()
+> []GetStocks200ResponseInner GetStocks(ctx).DateFrom(dateFrom).Execute()
 
 Get Stocks
+
+
 
 ### Example
 
@@ -303,13 +315,13 @@ func main() {
     dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.StatsApi.GetStocks(context.Background()).DateFrom(dateFrom).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetStocks(context.Background()).DateFrom(dateFrom).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetStocks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetStocks`: []InlineResponse2002
+    // response from `GetStocks`: []GetStocks200ResponseInner
     fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetStocks`: %v\n", resp)
 }
 ```
@@ -329,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]InlineResponse2002**](InlineResponse2002.md)
+[**[]GetStocks200ResponseInner**](GetStocks200ResponseInner.md)
 
 ### Authorization
 

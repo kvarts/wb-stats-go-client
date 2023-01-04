@@ -13,7 +13,7 @@ package openapi
 import (
 	"context"
 	"fmt"
-	"net/http"
+	http_helpers "github.com/kvarts/wb-stats-go-client/http-helpers"
 	"strings"
 )
 
@@ -28,6 +28,15 @@ func (c contextKey) String() string {
 }
 
 var (
+	// ContextOAuth2 takes an oauth2.TokenSource as authentication for the request.
+	ContextOAuth2 = contextKey("token")
+
+	// ContextBasicAuth takes BasicAuth as authentication for the request.
+	ContextBasicAuth = contextKey("basic")
+
+	// ContextAccessToken takes a string oauth2 access token as authentication for the request.
+	ContextAccessToken = contextKey("accesstoken")
+
 	// ContextAPIKeys takes a string apikey as authentication for the request
 	ContextAPIKeys = contextKey("apiKeys")
 
@@ -76,10 +85,6 @@ type ServerConfiguration struct {
 // ServerConfigurations stores multiple ServerConfiguration items
 type ServerConfigurations []ServerConfiguration
 
-type HTTPDoyer interface {
-	Do(req *http.Request) (*http.Response, error)
-}
-
 // Configuration stores the configuration of the API client
 type Configuration struct {
 	Host             string            `json:"host,omitempty"`
@@ -89,7 +94,7 @@ type Configuration struct {
 	Debug            bool              `json:"debug,omitempty"`
 	Servers          ServerConfigurations
 	OperationServers map[string]ServerConfigurations
-	HTTPClient       HTTPDoyer
+	HTTPClient       http_helpers.HTTPDoyer
 }
 
 // NewConfiguration returns a new Configuration object
@@ -118,7 +123,7 @@ func (c *Configuration) AddDefaultHeader(key string, value string) {
 // URL formats template on a index using given variables
 func (sc ServerConfigurations) URL(index int, variables map[string]string) (string, error) {
 	if index < 0 || len(sc) <= index {
-		return "", fmt.Errorf("Index %v out of range %v", index, len(sc)-1)
+		return "", fmt.Errorf("index %v out of range %v", index, len(sc)-1)
 	}
 	server := sc[index]
 	url := server.URL
@@ -133,7 +138,7 @@ func (sc ServerConfigurations) URL(index int, variables map[string]string) (stri
 				}
 			}
 			if !found {
-				return "", fmt.Errorf("The variable %s in the server URL has invalid value %v. Must be %v", name, value, variable.EnumValues)
+				return "", fmt.Errorf("the variable %s in the server URL has invalid value %v. Must be %v", name, value, variable.EnumValues)
 			}
 			url = strings.Replace(url, "{"+name+"}", value, -1)
 		} else {
