@@ -6,3 +6,6 @@ generate:
 	sed 's@"net/http"@http_helpers "github.com/kvarts/wb-stats-go-client/http-helpers"@' $(CURDIR)/configuration.go > $(CURDIR)/configuration2.go
 	sed 's@*http.Client@http_helpers.HTTPDoyer@' $(CURDIR)/configuration2.go > $(CURDIR)/configuration.go
 	rm $(CURDIR)/configuration2.go
+	sed 's@time.Time@StockTime@' $(CURDIR)/model_get_stocks_200_response_inner.go > $(CURDIR)/model_get_stocks_200_response_inner2.go
+	sed 's@"time"@@' $(CURDIR)/model_get_stocks_200_response_inner2.go > $(CURDIR)/model_get_stocks_200_response_inner.go
+	rm $(CURDIR)/model_get_stocks_200_response_inner2.go
