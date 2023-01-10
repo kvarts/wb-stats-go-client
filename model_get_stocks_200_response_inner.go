@@ -12,7 +12,7 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
+	
 )
 
 // checks if the GetStocks200ResponseInner type satisfies the MappedNullable interface at compile time
@@ -21,7 +21,7 @@ var _ MappedNullable = &GetStocks200ResponseInner{}
 // GetStocks200ResponseInner struct for GetStocks200ResponseInner
 type GetStocks200ResponseInner struct {
 	// Дата и время обновления данных в сервисе
-	LastChangeDate time.Time `json:"lastChangeDate"`
+	LastChangeDate StockTime `json:"lastChangeDate"`
 	// Артикул продавца
 	SupplierArticle string `json:"supplierArticle"`
 	// Размер
@@ -60,7 +60,7 @@ type GetStocks200ResponseInner struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetStocks200ResponseInner(lastChangeDate time.Time, supplierArticle string, techSize string, barcode string, quantity int64, isSupply bool, isRealization bool, quantityFull int64, warehouseName string, nmId int64, subject string, category string, daysOnSite int32, brand string, sCCode string, price float32, discount float32) *GetStocks200ResponseInner {
+func NewGetStocks200ResponseInner(lastChangeDate StockTime, supplierArticle string, techSize string, barcode string, quantity int64, isSupply bool, isRealization bool, quantityFull int64, warehouseName string, nmId int64, subject string, category string, daysOnSite int32, brand string, sCCode string, price float32, discount float32) *GetStocks200ResponseInner {
 	this := GetStocks200ResponseInner{}
 	this.LastChangeDate = lastChangeDate
 	this.SupplierArticle = supplierArticle
@@ -91,9 +91,9 @@ func NewGetStocks200ResponseInnerWithDefaults() *GetStocks200ResponseInner {
 }
 
 // GetLastChangeDate returns the LastChangeDate field value
-func (o *GetStocks200ResponseInner) GetLastChangeDate() time.Time {
+func (o *GetStocks200ResponseInner) GetLastChangeDate() StockTime {
 	if o == nil {
-		var ret time.Time
+		var ret StockTime
 		return ret
 	}
 
@@ -102,7 +102,7 @@ func (o *GetStocks200ResponseInner) GetLastChangeDate() time.Time {
 
 // GetLastChangeDateOk returns a tuple with the LastChangeDate field value
 // and a boolean to check if the value has been set.
-func (o *GetStocks200ResponseInner) GetLastChangeDateOk() (*time.Time, bool) {
+func (o *GetStocks200ResponseInner) GetLastChangeDateOk() (*StockTime, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,7 +110,7 @@ func (o *GetStocks200ResponseInner) GetLastChangeDateOk() (*time.Time, bool) {
 }
 
 // SetLastChangeDate sets field value
-func (o *GetStocks200ResponseInner) SetLastChangeDate(v time.Time) {
+func (o *GetStocks200ResponseInner) SetLastChangeDate(v StockTime) {
 	o.LastChangeDate = v
 }
 
