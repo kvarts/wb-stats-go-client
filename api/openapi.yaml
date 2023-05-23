@@ -135,6 +135,44 @@ paths:
       summary: Get Sales
       tags:
       - stats
+  /stochrancost:
+    get:
+      description: Получить информацию о платном хранилище - факт
+      operationId: get-paid-storage
+      parameters:
+      - description: Дата и время от которых выгружается информация
+        explode: true
+        in: query
+        name: dateFrom
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: Дата и время до которых выгружается информация
+        explode: true
+        in: query
+        name: dateTo
+        required: true
+        schema:
+          example: 2021-01-06T21:00:00Z
+          format: date-time
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples: {}
+              schema:
+                items:
+                  $ref: '#/components/schemas/get_paid_storage_200_response_inner'
+                type: array
+          description: OK
+      summary: Get Paid Storage
+      tags:
+      - stats
   /reportDetailByPeriod:
     get:
       description: Получить информацию об отчёте о продажах по реализации
@@ -682,58 +720,151 @@ components:
       - totalPrice
       - warehouseName
       type: object
+    get_paid_storage_200_response_inner:
+      description: ""
+      example:
+        daysOnSite: 6
+        nmId: 0
+        techSize: techSize
+        sumW: 5.637376656633329
+        dayBeg: dayBeg
+        dayEnd: dayEnd
+        stock: 1
+        saleQty: 5
+      properties:
+        dayBeg:
+          description: Дата начала периода хранения
+          type: string
+        dayEnd:
+          description: Дата завершения периода хранения
+          type: string
+        nmId:
+          description: Код wildberries
+          format: int64
+          type: integer
+        techSize:
+          description: Размер
+          type: string
+        daysOnSite:
+          description: Количество дней на сайте
+          format: int32
+          type: integer
+        stock:
+          description: Остаток на начало периода
+          format: int64
+          type: integer
+        saleQty:
+          description: Количество продано
+          format: int64
+          type: integer
+        sumW:
+          description: "Сумма за хранение, руб."
+          type: number
+      required:
+      - dayBeg
+      - dayEnd
+      - daysOnSite
+      - nmId
+      - saleQty
+      - stock
+      - sumW
+      - techSize
+      type: object
     get_report_detail_by_period_200_response_inner:
       example:
-        ppvz_sales_commission: 9.369310271410669
-        retail_amount: 9.301444243932576
-        rid: 0
-        ppvz_vw: 9.018348186070783
+        ppvz_sales_commission: 9.018348186070783
+        retail_amount: 4.145608029883936
+        rid: 9
+        ppvz_vw: 6.965117697638846
         declaration_number: declaration_number
-        retail_price: 7.061401241503109
+        retail_price: 2.027123023002322
         srid: srid
-        ppvz_kvw_prc_base: 5.025004791520295
+        ppvz_kvw_prc_base: 6.683562403749608
         rr_dt: rr_dt
         site_country: site_country
-        product_discount_for_report: 6.84685269835264
+        sup_rating_prc_up: 0.8008281904610115
+        create_dt: 2000-01-23T04:56:07.000+00:00
+        product_discount_for_report: 4.965218492984954
         sale_dt: sale_dt
         barcode: barcode
-        delivery_rub: 1.4894159098541704
+        delivery_rub: 1.1730742509559433
         ppvz_supplier_inn: ppvz_supplier_inn
         ppvz_office_id: 0
         brand_name: brand_name
-        commission_percent: 2.027123023002322
+        date_to: 2000-01-23T04:56:07.000+00:00
+        is_kgvp_v2: 6.027456183070403
+        commission_percent: 1.2315135367772556
         order_dt: order_dt
         ts_name: ts_name
-        ppvz_spp_prc: 4.965218492984954
+        ppvz_spp_prc: 9.369310271410669
         subject_name: subject_name
         sa_name: sa_name
-        return_amount: 1
-        ppvz_reward: 8.762042012749001
+        date_from: 2000-01-23T04:56:07.000+00:00
+        return_amount: 7
+        ppvz_reward: 3.5571952270680973
         gi_id: 0
-        sale_percent: 3.616076749251911
-        penalty: 1.284659006116532
+        bonus_type_name: bonus_type_name
+        sale_percent: 7.386281948385884
+        penalty: 6.878052220127876
         ppvz_supplier_id: 0
-        realizationreport_id: 0
-        delivery_amount: 1
+        realizationreport_id: 5
+        delivery_amount: 6
         gi_box_type_name: gi_box_type_name
-        ppvz_kvw_prc: 9.965781217890562
-        ppvz_for_pay: 6.683562403749608
-        ppvz_vw_nds: 6.438423552598547
+        ppvz_kvw_prc: 8.762042012749001
+        ppvz_for_pay: 6.438423552598547
+        ppvz_vw_nds: 1.284659006116532
+        acquiring_bank: acquiring_bank
         nm_id: 0
         supplier_oper_name: supplier_oper_name
+        kiz: kiz
         ppvz_supplier_name: ppvz_supplier_name
         sticker_id: sticker_id
-        quantity: 2
-        suppliercontract_code: 6
+        quantity: 3
+        suppliercontract_code: 5
         rrd_id: 0
         shk_id: 0
-        supplier_promo: 7.457744773683766
-        additional_payment: 2.8841621266687802
+        supplier_promo: 5.025004791520295
+        additional_payment: 5.944895607614016
         doc_type_name: doc_type_name
         office_name: office_name
-        retail_price_withdisc_rub: 7.386281948385884
+        retail_price_withdisc_rub: 1.4894159098541704
+        acquiring_fee: 1.4658129805029452
         ppvz_office_name: ppvz_office_name
       properties:
+        date_from:
+          description: Дата начала отчётного периода
+          format: date-time
+          type: string
+        date_to:
+          description: Дата конца отчётного периода
+          format: date-time
+          type: string
+        create_dt:
+          description: Дата формирования отчёта
+          format: date-time
+          type: string
+          x-stoplight:
+            id: c1y62zoqgz03q
+        sup_rating_prc_up:
+          description: "Размер снижения кВВ из-за рейтинга, %"
+          type: number
+        is_kgvp_v2:
+          description: "Размер снижения кВВ из-за акции, %"
+          type: number
+        acquiring_fee:
+          description: |-
+            Возмещение расходов по эквайрингу.
+            Расходы WB на услуги эквайринга: вычитаются из вознаграждения WB и не влияют на доход продавца
+          type: number
+        acquiring_bank:
+          description: "Наименование банка, предоставляющего услуги эквайринг"
+          type: string
+        bonus_type_name:
+          description: Обоснование штрафов и доплат
+          type: string
+        kiz:
+          description: Код маркировки
+          type: string
         realizationreport_id:
           description: Идентификатор отчёта
           type: integer
@@ -847,7 +978,6 @@ components:
         rid:
           description: Идентификатор заказа
           format: int64
-          minimum: 0
           type: integer
         ppvz_spp_prc:
           description: Скидка постоянного покупателя
@@ -921,13 +1051,10 @@ components:
       - barcode
       - brand_name
       - commission_percent
-      - delivery_amount
-      - delivery_rub
       - doc_type_name
       - gi_box_type_name
       - gi_id
       - office_name
-      - order_dt
       - penalty
       - ppvz_for_pay
       - ppvz_kvw_prc
@@ -939,25 +1066,17 @@ components:
       - ppvz_supplier_id
       - ppvz_vw
       - ppvz_vw_nds
-      - product_discount_for_report
       - quantity
       - realizationreport_id
       - retail_amount
       - retail_price
-      - retail_price_withdisc_rub
-      - return_amount
-      - rid
       - rr_dt
       - rrd_id
       - sa_name
-      - sale_dt
       - sale_percent
       - shk_id
-      - site_country
-      - srid
       - subject_name
       - supplier_oper_name
-      - supplier_promo
       - ts_name
       type: object
   securitySchemes:

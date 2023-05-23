@@ -15,7 +15,6 @@ Install the following dependencies:
 
 ```shell
 go get github.com/stretchr/testify/assert
-go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -80,6 +79,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *StatsApi* | [**GetIncomes**](docs/StatsApi.md#getincomes) | **Get** /incomes | Get Incomes
 *StatsApi* | [**GetOrders**](docs/StatsApi.md#getorders) | **Get** /orders | Get Orders
+*StatsApi* | [**GetPaidStorage**](docs/StatsApi.md#getpaidstorage) | **Get** /stochrancost | Get Paid Storage
 *StatsApi* | [**GetReportDetailByPeriod**](docs/StatsApi.md#getreportdetailbyperiod) | **Get** /reportDetailByPeriod | Get Report Detail By Period
 *StatsApi* | [**GetSales**](docs/StatsApi.md#getsales) | **Get** /sales | Get Sales
 *StatsApi* | [**GetStocks**](docs/StatsApi.md#getstocks) | **Get** /stocks | Get Stocks
@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 
  - [GetIncomes200ResponseInner](docs/GetIncomes200ResponseInner.md)
  - [GetOrders200ResponseInner](docs/GetOrders200ResponseInner.md)
+ - [GetPaidStorage200ResponseInner](docs/GetPaidStorage200ResponseInner.md)
  - [GetReportDetailByPeriod200ResponseInner](docs/GetReportDetailByPeriod200ResponseInner.md)
  - [GetSales200ResponseInner](docs/GetSales200ResponseInner.md)
  - [GetStocks200ResponseInner](docs/GetStocks200ResponseInner.md)

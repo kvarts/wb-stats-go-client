@@ -12,6 +12,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the GetReportDetailByPeriod200ResponseInner type satisfies the MappedNullable interface at compile time
@@ -19,6 +20,24 @@ var _ MappedNullable = &GetReportDetailByPeriod200ResponseInner{}
 
 // GetReportDetailByPeriod200ResponseInner struct for GetReportDetailByPeriod200ResponseInner
 type GetReportDetailByPeriod200ResponseInner struct {
+	// Дата начала отчётного периода
+	DateFrom *time.Time `json:"date_from,omitempty"`
+	// Дата конца отчётного периода
+	DateTo *time.Time `json:"date_to,omitempty"`
+	// Дата формирования отчёта
+	CreateDt *time.Time `json:"create_dt,omitempty"`
+	// Размер снижения кВВ из-за рейтинга, %
+	SupRatingPrcUp *float32 `json:"sup_rating_prc_up,omitempty"`
+	// Размер снижения кВВ из-за акции, %
+	IsKgvpV2 *float32 `json:"is_kgvp_v2,omitempty"`
+	// Возмещение расходов по эквайрингу. Расходы WB на услуги эквайринга: вычитаются из вознаграждения WB и не влияют на доход продавца
+	AcquiringFee *float32 `json:"acquiring_fee,omitempty"`
+	// Наименование банка, предоставляющего услуги эквайринг
+	AcquiringBank *string `json:"acquiring_bank,omitempty"`
+	// Обоснование штрафов и доплат
+	BonusTypeName *string `json:"bonus_type_name,omitempty"`
+	// Код маркировки
+	Kiz *string `json:"kiz,omitempty"`
 	// Идентификатор отчёта
 	RealizationreportId int32 `json:"realizationreport_id"`
 	// Договор
@@ -56,29 +75,29 @@ type GetReportDetailByPeriod200ResponseInner struct {
 	// Обоснование для оплаты (Тип операции?)
 	SupplierOperName string `json:"supplier_oper_name"`
 	// Дата заказа
-	OrderDt string `json:"order_dt"`
+	OrderDt *string `json:"order_dt,omitempty"`
 	// Дата продажи
-	SaleDt string `json:"sale_dt"`
+	SaleDt *string `json:"sale_dt,omitempty"`
 	// Дата операции
 	RrDt string `json:"rr_dt"`
 	// Штрих код (короба?)
 	ShkId int64 `json:"shk_id"`
 	// Розничная цена с учётом согласованной скидки
-	RetailPriceWithdiscRub float32 `json:"retail_price_withdisc_rub"`
+	RetailPriceWithdiscRub *float32 `json:"retail_price_withdisc_rub,omitempty"`
 	// Количество доставок
-	DeliveryAmount int32 `json:"delivery_amount"`
+	DeliveryAmount *int32 `json:"delivery_amount,omitempty"`
 	// Количество возвратов
-	ReturnAmount int32 `json:"return_amount"`
+	ReturnAmount *int32 `json:"return_amount,omitempty"`
 	// Стоимость логистики
-	DeliveryRub float32 `json:"delivery_rub"`
+	DeliveryRub *float32 `json:"delivery_rub,omitempty"`
 	// Тип коробов
 	GiBoxTypeName string `json:"gi_box_type_name"`
 	// Согласованный продуктовый дисконт
-	ProductDiscountForReport float32 `json:"product_discount_for_report"`
+	ProductDiscountForReport *float32 `json:"product_discount_for_report,omitempty"`
 	// Промокод
-	SupplierPromo float32 `json:"supplier_promo"`
+	SupplierPromo *float32 `json:"supplier_promo,omitempty"`
 	// Идентификатор заказа
-	Rid int64 `json:"rid"`
+	Rid *int64 `json:"rid,omitempty"`
 	// Скидка постоянного покупателя
 	PpvzSppPrc float32 `json:"ppvz_spp_prc"`
 	// Базовый размер коэффициента вознаграждения вайлдберриз без НДС, %
@@ -110,20 +129,20 @@ type GetReportDetailByPeriod200ResponseInner struct {
 	// Цифровое значение стикера, который клеится на товар в процессе сборки заказа по системе Маркетплейс.
 	StickerId *string `json:"sticker_id,omitempty"`
 	// Страна продажи
-	SiteCountry string `json:"site_country"`
+	SiteCountry *string `json:"site_country,omitempty"`
 	// Штрафы
 	Penalty float32 `json:"penalty"`
 	// Доплаты
 	AdditionalPayment float32 `json:"additional_payment"`
 	// Новый идентификатор заказа
-	Srid string `json:"srid"`
+	Srid *string `json:"srid,omitempty"`
 }
 
 // NewGetReportDetailByPeriod200ResponseInner instantiates a new GetReportDetailByPeriod200ResponseInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32, srid string) *GetReportDetailByPeriod200ResponseInner {
+func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, rrDt string, shkId int64, giBoxTypeName string, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, penalty float32, additionalPayment float32) *GetReportDetailByPeriod200ResponseInner {
 	this := GetReportDetailByPeriod200ResponseInner{}
 	this.RealizationreportId = realizationreportId
 	this.RrdId = rrdId
@@ -141,18 +160,9 @@ func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId
 	this.CommissionPercent = commissionPercent
 	this.OfficeName = officeName
 	this.SupplierOperName = supplierOperName
-	this.OrderDt = orderDt
-	this.SaleDt = saleDt
 	this.RrDt = rrDt
 	this.ShkId = shkId
-	this.RetailPriceWithdiscRub = retailPriceWithdiscRub
-	this.DeliveryAmount = deliveryAmount
-	this.ReturnAmount = returnAmount
-	this.DeliveryRub = deliveryRub
 	this.GiBoxTypeName = giBoxTypeName
-	this.ProductDiscountForReport = productDiscountForReport
-	this.SupplierPromo = supplierPromo
-	this.Rid = rid
 	this.PpvzSppPrc = ppvzSppPrc
 	this.PpvzKvwPrcBase = ppvzKvwPrcBase
 	this.PpvzKvwPrc = ppvzKvwPrc
@@ -163,10 +173,8 @@ func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId
 	this.PpvzVwNds = ppvzVwNds
 	this.PpvzOfficeId = ppvzOfficeId
 	this.PpvzSupplierId = ppvzSupplierId
-	this.SiteCountry = siteCountry
 	this.Penalty = penalty
 	this.AdditionalPayment = additionalPayment
-	this.Srid = srid
 	return &this
 }
 
@@ -176,6 +184,294 @@ func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId
 func NewGetReportDetailByPeriod200ResponseInnerWithDefaults() *GetReportDetailByPeriod200ResponseInner {
 	this := GetReportDetailByPeriod200ResponseInner{}
 	return &this
+}
+
+// GetDateFrom returns the DateFrom field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetDateFrom() time.Time {
+	if o == nil || isNil(o.DateFrom) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DateFrom
+}
+
+// GetDateFromOk returns a tuple with the DateFrom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetDateFromOk() (*time.Time, bool) {
+	if o == nil || isNil(o.DateFrom) {
+		return nil, false
+	}
+	return o.DateFrom, true
+}
+
+// HasDateFrom returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasDateFrom() bool {
+	if o != nil && !isNil(o.DateFrom) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateFrom gets a reference to the given time.Time and assigns it to the DateFrom field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetDateFrom(v time.Time) {
+	o.DateFrom = &v
+}
+
+// GetDateTo returns the DateTo field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetDateTo() time.Time {
+	if o == nil || isNil(o.DateTo) {
+		var ret time.Time
+		return ret
+	}
+	return *o.DateTo
+}
+
+// GetDateToOk returns a tuple with the DateTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetDateToOk() (*time.Time, bool) {
+	if o == nil || isNil(o.DateTo) {
+		return nil, false
+	}
+	return o.DateTo, true
+}
+
+// HasDateTo returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasDateTo() bool {
+	if o != nil && !isNil(o.DateTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetDateTo gets a reference to the given time.Time and assigns it to the DateTo field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetDateTo(v time.Time) {
+	o.DateTo = &v
+}
+
+// GetCreateDt returns the CreateDt field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetCreateDt() time.Time {
+	if o == nil || isNil(o.CreateDt) {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreateDt
+}
+
+// GetCreateDtOk returns a tuple with the CreateDt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetCreateDtOk() (*time.Time, bool) {
+	if o == nil || isNil(o.CreateDt) {
+		return nil, false
+	}
+	return o.CreateDt, true
+}
+
+// HasCreateDt returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasCreateDt() bool {
+	if o != nil && !isNil(o.CreateDt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateDt gets a reference to the given time.Time and assigns it to the CreateDt field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetCreateDt(v time.Time) {
+	o.CreateDt = &v
+}
+
+// GetSupRatingPrcUp returns the SupRatingPrcUp field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetSupRatingPrcUp() float32 {
+	if o == nil || isNil(o.SupRatingPrcUp) {
+		var ret float32
+		return ret
+	}
+	return *o.SupRatingPrcUp
+}
+
+// GetSupRatingPrcUpOk returns a tuple with the SupRatingPrcUp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetSupRatingPrcUpOk() (*float32, bool) {
+	if o == nil || isNil(o.SupRatingPrcUp) {
+		return nil, false
+	}
+	return o.SupRatingPrcUp, true
+}
+
+// HasSupRatingPrcUp returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasSupRatingPrcUp() bool {
+	if o != nil && !isNil(o.SupRatingPrcUp) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupRatingPrcUp gets a reference to the given float32 and assigns it to the SupRatingPrcUp field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetSupRatingPrcUp(v float32) {
+	o.SupRatingPrcUp = &v
+}
+
+// GetIsKgvpV2 returns the IsKgvpV2 field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetIsKgvpV2() float32 {
+	if o == nil || isNil(o.IsKgvpV2) {
+		var ret float32
+		return ret
+	}
+	return *o.IsKgvpV2
+}
+
+// GetIsKgvpV2Ok returns a tuple with the IsKgvpV2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetIsKgvpV2Ok() (*float32, bool) {
+	if o == nil || isNil(o.IsKgvpV2) {
+		return nil, false
+	}
+	return o.IsKgvpV2, true
+}
+
+// HasIsKgvpV2 returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasIsKgvpV2() bool {
+	if o != nil && !isNil(o.IsKgvpV2) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsKgvpV2 gets a reference to the given float32 and assigns it to the IsKgvpV2 field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetIsKgvpV2(v float32) {
+	o.IsKgvpV2 = &v
+}
+
+// GetAcquiringFee returns the AcquiringFee field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringFee() float32 {
+	if o == nil || isNil(o.AcquiringFee) {
+		var ret float32
+		return ret
+	}
+	return *o.AcquiringFee
+}
+
+// GetAcquiringFeeOk returns a tuple with the AcquiringFee field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringFeeOk() (*float32, bool) {
+	if o == nil || isNil(o.AcquiringFee) {
+		return nil, false
+	}
+	return o.AcquiringFee, true
+}
+
+// HasAcquiringFee returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasAcquiringFee() bool {
+	if o != nil && !isNil(o.AcquiringFee) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringFee gets a reference to the given float32 and assigns it to the AcquiringFee field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetAcquiringFee(v float32) {
+	o.AcquiringFee = &v
+}
+
+// GetAcquiringBank returns the AcquiringBank field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringBank() string {
+	if o == nil || isNil(o.AcquiringBank) {
+		var ret string
+		return ret
+	}
+	return *o.AcquiringBank
+}
+
+// GetAcquiringBankOk returns a tuple with the AcquiringBank field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringBankOk() (*string, bool) {
+	if o == nil || isNil(o.AcquiringBank) {
+		return nil, false
+	}
+	return o.AcquiringBank, true
+}
+
+// HasAcquiringBank returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasAcquiringBank() bool {
+	if o != nil && !isNil(o.AcquiringBank) {
+		return true
+	}
+
+	return false
+}
+
+// SetAcquiringBank gets a reference to the given string and assigns it to the AcquiringBank field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetAcquiringBank(v string) {
+	o.AcquiringBank = &v
+}
+
+// GetBonusTypeName returns the BonusTypeName field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetBonusTypeName() string {
+	if o == nil || isNil(o.BonusTypeName) {
+		var ret string
+		return ret
+	}
+	return *o.BonusTypeName
+}
+
+// GetBonusTypeNameOk returns a tuple with the BonusTypeName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetBonusTypeNameOk() (*string, bool) {
+	if o == nil || isNil(o.BonusTypeName) {
+		return nil, false
+	}
+	return o.BonusTypeName, true
+}
+
+// HasBonusTypeName returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasBonusTypeName() bool {
+	if o != nil && !isNil(o.BonusTypeName) {
+		return true
+	}
+
+	return false
+}
+
+// SetBonusTypeName gets a reference to the given string and assigns it to the BonusTypeName field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetBonusTypeName(v string) {
+	o.BonusTypeName = &v
+}
+
+// GetKiz returns the Kiz field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetKiz() string {
+	if o == nil || isNil(o.Kiz) {
+		var ret string
+		return ret
+	}
+	return *o.Kiz
+}
+
+// GetKizOk returns a tuple with the Kiz field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetKizOk() (*string, bool) {
+	if o == nil || isNil(o.Kiz) {
+		return nil, false
+	}
+	return o.Kiz, true
+}
+
+// HasKiz returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasKiz() bool {
+	if o != nil && !isNil(o.Kiz) {
+		return true
+	}
+
+	return false
+}
+
+// SetKiz gets a reference to the given string and assigns it to the Kiz field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetKiz(v string) {
+	o.Kiz = &v
 }
 
 // GetRealizationreportId returns the RealizationreportId field value
@@ -626,52 +922,68 @@ func (o *GetReportDetailByPeriod200ResponseInner) SetSupplierOperName(v string) 
 	o.SupplierOperName = v
 }
 
-// GetOrderDt returns the OrderDt field value
+// GetOrderDt returns the OrderDt field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetOrderDt() string {
-	if o == nil {
+	if o == nil || isNil(o.OrderDt) {
 		var ret string
 		return ret
 	}
-
-	return o.OrderDt
+	return *o.OrderDt
 }
 
-// GetOrderDtOk returns a tuple with the OrderDt field value
+// GetOrderDtOk returns a tuple with the OrderDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetOrderDtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || isNil(o.OrderDt) {
 		return nil, false
 	}
-	return &o.OrderDt, true
+	return o.OrderDt, true
 }
 
-// SetOrderDt sets field value
+// HasOrderDt returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasOrderDt() bool {
+	if o != nil && !isNil(o.OrderDt) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderDt gets a reference to the given string and assigns it to the OrderDt field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetOrderDt(v string) {
-	o.OrderDt = v
+	o.OrderDt = &v
 }
 
-// GetSaleDt returns the SaleDt field value
+// GetSaleDt returns the SaleDt field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSaleDt() string {
-	if o == nil {
+	if o == nil || isNil(o.SaleDt) {
 		var ret string
 		return ret
 	}
-
-	return o.SaleDt
+	return *o.SaleDt
 }
 
-// GetSaleDtOk returns a tuple with the SaleDt field value
+// GetSaleDtOk returns a tuple with the SaleDt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSaleDtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || isNil(o.SaleDt) {
 		return nil, false
 	}
-	return &o.SaleDt, true
+	return o.SaleDt, true
 }
 
-// SetSaleDt sets field value
+// HasSaleDt returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasSaleDt() bool {
+	if o != nil && !isNil(o.SaleDt) {
+		return true
+	}
+
+	return false
+}
+
+// SetSaleDt gets a reference to the given string and assigns it to the SaleDt field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetSaleDt(v string) {
-	o.SaleDt = v
+	o.SaleDt = &v
 }
 
 // GetRrDt returns the RrDt field value
@@ -722,100 +1034,132 @@ func (o *GetReportDetailByPeriod200ResponseInner) SetShkId(v int64) {
 	o.ShkId = v
 }
 
-// GetRetailPriceWithdiscRub returns the RetailPriceWithdiscRub field value
+// GetRetailPriceWithdiscRub returns the RetailPriceWithdiscRub field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetRetailPriceWithdiscRub() float32 {
-	if o == nil {
+	if o == nil || isNil(o.RetailPriceWithdiscRub) {
 		var ret float32
 		return ret
 	}
-
-	return o.RetailPriceWithdiscRub
+	return *o.RetailPriceWithdiscRub
 }
 
-// GetRetailPriceWithdiscRubOk returns a tuple with the RetailPriceWithdiscRub field value
+// GetRetailPriceWithdiscRubOk returns a tuple with the RetailPriceWithdiscRub field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetRetailPriceWithdiscRubOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || isNil(o.RetailPriceWithdiscRub) {
 		return nil, false
 	}
-	return &o.RetailPriceWithdiscRub, true
+	return o.RetailPriceWithdiscRub, true
 }
 
-// SetRetailPriceWithdiscRub sets field value
+// HasRetailPriceWithdiscRub returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasRetailPriceWithdiscRub() bool {
+	if o != nil && !isNil(o.RetailPriceWithdiscRub) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetailPriceWithdiscRub gets a reference to the given float32 and assigns it to the RetailPriceWithdiscRub field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetRetailPriceWithdiscRub(v float32) {
-	o.RetailPriceWithdiscRub = v
+	o.RetailPriceWithdiscRub = &v
 }
 
-// GetDeliveryAmount returns the DeliveryAmount field value
+// GetDeliveryAmount returns the DeliveryAmount field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetDeliveryAmount() int32 {
-	if o == nil {
+	if o == nil || isNil(o.DeliveryAmount) {
 		var ret int32
 		return ret
 	}
-
-	return o.DeliveryAmount
+	return *o.DeliveryAmount
 }
 
-// GetDeliveryAmountOk returns a tuple with the DeliveryAmount field value
+// GetDeliveryAmountOk returns a tuple with the DeliveryAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetDeliveryAmountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || isNil(o.DeliveryAmount) {
 		return nil, false
 	}
-	return &o.DeliveryAmount, true
+	return o.DeliveryAmount, true
 }
 
-// SetDeliveryAmount sets field value
+// HasDeliveryAmount returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasDeliveryAmount() bool {
+	if o != nil && !isNil(o.DeliveryAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryAmount gets a reference to the given int32 and assigns it to the DeliveryAmount field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetDeliveryAmount(v int32) {
-	o.DeliveryAmount = v
+	o.DeliveryAmount = &v
 }
 
-// GetReturnAmount returns the ReturnAmount field value
+// GetReturnAmount returns the ReturnAmount field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetReturnAmount() int32 {
-	if o == nil {
+	if o == nil || isNil(o.ReturnAmount) {
 		var ret int32
 		return ret
 	}
-
-	return o.ReturnAmount
+	return *o.ReturnAmount
 }
 
-// GetReturnAmountOk returns a tuple with the ReturnAmount field value
+// GetReturnAmountOk returns a tuple with the ReturnAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetReturnAmountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || isNil(o.ReturnAmount) {
 		return nil, false
 	}
-	return &o.ReturnAmount, true
+	return o.ReturnAmount, true
 }
 
-// SetReturnAmount sets field value
+// HasReturnAmount returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasReturnAmount() bool {
+	if o != nil && !isNil(o.ReturnAmount) {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnAmount gets a reference to the given int32 and assigns it to the ReturnAmount field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetReturnAmount(v int32) {
-	o.ReturnAmount = v
+	o.ReturnAmount = &v
 }
 
-// GetDeliveryRub returns the DeliveryRub field value
+// GetDeliveryRub returns the DeliveryRub field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetDeliveryRub() float32 {
-	if o == nil {
+	if o == nil || isNil(o.DeliveryRub) {
 		var ret float32
 		return ret
 	}
-
-	return o.DeliveryRub
+	return *o.DeliveryRub
 }
 
-// GetDeliveryRubOk returns a tuple with the DeliveryRub field value
+// GetDeliveryRubOk returns a tuple with the DeliveryRub field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetDeliveryRubOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || isNil(o.DeliveryRub) {
 		return nil, false
 	}
-	return &o.DeliveryRub, true
+	return o.DeliveryRub, true
 }
 
-// SetDeliveryRub sets field value
+// HasDeliveryRub returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasDeliveryRub() bool {
+	if o != nil && !isNil(o.DeliveryRub) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryRub gets a reference to the given float32 and assigns it to the DeliveryRub field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetDeliveryRub(v float32) {
-	o.DeliveryRub = v
+	o.DeliveryRub = &v
 }
 
 // GetGiBoxTypeName returns the GiBoxTypeName field value
@@ -842,76 +1186,100 @@ func (o *GetReportDetailByPeriod200ResponseInner) SetGiBoxTypeName(v string) {
 	o.GiBoxTypeName = v
 }
 
-// GetProductDiscountForReport returns the ProductDiscountForReport field value
+// GetProductDiscountForReport returns the ProductDiscountForReport field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetProductDiscountForReport() float32 {
-	if o == nil {
+	if o == nil || isNil(o.ProductDiscountForReport) {
 		var ret float32
 		return ret
 	}
-
-	return o.ProductDiscountForReport
+	return *o.ProductDiscountForReport
 }
 
-// GetProductDiscountForReportOk returns a tuple with the ProductDiscountForReport field value
+// GetProductDiscountForReportOk returns a tuple with the ProductDiscountForReport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetProductDiscountForReportOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || isNil(o.ProductDiscountForReport) {
 		return nil, false
 	}
-	return &o.ProductDiscountForReport, true
+	return o.ProductDiscountForReport, true
 }
 
-// SetProductDiscountForReport sets field value
+// HasProductDiscountForReport returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasProductDiscountForReport() bool {
+	if o != nil && !isNil(o.ProductDiscountForReport) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductDiscountForReport gets a reference to the given float32 and assigns it to the ProductDiscountForReport field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetProductDiscountForReport(v float32) {
-	o.ProductDiscountForReport = v
+	o.ProductDiscountForReport = &v
 }
 
-// GetSupplierPromo returns the SupplierPromo field value
+// GetSupplierPromo returns the SupplierPromo field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSupplierPromo() float32 {
-	if o == nil {
+	if o == nil || isNil(o.SupplierPromo) {
 		var ret float32
 		return ret
 	}
-
-	return o.SupplierPromo
+	return *o.SupplierPromo
 }
 
-// GetSupplierPromoOk returns a tuple with the SupplierPromo field value
+// GetSupplierPromoOk returns a tuple with the SupplierPromo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSupplierPromoOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || isNil(o.SupplierPromo) {
 		return nil, false
 	}
-	return &o.SupplierPromo, true
+	return o.SupplierPromo, true
 }
 
-// SetSupplierPromo sets field value
+// HasSupplierPromo returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasSupplierPromo() bool {
+	if o != nil && !isNil(o.SupplierPromo) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupplierPromo gets a reference to the given float32 and assigns it to the SupplierPromo field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetSupplierPromo(v float32) {
-	o.SupplierPromo = v
+	o.SupplierPromo = &v
 }
 
-// GetRid returns the Rid field value
+// GetRid returns the Rid field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetRid() int64 {
-	if o == nil {
+	if o == nil || isNil(o.Rid) {
 		var ret int64
 		return ret
 	}
-
-	return o.Rid
+	return *o.Rid
 }
 
-// GetRidOk returns a tuple with the Rid field value
+// GetRidOk returns a tuple with the Rid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetRidOk() (*int64, bool) {
-	if o == nil {
+	if o == nil || isNil(o.Rid) {
 		return nil, false
 	}
-	return &o.Rid, true
+	return o.Rid, true
 }
 
-// SetRid sets field value
+// HasRid returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasRid() bool {
+	if o != nil && !isNil(o.Rid) {
+		return true
+	}
+
+	return false
+}
+
+// SetRid gets a reference to the given int64 and assigns it to the Rid field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetRid(v int64) {
-	o.Rid = v
+	o.Rid = &v
 }
 
 // GetPpvzSppPrc returns the PpvzSppPrc field value
@@ -1314,28 +1682,36 @@ func (o *GetReportDetailByPeriod200ResponseInner) SetStickerId(v string) {
 	o.StickerId = &v
 }
 
-// GetSiteCountry returns the SiteCountry field value
+// GetSiteCountry returns the SiteCountry field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSiteCountry() string {
-	if o == nil {
+	if o == nil || isNil(o.SiteCountry) {
 		var ret string
 		return ret
 	}
-
-	return o.SiteCountry
+	return *o.SiteCountry
 }
 
-// GetSiteCountryOk returns a tuple with the SiteCountry field value
+// GetSiteCountryOk returns a tuple with the SiteCountry field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSiteCountryOk() (*string, bool) {
-	if o == nil {
+	if o == nil || isNil(o.SiteCountry) {
 		return nil, false
 	}
-	return &o.SiteCountry, true
+	return o.SiteCountry, true
 }
 
-// SetSiteCountry sets field value
+// HasSiteCountry returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasSiteCountry() bool {
+	if o != nil && !isNil(o.SiteCountry) {
+		return true
+	}
+
+	return false
+}
+
+// SetSiteCountry gets a reference to the given string and assigns it to the SiteCountry field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetSiteCountry(v string) {
-	o.SiteCountry = v
+	o.SiteCountry = &v
 }
 
 // GetPenalty returns the Penalty field value
@@ -1386,28 +1762,36 @@ func (o *GetReportDetailByPeriod200ResponseInner) SetAdditionalPayment(v float32
 	o.AdditionalPayment = v
 }
 
-// GetSrid returns the Srid field value
+// GetSrid returns the Srid field value if set, zero value otherwise.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSrid() string {
-	if o == nil {
+	if o == nil || isNil(o.Srid) {
 		var ret string
 		return ret
 	}
-
-	return o.Srid
+	return *o.Srid
 }
 
-// GetSridOk returns a tuple with the Srid field value
+// GetSridOk returns a tuple with the Srid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetReportDetailByPeriod200ResponseInner) GetSridOk() (*string, bool) {
-	if o == nil {
+	if o == nil || isNil(o.Srid) {
 		return nil, false
 	}
-	return &o.Srid, true
+	return o.Srid, true
 }
 
-// SetSrid sets field value
+// HasSrid returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasSrid() bool {
+	if o != nil && !isNil(o.Srid) {
+		return true
+	}
+
+	return false
+}
+
+// SetSrid gets a reference to the given string and assigns it to the Srid field.
 func (o *GetReportDetailByPeriod200ResponseInner) SetSrid(v string) {
-	o.Srid = v
+	o.Srid = &v
 }
 
 func (o GetReportDetailByPeriod200ResponseInner) MarshalJSON() ([]byte, error) {
@@ -1420,6 +1804,33 @@ func (o GetReportDetailByPeriod200ResponseInner) MarshalJSON() ([]byte, error) {
 
 func (o GetReportDetailByPeriod200ResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !isNil(o.DateFrom) {
+		toSerialize["date_from"] = o.DateFrom
+	}
+	if !isNil(o.DateTo) {
+		toSerialize["date_to"] = o.DateTo
+	}
+	if !isNil(o.CreateDt) {
+		toSerialize["create_dt"] = o.CreateDt
+	}
+	if !isNil(o.SupRatingPrcUp) {
+		toSerialize["sup_rating_prc_up"] = o.SupRatingPrcUp
+	}
+	if !isNil(o.IsKgvpV2) {
+		toSerialize["is_kgvp_v2"] = o.IsKgvpV2
+	}
+	if !isNil(o.AcquiringFee) {
+		toSerialize["acquiring_fee"] = o.AcquiringFee
+	}
+	if !isNil(o.AcquiringBank) {
+		toSerialize["acquiring_bank"] = o.AcquiringBank
+	}
+	if !isNil(o.BonusTypeName) {
+		toSerialize["bonus_type_name"] = o.BonusTypeName
+	}
+	if !isNil(o.Kiz) {
+		toSerialize["kiz"] = o.Kiz
+	}
 	toSerialize["realizationreport_id"] = o.RealizationreportId
 	if !isNil(o.SuppliercontractCode) {
 		toSerialize["suppliercontract_code"] = o.SuppliercontractCode
@@ -1442,18 +1853,36 @@ func (o GetReportDetailByPeriod200ResponseInner) ToMap() (map[string]interface{}
 	toSerialize["commission_percent"] = o.CommissionPercent
 	toSerialize["office_name"] = o.OfficeName
 	toSerialize["supplier_oper_name"] = o.SupplierOperName
-	toSerialize["order_dt"] = o.OrderDt
-	toSerialize["sale_dt"] = o.SaleDt
+	if !isNil(o.OrderDt) {
+		toSerialize["order_dt"] = o.OrderDt
+	}
+	if !isNil(o.SaleDt) {
+		toSerialize["sale_dt"] = o.SaleDt
+	}
 	toSerialize["rr_dt"] = o.RrDt
 	toSerialize["shk_id"] = o.ShkId
-	toSerialize["retail_price_withdisc_rub"] = o.RetailPriceWithdiscRub
-	toSerialize["delivery_amount"] = o.DeliveryAmount
-	toSerialize["return_amount"] = o.ReturnAmount
-	toSerialize["delivery_rub"] = o.DeliveryRub
+	if !isNil(o.RetailPriceWithdiscRub) {
+		toSerialize["retail_price_withdisc_rub"] = o.RetailPriceWithdiscRub
+	}
+	if !isNil(o.DeliveryAmount) {
+		toSerialize["delivery_amount"] = o.DeliveryAmount
+	}
+	if !isNil(o.ReturnAmount) {
+		toSerialize["return_amount"] = o.ReturnAmount
+	}
+	if !isNil(o.DeliveryRub) {
+		toSerialize["delivery_rub"] = o.DeliveryRub
+	}
 	toSerialize["gi_box_type_name"] = o.GiBoxTypeName
-	toSerialize["product_discount_for_report"] = o.ProductDiscountForReport
-	toSerialize["supplier_promo"] = o.SupplierPromo
-	toSerialize["rid"] = o.Rid
+	if !isNil(o.ProductDiscountForReport) {
+		toSerialize["product_discount_for_report"] = o.ProductDiscountForReport
+	}
+	if !isNil(o.SupplierPromo) {
+		toSerialize["supplier_promo"] = o.SupplierPromo
+	}
+	if !isNil(o.Rid) {
+		toSerialize["rid"] = o.Rid
+	}
 	toSerialize["ppvz_spp_prc"] = o.PpvzSppPrc
 	toSerialize["ppvz_kvw_prc_base"] = o.PpvzKvwPrcBase
 	toSerialize["ppvz_kvw_prc"] = o.PpvzKvwPrc
@@ -1479,10 +1908,14 @@ func (o GetReportDetailByPeriod200ResponseInner) ToMap() (map[string]interface{}
 	if !isNil(o.StickerId) {
 		toSerialize["sticker_id"] = o.StickerId
 	}
-	toSerialize["site_country"] = o.SiteCountry
+	if !isNil(o.SiteCountry) {
+		toSerialize["site_country"] = o.SiteCountry
+	}
 	toSerialize["penalty"] = o.Penalty
 	toSerialize["additional_payment"] = o.AdditionalPayment
-	toSerialize["srid"] = o.Srid
+	if !isNil(o.Srid) {
+		toSerialize["srid"] = o.Srid
+	}
 	return toSerialize, nil
 }
 

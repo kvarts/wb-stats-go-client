@@ -4,6 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DateFrom** | Pointer to **time.Time** | Дата начала отчётного периода | [optional] 
+**DateTo** | Pointer to **time.Time** | Дата конца отчётного периода | [optional] 
+**CreateDt** | Pointer to **time.Time** | Дата формирования отчёта | [optional] 
+**SupRatingPrcUp** | Pointer to **float32** | Размер снижения кВВ из-за рейтинга, % | [optional] 
+**IsKgvpV2** | Pointer to **float32** | Размер снижения кВВ из-за акции, % | [optional] 
+**AcquiringFee** | Pointer to **float32** | Возмещение расходов по эквайрингу. Расходы WB на услуги эквайринга: вычитаются из вознаграждения WB и не влияют на доход продавца | [optional] 
+**AcquiringBank** | Pointer to **string** | Наименование банка, предоставляющего услуги эквайринг | [optional] 
+**BonusTypeName** | Pointer to **string** | Обоснование штрафов и доплат | [optional] 
+**Kiz** | Pointer to **string** | Код маркировки | [optional] 
 **RealizationreportId** | **int32** | Идентификатор отчёта | 
 **SuppliercontractCode** | Pointer to **int32** | Договор | [optional] 
 **RrdId** | **int64** | Идентификатор записи | 
@@ -22,18 +31,18 @@ Name | Type | Description | Notes
 **CommissionPercent** | **float32** | Процент комиссии | 
 **OfficeName** | **string** | Наименование склада | 
 **SupplierOperName** | **string** | Обоснование для оплаты (Тип операции?) | 
-**OrderDt** | **string** | Дата заказа | 
-**SaleDt** | **string** | Дата продажи | 
+**OrderDt** | Pointer to **string** | Дата заказа | [optional] 
+**SaleDt** | Pointer to **string** | Дата продажи | [optional] 
 **RrDt** | **string** | Дата операции | 
 **ShkId** | **int64** | Штрих код (короба?) | 
-**RetailPriceWithdiscRub** | **float32** | Розничная цена с учётом согласованной скидки | 
-**DeliveryAmount** | **int32** | Количество доставок | 
-**ReturnAmount** | **int32** | Количество возвратов | 
-**DeliveryRub** | **float32** | Стоимость логистики | 
+**RetailPriceWithdiscRub** | Pointer to **float32** | Розничная цена с учётом согласованной скидки | [optional] 
+**DeliveryAmount** | Pointer to **int32** | Количество доставок | [optional] 
+**ReturnAmount** | Pointer to **int32** | Количество возвратов | [optional] 
+**DeliveryRub** | Pointer to **float32** | Стоимость логистики | [optional] 
 **GiBoxTypeName** | **string** | Тип коробов | 
-**ProductDiscountForReport** | **float32** | Согласованный продуктовый дисконт | 
-**SupplierPromo** | **float32** | Промокод | 
-**Rid** | **int64** | Идентификатор заказа | 
+**ProductDiscountForReport** | Pointer to **float32** | Согласованный продуктовый дисконт | [optional] 
+**SupplierPromo** | Pointer to **float32** | Промокод | [optional] 
+**Rid** | Pointer to **int64** | Идентификатор заказа | [optional] 
 **PpvzSppPrc** | **float32** | Скидка постоянного покупателя | 
 **PpvzKvwPrcBase** | **float32** | Базовый размер коэффициента вознаграждения вайлдберриз без НДС, % | 
 **PpvzKvwPrc** | **float32** | Итоговый размер коэффициента вознаграждения вайлдберриз без НДС, % | 
@@ -49,16 +58,16 @@ Name | Type | Description | Notes
 **PpvzSupplierInn** | Pointer to **string** | ИНН владельца ПВЗ | [optional] 
 **DeclarationNumber** | Pointer to **string** | Номер таможенной декларации | [optional] 
 **StickerId** | Pointer to **string** | Цифровое значение стикера, который клеится на товар в процессе сборки заказа по системе Маркетплейс. | [optional] 
-**SiteCountry** | **string** | Страна продажи | 
+**SiteCountry** | Pointer to **string** | Страна продажи | [optional] 
 **Penalty** | **float32** | Штрафы | 
 **AdditionalPayment** | **float32** | Доплаты | 
-**Srid** | **string** | Новый идентификатор заказа | 
+**Srid** | Pointer to **string** | Новый идентификатор заказа | [optional] 
 
 ## Methods
 
 ### NewGetReportDetailByPeriod200ResponseInner
 
-`func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, orderDt string, saleDt string, rrDt string, shkId int64, retailPriceWithdiscRub float32, deliveryAmount int32, returnAmount int32, deliveryRub float32, giBoxTypeName string, productDiscountForReport float32, supplierPromo float32, rid int64, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, siteCountry string, penalty float32, additionalPayment float32, srid string, ) *GetReportDetailByPeriod200ResponseInner`
+`func NewGetReportDetailByPeriod200ResponseInner(realizationreportId int32, rrdId int64, giId int64, subjectName string, brandName string, saName string, tsName string, barcode string, docTypeName string, quantity int32, retailPrice float32, retailAmount float32, salePercent float32, commissionPercent float32, officeName string, supplierOperName string, rrDt string, shkId int64, giBoxTypeName string, ppvzSppPrc float32, ppvzKvwPrcBase float32, ppvzKvwPrc float32, ppvzSalesCommission float32, ppvzForPay float32, ppvzReward float32, ppvzVw float32, ppvzVwNds float32, ppvzOfficeId int64, ppvzSupplierId int64, penalty float32, additionalPayment float32, ) *GetReportDetailByPeriod200ResponseInner`
 
 NewGetReportDetailByPeriod200ResponseInner instantiates a new GetReportDetailByPeriod200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -72,6 +81,231 @@ will change when the set of required properties is changed
 NewGetReportDetailByPeriod200ResponseInnerWithDefaults instantiates a new GetReportDetailByPeriod200ResponseInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDateFrom
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetDateFrom() time.Time`
+
+GetDateFrom returns the DateFrom field if non-nil, zero value otherwise.
+
+### GetDateFromOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetDateFromOk() (*time.Time, bool)`
+
+GetDateFromOk returns a tuple with the DateFrom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDateFrom
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetDateFrom(v time.Time)`
+
+SetDateFrom sets DateFrom field to given value.
+
+### HasDateFrom
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasDateFrom() bool`
+
+HasDateFrom returns a boolean if a field has been set.
+
+### GetDateTo
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetDateTo() time.Time`
+
+GetDateTo returns the DateTo field if non-nil, zero value otherwise.
+
+### GetDateToOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetDateToOk() (*time.Time, bool)`
+
+GetDateToOk returns a tuple with the DateTo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDateTo
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetDateTo(v time.Time)`
+
+SetDateTo sets DateTo field to given value.
+
+### HasDateTo
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasDateTo() bool`
+
+HasDateTo returns a boolean if a field has been set.
+
+### GetCreateDt
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetCreateDt() time.Time`
+
+GetCreateDt returns the CreateDt field if non-nil, zero value otherwise.
+
+### GetCreateDtOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetCreateDtOk() (*time.Time, bool)`
+
+GetCreateDtOk returns a tuple with the CreateDt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreateDt
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetCreateDt(v time.Time)`
+
+SetCreateDt sets CreateDt field to given value.
+
+### HasCreateDt
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasCreateDt() bool`
+
+HasCreateDt returns a boolean if a field has been set.
+
+### GetSupRatingPrcUp
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetSupRatingPrcUp() float32`
+
+GetSupRatingPrcUp returns the SupRatingPrcUp field if non-nil, zero value otherwise.
+
+### GetSupRatingPrcUpOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetSupRatingPrcUpOk() (*float32, bool)`
+
+GetSupRatingPrcUpOk returns a tuple with the SupRatingPrcUp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupRatingPrcUp
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetSupRatingPrcUp(v float32)`
+
+SetSupRatingPrcUp sets SupRatingPrcUp field to given value.
+
+### HasSupRatingPrcUp
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasSupRatingPrcUp() bool`
+
+HasSupRatingPrcUp returns a boolean if a field has been set.
+
+### GetIsKgvpV2
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetIsKgvpV2() float32`
+
+GetIsKgvpV2 returns the IsKgvpV2 field if non-nil, zero value otherwise.
+
+### GetIsKgvpV2Ok
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetIsKgvpV2Ok() (*float32, bool)`
+
+GetIsKgvpV2Ok returns a tuple with the IsKgvpV2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsKgvpV2
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetIsKgvpV2(v float32)`
+
+SetIsKgvpV2 sets IsKgvpV2 field to given value.
+
+### HasIsKgvpV2
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasIsKgvpV2() bool`
+
+HasIsKgvpV2 returns a boolean if a field has been set.
+
+### GetAcquiringFee
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringFee() float32`
+
+GetAcquiringFee returns the AcquiringFee field if non-nil, zero value otherwise.
+
+### GetAcquiringFeeOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringFeeOk() (*float32, bool)`
+
+GetAcquiringFeeOk returns a tuple with the AcquiringFee field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcquiringFee
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetAcquiringFee(v float32)`
+
+SetAcquiringFee sets AcquiringFee field to given value.
+
+### HasAcquiringFee
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasAcquiringFee() bool`
+
+HasAcquiringFee returns a boolean if a field has been set.
+
+### GetAcquiringBank
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringBank() string`
+
+GetAcquiringBank returns the AcquiringBank field if non-nil, zero value otherwise.
+
+### GetAcquiringBankOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetAcquiringBankOk() (*string, bool)`
+
+GetAcquiringBankOk returns a tuple with the AcquiringBank field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcquiringBank
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetAcquiringBank(v string)`
+
+SetAcquiringBank sets AcquiringBank field to given value.
+
+### HasAcquiringBank
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasAcquiringBank() bool`
+
+HasAcquiringBank returns a boolean if a field has been set.
+
+### GetBonusTypeName
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetBonusTypeName() string`
+
+GetBonusTypeName returns the BonusTypeName field if non-nil, zero value otherwise.
+
+### GetBonusTypeNameOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetBonusTypeNameOk() (*string, bool)`
+
+GetBonusTypeNameOk returns a tuple with the BonusTypeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBonusTypeName
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetBonusTypeName(v string)`
+
+SetBonusTypeName sets BonusTypeName field to given value.
+
+### HasBonusTypeName
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasBonusTypeName() bool`
+
+HasBonusTypeName returns a boolean if a field has been set.
+
+### GetKiz
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetKiz() string`
+
+GetKiz returns the Kiz field if non-nil, zero value otherwise.
+
+### GetKizOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetKizOk() (*string, bool)`
+
+GetKizOk returns a tuple with the Kiz field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKiz
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetKiz(v string)`
+
+SetKiz sets Kiz field to given value.
+
+### HasKiz
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasKiz() bool`
+
+HasKiz returns a boolean if a field has been set.
 
 ### GetRealizationreportId
 
@@ -462,6 +696,11 @@ and a boolean to check if the value has been set.
 
 SetOrderDt sets OrderDt field to given value.
 
+### HasOrderDt
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasOrderDt() bool`
+
+HasOrderDt returns a boolean if a field has been set.
 
 ### GetSaleDt
 
@@ -482,6 +721,11 @@ and a boolean to check if the value has been set.
 
 SetSaleDt sets SaleDt field to given value.
 
+### HasSaleDt
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasSaleDt() bool`
+
+HasSaleDt returns a boolean if a field has been set.
 
 ### GetRrDt
 
@@ -542,6 +786,11 @@ and a boolean to check if the value has been set.
 
 SetRetailPriceWithdiscRub sets RetailPriceWithdiscRub field to given value.
 
+### HasRetailPriceWithdiscRub
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasRetailPriceWithdiscRub() bool`
+
+HasRetailPriceWithdiscRub returns a boolean if a field has been set.
 
 ### GetDeliveryAmount
 
@@ -562,6 +811,11 @@ and a boolean to check if the value has been set.
 
 SetDeliveryAmount sets DeliveryAmount field to given value.
 
+### HasDeliveryAmount
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasDeliveryAmount() bool`
+
+HasDeliveryAmount returns a boolean if a field has been set.
 
 ### GetReturnAmount
 
@@ -582,6 +836,11 @@ and a boolean to check if the value has been set.
 
 SetReturnAmount sets ReturnAmount field to given value.
 
+### HasReturnAmount
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasReturnAmount() bool`
+
+HasReturnAmount returns a boolean if a field has been set.
 
 ### GetDeliveryRub
 
@@ -602,6 +861,11 @@ and a boolean to check if the value has been set.
 
 SetDeliveryRub sets DeliveryRub field to given value.
 
+### HasDeliveryRub
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasDeliveryRub() bool`
+
+HasDeliveryRub returns a boolean if a field has been set.
 
 ### GetGiBoxTypeName
 
@@ -642,6 +906,11 @@ and a boolean to check if the value has been set.
 
 SetProductDiscountForReport sets ProductDiscountForReport field to given value.
 
+### HasProductDiscountForReport
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasProductDiscountForReport() bool`
+
+HasProductDiscountForReport returns a boolean if a field has been set.
 
 ### GetSupplierPromo
 
@@ -662,6 +931,11 @@ and a boolean to check if the value has been set.
 
 SetSupplierPromo sets SupplierPromo field to given value.
 
+### HasSupplierPromo
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasSupplierPromo() bool`
+
+HasSupplierPromo returns a boolean if a field has been set.
 
 ### GetRid
 
@@ -682,6 +956,11 @@ and a boolean to check if the value has been set.
 
 SetRid sets Rid field to given value.
 
+### HasRid
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasRid() bool`
+
+HasRid returns a boolean if a field has been set.
 
 ### GetPpvzSppPrc
 
@@ -1027,6 +1306,11 @@ and a boolean to check if the value has been set.
 
 SetSiteCountry sets SiteCountry field to given value.
 
+### HasSiteCountry
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasSiteCountry() bool`
+
+HasSiteCountry returns a boolean if a field has been set.
 
 ### GetPenalty
 
@@ -1087,6 +1371,11 @@ and a boolean to check if the value has been set.
 
 SetSrid sets Srid field to given value.
 
+### HasSrid
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasSrid() bool`
+
+HasSrid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

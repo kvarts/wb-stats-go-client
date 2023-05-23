@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIncomes**](StatsApi.md#GetIncomes) | **Get** /incomes | Get Incomes
 [**GetOrders**](StatsApi.md#GetOrders) | **Get** /orders | Get Orders
+[**GetPaidStorage**](StatsApi.md#GetPaidStorage) | **Get** /stochrancost | Get Paid Storage
 [**GetReportDetailByPeriod**](StatsApi.md#GetReportDetailByPeriod) | **Get** /reportDetailByPeriod | Get Report Detail By Period
 [**GetSales**](StatsApi.md#GetSales) | **Get** /sales | Get Sales
 [**GetStocks**](StatsApi.md#GetStocks) | **Get** /stocks | Get Stocks
@@ -133,6 +134,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GetOrders200ResponseInner**](GetOrders200ResponseInner.md)
+
+### Authorization
+
+[Key](../README.md#Key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetPaidStorage
+
+> []GetPaidStorage200ResponseInner GetPaidStorage(ctx).DateFrom(dateFrom).DateTo(dateTo).Execute()
+
+Get Paid Storage
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "./openapi"
+)
+
+func main() {
+    dateFrom := time.Now() // time.Time | Дата и время от которых выгружается информация
+    dateTo := time.Now() // time.Time | Дата и время до которых выгружается информация
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.StatsApi.GetPaidStorage(context.Background()).DateFrom(dateFrom).DateTo(dateTo).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `StatsApi.GetPaidStorage``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPaidStorage`: []GetPaidStorage200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `StatsApi.GetPaidStorage`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetPaidStorageRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dateFrom** | **time.Time** | Дата и время от которых выгружается информация | 
+ **dateTo** | **time.Time** | Дата и время до которых выгружается информация | 
+
+### Return type
+
+[**[]GetPaidStorage200ResponseInner**](GetPaidStorage200ResponseInner.md)
 
 ### Authorization
 

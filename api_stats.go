@@ -209,9 +209,144 @@ func (a *StatsApiService) GetOrdersExecute(r ApiGetOrdersRequest) ([]GetOrders20
 	}
 
 	if r.flag != nil {
-	    parameterAddToQuery(localVarQueryParams, "flag", r.flag, "")
+		parameterAddToQuery(localVarQueryParams, "flag", r.flag, "")
 	}
 	parameterAddToQuery(localVarQueryParams, "dateFrom", r.dateFrom, "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("key", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetPaidStorageRequest struct {
+	ctx context.Context
+	ApiService *StatsApiService
+	dateFrom *time.Time
+	dateTo *time.Time
+}
+
+// Дата и время от которых выгружается информация
+func (r ApiGetPaidStorageRequest) DateFrom(dateFrom time.Time) ApiGetPaidStorageRequest {
+	r.dateFrom = &dateFrom
+	return r
+}
+
+// Дата и время до которых выгружается информация
+func (r ApiGetPaidStorageRequest) DateTo(dateTo time.Time) ApiGetPaidStorageRequest {
+	r.dateTo = &dateTo
+	return r
+}
+
+func (r ApiGetPaidStorageRequest) Execute() ([]GetPaidStorage200ResponseInner, *http.Response, error) {
+	return r.ApiService.GetPaidStorageExecute(r)
+}
+
+/*
+GetPaidStorage Get Paid Storage
+
+Получить информацию о платном хранилище - факт
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetPaidStorageRequest
+*/
+func (a *StatsApiService) GetPaidStorage(ctx context.Context) ApiGetPaidStorageRequest {
+	return ApiGetPaidStorageRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []GetPaidStorage200ResponseInner
+func (a *StatsApiService) GetPaidStorageExecute(r ApiGetPaidStorageRequest) ([]GetPaidStorage200ResponseInner, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []GetPaidStorage200ResponseInner
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsApiService.GetPaidStorage")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/stochrancost"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.dateFrom == nil {
+		return localVarReturnValue, nil, reportError("dateFrom is required and must be specified")
+	}
+	if r.dateTo == nil {
+		return localVarReturnValue, nil, reportError("dateTo is required and must be specified")
+	}
+
+	parameterAddToQuery(localVarQueryParams, "dateFrom", r.dateFrom, "")
+	parameterAddToQuery(localVarQueryParams, "dateTo", r.dateTo, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -507,7 +642,7 @@ func (a *StatsApiService) GetSalesExecute(r ApiGetSalesRequest) ([]GetSales200Re
 
 	parameterAddToQuery(localVarQueryParams, "dateFrom", r.dateFrom, "")
 	if r.flag != nil {
-	    parameterAddToQuery(localVarQueryParams, "flag", r.flag, "")
+		parameterAddToQuery(localVarQueryParams, "flag", r.flag, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

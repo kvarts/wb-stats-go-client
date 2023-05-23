@@ -6,6 +6,7 @@ client.go
 configuration.go
 docs/GetIncomes200ResponseInner.md
 docs/GetOrders200ResponseInner.md
+docs/GetPaidStorage200ResponseInner.md
 docs/GetReportDetailByPeriod200ResponseInner.md
 docs/GetSales200ResponseInner.md
 docs/GetStocks200ResponseInner.md
@@ -14,6 +15,7 @@ go.mod
 go.sum
 model_get_incomes_200_response_inner.go
 model_get_orders_200_response_inner.go
+model_get_paid_storage_200_response_inner.go
 model_get_report_detail_by_period_200_response_inner.go
 model_get_sales_200_response_inner.go
 model_get_stocks_200_response_inner.go
