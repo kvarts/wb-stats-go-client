@@ -136,6 +136,10 @@ type GetReportDetailByPeriod200ResponseInner struct {
 	AdditionalPayment float32 `json:"additional_payment"`
 	// Новый идентификатор заказа
 	Srid *string `json:"srid,omitempty"`
+	// Возмещение издержек по перевозке
+	RebillLogisticCost *float32 `json:"rebill_logistic_cost,omitempty"`
+	// Организатор перевозки
+	RebillLogisticOrg *string `json:"rebill_logistic_org,omitempty"`
 }
 
 // NewGetReportDetailByPeriod200ResponseInner instantiates a new GetReportDetailByPeriod200ResponseInner object
@@ -1794,6 +1798,70 @@ func (o *GetReportDetailByPeriod200ResponseInner) SetSrid(v string) {
 	o.Srid = &v
 }
 
+// GetRebillLogisticCost returns the RebillLogisticCost field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticCost() float32 {
+	if o == nil || isNil(o.RebillLogisticCost) {
+		var ret float32
+		return ret
+	}
+	return *o.RebillLogisticCost
+}
+
+// GetRebillLogisticCostOk returns a tuple with the RebillLogisticCost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticCostOk() (*float32, bool) {
+	if o == nil || isNil(o.RebillLogisticCost) {
+		return nil, false
+	}
+	return o.RebillLogisticCost, true
+}
+
+// HasRebillLogisticCost returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasRebillLogisticCost() bool {
+	if o != nil && !isNil(o.RebillLogisticCost) {
+		return true
+	}
+
+	return false
+}
+
+// SetRebillLogisticCost gets a reference to the given float32 and assigns it to the RebillLogisticCost field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetRebillLogisticCost(v float32) {
+	o.RebillLogisticCost = &v
+}
+
+// GetRebillLogisticOrg returns the RebillLogisticOrg field value if set, zero value otherwise.
+func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticOrg() string {
+	if o == nil || isNil(o.RebillLogisticOrg) {
+		var ret string
+		return ret
+	}
+	return *o.RebillLogisticOrg
+}
+
+// GetRebillLogisticOrgOk returns a tuple with the RebillLogisticOrg field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticOrgOk() (*string, bool) {
+	if o == nil || isNil(o.RebillLogisticOrg) {
+		return nil, false
+	}
+	return o.RebillLogisticOrg, true
+}
+
+// HasRebillLogisticOrg returns a boolean if a field has been set.
+func (o *GetReportDetailByPeriod200ResponseInner) HasRebillLogisticOrg() bool {
+	if o != nil && !isNil(o.RebillLogisticOrg) {
+		return true
+	}
+
+	return false
+}
+
+// SetRebillLogisticOrg gets a reference to the given string and assigns it to the RebillLogisticOrg field.
+func (o *GetReportDetailByPeriod200ResponseInner) SetRebillLogisticOrg(v string) {
+	o.RebillLogisticOrg = &v
+}
+
 func (o GetReportDetailByPeriod200ResponseInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1915,6 +1983,12 @@ func (o GetReportDetailByPeriod200ResponseInner) ToMap() (map[string]interface{}
 	toSerialize["additional_payment"] = o.AdditionalPayment
 	if !isNil(o.Srid) {
 		toSerialize["srid"] = o.Srid
+	}
+	if !isNil(o.RebillLogisticCost) {
+		toSerialize["rebill_logistic_cost"] = o.RebillLogisticCost
+	}
+	if !isNil(o.RebillLogisticOrg) {
+		toSerialize["rebill_logistic_org"] = o.RebillLogisticOrg
 	}
 	return toSerialize, nil
 }

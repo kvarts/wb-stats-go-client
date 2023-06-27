@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **CancelDt** | **string** | дата отмены заказа | 
 **GNumber** | **string** | Номер заказа | 
 **Srid** | **string** | Srid | 
+**OrderType** | Pointer to **string** | Тип поступившего заказа | [optional] 
 
 ## Methods
 
@@ -443,6 +444,31 @@ and a boolean to check if the value has been set.
 
 SetSrid sets Srid field to given value.
 
+
+### GetOrderType
+
+`func (o *GetOrders200ResponseInner) GetOrderType() string`
+
+GetOrderType returns the OrderType field if non-nil, zero value otherwise.
+
+### GetOrderTypeOk
+
+`func (o *GetOrders200ResponseInner) GetOrderTypeOk() (*string, bool)`
+
+GetOrderTypeOk returns a tuple with the OrderType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderType
+
+`func (o *GetOrders200ResponseInner) SetOrderType(v string)`
+
+SetOrderType sets OrderType field to given value.
+
+### HasOrderType
+
+`func (o *GetOrders200ResponseInner) HasOrderType() bool`
+
+HasOrderType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

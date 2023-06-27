@@ -62,6 +62,8 @@ Name | Type | Description | Notes
 **Penalty** | **float32** | Штрафы | 
 **AdditionalPayment** | **float32** | Доплаты | 
 **Srid** | Pointer to **string** | Новый идентификатор заказа | [optional] 
+**RebillLogisticCost** | Pointer to **float32** | Возмещение издержек по перевозке | [optional] 
+**RebillLogisticOrg** | Pointer to **string** | Организатор перевозки | [optional] 
 
 ## Methods
 
@@ -1376,6 +1378,56 @@ SetSrid sets Srid field to given value.
 `func (o *GetReportDetailByPeriod200ResponseInner) HasSrid() bool`
 
 HasSrid returns a boolean if a field has been set.
+
+### GetRebillLogisticCost
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticCost() float32`
+
+GetRebillLogisticCost returns the RebillLogisticCost field if non-nil, zero value otherwise.
+
+### GetRebillLogisticCostOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticCostOk() (*float32, bool)`
+
+GetRebillLogisticCostOk returns a tuple with the RebillLogisticCost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRebillLogisticCost
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetRebillLogisticCost(v float32)`
+
+SetRebillLogisticCost sets RebillLogisticCost field to given value.
+
+### HasRebillLogisticCost
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasRebillLogisticCost() bool`
+
+HasRebillLogisticCost returns a boolean if a field has been set.
+
+### GetRebillLogisticOrg
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticOrg() string`
+
+GetRebillLogisticOrg returns the RebillLogisticOrg field if non-nil, zero value otherwise.
+
+### GetRebillLogisticOrgOk
+
+`func (o *GetReportDetailByPeriod200ResponseInner) GetRebillLogisticOrgOk() (*string, bool)`
+
+GetRebillLogisticOrgOk returns a tuple with the RebillLogisticOrg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRebillLogisticOrg
+
+`func (o *GetReportDetailByPeriod200ResponseInner) SetRebillLogisticOrg(v string)`
+
+SetRebillLogisticOrg sets RebillLogisticOrg field to given value.
+
+### HasRebillLogisticOrg
+
+`func (o *GetReportDetailByPeriod200ResponseInner) HasRebillLogisticOrg() bool`
+
+HasRebillLogisticOrg returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

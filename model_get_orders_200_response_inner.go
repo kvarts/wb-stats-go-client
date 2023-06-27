@@ -59,6 +59,8 @@ type GetOrders200ResponseInner struct {
 	GNumber string `json:"gNumber"`
 	// Srid
 	Srid string `json:"srid"`
+	// Тип поступившего заказа
+	OrderType *string `json:"orderType,omitempty"`
 }
 
 // NewGetOrders200ResponseInner instantiates a new GetOrders200ResponseInner object
@@ -578,6 +580,38 @@ func (o *GetOrders200ResponseInner) SetSrid(v string) {
 	o.Srid = v
 }
 
+// GetOrderType returns the OrderType field value if set, zero value otherwise.
+func (o *GetOrders200ResponseInner) GetOrderType() string {
+	if o == nil || isNil(o.OrderType) {
+		var ret string
+		return ret
+	}
+	return *o.OrderType
+}
+
+// GetOrderTypeOk returns a tuple with the OrderType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetOrderTypeOk() (*string, bool) {
+	if o == nil || isNil(o.OrderType) {
+		return nil, false
+	}
+	return o.OrderType, true
+}
+
+// HasOrderType returns a boolean if a field has been set.
+func (o *GetOrders200ResponseInner) HasOrderType() bool {
+	if o != nil && !isNil(o.OrderType) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderType gets a reference to the given string and assigns it to the OrderType field.
+func (o *GetOrders200ResponseInner) SetOrderType(v string) {
+	o.OrderType = &v
+}
+
 func (o GetOrders200ResponseInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -608,6 +642,9 @@ func (o GetOrders200ResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize["cancel_dt"] = o.CancelDt
 	toSerialize["gNumber"] = o.GNumber
 	toSerialize["srid"] = o.Srid
+	if !isNil(o.OrderType) {
+		toSerialize["orderType"] = o.OrderType
+	}
 	return toSerialize, nil
 }
 
