@@ -37,12 +37,8 @@ type GetOrders200ResponseInner struct {
 	DiscountPercent float32 `json:"discountPercent"`
 	// склад отгрузки
 	WarehouseName string `json:"warehouseName"`
-	// область
-	Oblast string `json:"oblast"`
 	// номер поставки
 	IncomeID int64 `json:"incomeID"`
-	// уникальный идентификатор позиции заказа
-	Odid int64 `json:"odid"`
 	// Код WB
 	NmId int32 `json:"nmId"`
 	// предмет
@@ -53,21 +49,37 @@ type GetOrders200ResponseInner struct {
 	Brand string `json:"brand"`
 	// признак отмены заказа (0 – отмены не было, 1 – отмена была
 	IsCancel bool `json:"isCancel"`
-	// дата отмены заказа
-	CancelDt string `json:"cancel_dt"`
 	// Номер заказа
 	GNumber string `json:"gNumber"`
 	// Srid
 	Srid string `json:"srid"`
 	// Тип поступившего заказа
 	OrderType *string `json:"orderType,omitempty"`
+	// область
+	RegionName string `json:"regionName"`
+	// дата отмены заказа
+	CancelDate string `json:"cancelDate"`
+	// Скидка WB
+	Spp float32 `json:"spp"`
+	// Фактическая цена с учетом всех скидок
+	FinishedPrice float32 `json:"finishedPrice"`
+	// Цена со скидкой продавца
+	PriceWithDisc float32 `json:"priceWithDisc"`
+	// Страна
+	CountryName string `json:"countryName"`
+	// Округ
+	OblastOkrugName string `json:"oblastOkrugName"`
+	// Договор поставки
+	IsSupply bool `json:"isSupply"`
+	// Договор реализации
+	IsRealization bool `json:"isRealization"`
 }
 
 // NewGetOrders200ResponseInner instantiates a new GetOrders200ResponseInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetOrders200ResponseInner(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, srid string) *GetOrders200ResponseInner {
+func NewGetOrders200ResponseInner(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, incomeID int64, nmId int32, subject string, category string, brand string, isCancel bool, gNumber string, srid string, regionName string, cancelDate string, spp float32, finishedPrice float32, priceWithDisc float32, countryName string, oblastOkrugName string, isSupply bool, isRealization bool) *GetOrders200ResponseInner {
 	this := GetOrders200ResponseInner{}
 	this.Number = number
 	this.Date = date
@@ -78,17 +90,23 @@ func NewGetOrders200ResponseInner(number int64, date string, lastChangeDate stri
 	this.TotalPrice = totalPrice
 	this.DiscountPercent = discountPercent
 	this.WarehouseName = warehouseName
-	this.Oblast = oblast
 	this.IncomeID = incomeID
-	this.Odid = odid
 	this.NmId = nmId
 	this.Subject = subject
 	this.Category = category
 	this.Brand = brand
 	this.IsCancel = isCancel
-	this.CancelDt = cancelDt
 	this.GNumber = gNumber
 	this.Srid = srid
+	this.RegionName = regionName
+	this.CancelDate = cancelDate
+	this.Spp = spp
+	this.FinishedPrice = finishedPrice
+	this.PriceWithDisc = priceWithDisc
+	this.CountryName = countryName
+	this.OblastOkrugName = oblastOkrugName
+	this.IsSupply = isSupply
+	this.IsRealization = isRealization
 	return &this
 }
 
@@ -316,30 +334,6 @@ func (o *GetOrders200ResponseInner) SetWarehouseName(v string) {
 	o.WarehouseName = v
 }
 
-// GetOblast returns the Oblast field value
-func (o *GetOrders200ResponseInner) GetOblast() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Oblast
-}
-
-// GetOblastOk returns a tuple with the Oblast field value
-// and a boolean to check if the value has been set.
-func (o *GetOrders200ResponseInner) GetOblastOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Oblast, true
-}
-
-// SetOblast sets field value
-func (o *GetOrders200ResponseInner) SetOblast(v string) {
-	o.Oblast = v
-}
-
 // GetIncomeID returns the IncomeID field value
 func (o *GetOrders200ResponseInner) GetIncomeID() int64 {
 	if o == nil {
@@ -362,30 +356,6 @@ func (o *GetOrders200ResponseInner) GetIncomeIDOk() (*int64, bool) {
 // SetIncomeID sets field value
 func (o *GetOrders200ResponseInner) SetIncomeID(v int64) {
 	o.IncomeID = v
-}
-
-// GetOdid returns the Odid field value
-func (o *GetOrders200ResponseInner) GetOdid() int64 {
-	if o == nil {
-		var ret int64
-		return ret
-	}
-
-	return o.Odid
-}
-
-// GetOdidOk returns a tuple with the Odid field value
-// and a boolean to check if the value has been set.
-func (o *GetOrders200ResponseInner) GetOdidOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Odid, true
-}
-
-// SetOdid sets field value
-func (o *GetOrders200ResponseInner) SetOdid(v int64) {
-	o.Odid = v
 }
 
 // GetNmId returns the NmId field value
@@ -508,30 +478,6 @@ func (o *GetOrders200ResponseInner) SetIsCancel(v bool) {
 	o.IsCancel = v
 }
 
-// GetCancelDt returns the CancelDt field value
-func (o *GetOrders200ResponseInner) GetCancelDt() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CancelDt
-}
-
-// GetCancelDtOk returns a tuple with the CancelDt field value
-// and a boolean to check if the value has been set.
-func (o *GetOrders200ResponseInner) GetCancelDtOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CancelDt, true
-}
-
-// SetCancelDt sets field value
-func (o *GetOrders200ResponseInner) SetCancelDt(v string) {
-	o.CancelDt = v
-}
-
 // GetGNumber returns the GNumber field value
 func (o *GetOrders200ResponseInner) GetGNumber() string {
 	if o == nil {
@@ -612,6 +558,222 @@ func (o *GetOrders200ResponseInner) SetOrderType(v string) {
 	o.OrderType = &v
 }
 
+// GetRegionName returns the RegionName field value
+func (o *GetOrders200ResponseInner) GetRegionName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionName
+}
+
+// GetRegionNameOk returns a tuple with the RegionName field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetRegionNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionName, true
+}
+
+// SetRegionName sets field value
+func (o *GetOrders200ResponseInner) SetRegionName(v string) {
+	o.RegionName = v
+}
+
+// GetCancelDate returns the CancelDate field value
+func (o *GetOrders200ResponseInner) GetCancelDate() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CancelDate
+}
+
+// GetCancelDateOk returns a tuple with the CancelDate field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetCancelDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CancelDate, true
+}
+
+// SetCancelDate sets field value
+func (o *GetOrders200ResponseInner) SetCancelDate(v string) {
+	o.CancelDate = v
+}
+
+// GetSpp returns the Spp field value
+func (o *GetOrders200ResponseInner) GetSpp() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Spp
+}
+
+// GetSppOk returns a tuple with the Spp field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetSppOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Spp, true
+}
+
+// SetSpp sets field value
+func (o *GetOrders200ResponseInner) SetSpp(v float32) {
+	o.Spp = v
+}
+
+// GetFinishedPrice returns the FinishedPrice field value
+func (o *GetOrders200ResponseInner) GetFinishedPrice() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.FinishedPrice
+}
+
+// GetFinishedPriceOk returns a tuple with the FinishedPrice field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetFinishedPriceOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FinishedPrice, true
+}
+
+// SetFinishedPrice sets field value
+func (o *GetOrders200ResponseInner) SetFinishedPrice(v float32) {
+	o.FinishedPrice = v
+}
+
+// GetPriceWithDisc returns the PriceWithDisc field value
+func (o *GetOrders200ResponseInner) GetPriceWithDisc() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.PriceWithDisc
+}
+
+// GetPriceWithDiscOk returns a tuple with the PriceWithDisc field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetPriceWithDiscOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PriceWithDisc, true
+}
+
+// SetPriceWithDisc sets field value
+func (o *GetOrders200ResponseInner) SetPriceWithDisc(v float32) {
+	o.PriceWithDisc = v
+}
+
+// GetCountryName returns the CountryName field value
+func (o *GetOrders200ResponseInner) GetCountryName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CountryName
+}
+
+// GetCountryNameOk returns a tuple with the CountryName field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetCountryNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CountryName, true
+}
+
+// SetCountryName sets field value
+func (o *GetOrders200ResponseInner) SetCountryName(v string) {
+	o.CountryName = v
+}
+
+// GetOblastOkrugName returns the OblastOkrugName field value
+func (o *GetOrders200ResponseInner) GetOblastOkrugName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OblastOkrugName
+}
+
+// GetOblastOkrugNameOk returns a tuple with the OblastOkrugName field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetOblastOkrugNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OblastOkrugName, true
+}
+
+// SetOblastOkrugName sets field value
+func (o *GetOrders200ResponseInner) SetOblastOkrugName(v string) {
+	o.OblastOkrugName = v
+}
+
+// GetIsSupply returns the IsSupply field value
+func (o *GetOrders200ResponseInner) GetIsSupply() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsSupply
+}
+
+// GetIsSupplyOk returns a tuple with the IsSupply field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetIsSupplyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsSupply, true
+}
+
+// SetIsSupply sets field value
+func (o *GetOrders200ResponseInner) SetIsSupply(v bool) {
+	o.IsSupply = v
+}
+
+// GetIsRealization returns the IsRealization field value
+func (o *GetOrders200ResponseInner) GetIsRealization() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsRealization
+}
+
+// GetIsRealizationOk returns a tuple with the IsRealization field value
+// and a boolean to check if the value has been set.
+func (o *GetOrders200ResponseInner) GetIsRealizationOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsRealization, true
+}
+
+// SetIsRealization sets field value
+func (o *GetOrders200ResponseInner) SetIsRealization(v bool) {
+	o.IsRealization = v
+}
+
 func (o GetOrders200ResponseInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -631,20 +793,26 @@ func (o GetOrders200ResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize["totalPrice"] = o.TotalPrice
 	toSerialize["discountPercent"] = o.DiscountPercent
 	toSerialize["warehouseName"] = o.WarehouseName
-	toSerialize["oblast"] = o.Oblast
 	toSerialize["incomeID"] = o.IncomeID
-	toSerialize["odid"] = o.Odid
 	toSerialize["nmId"] = o.NmId
 	toSerialize["subject"] = o.Subject
 	toSerialize["category"] = o.Category
 	toSerialize["brand"] = o.Brand
 	toSerialize["isCancel"] = o.IsCancel
-	toSerialize["cancel_dt"] = o.CancelDt
 	toSerialize["gNumber"] = o.GNumber
 	toSerialize["srid"] = o.Srid
 	if !isNil(o.OrderType) {
 		toSerialize["orderType"] = o.OrderType
 	}
+	toSerialize["regionName"] = o.RegionName
+	toSerialize["cancelDate"] = o.CancelDate
+	toSerialize["spp"] = o.Spp
+	toSerialize["finishedPrice"] = o.FinishedPrice
+	toSerialize["priceWithDisc"] = o.PriceWithDisc
+	toSerialize["countryName"] = o.CountryName
+	toSerialize["oblastOkrugName"] = o.OblastOkrugName
+	toSerialize["isSupply"] = o.IsSupply
+	toSerialize["isRealization"] = o.IsRealization
 	return toSerialize, nil
 }
 

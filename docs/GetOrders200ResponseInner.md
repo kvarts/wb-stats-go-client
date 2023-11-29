@@ -13,24 +13,30 @@ Name | Type | Description | Notes
 **TotalPrice** | **float32** | цена до согласованной скидки/промо/спп | 
 **DiscountPercent** | **float32** | согласованный итоговый дисконт | 
 **WarehouseName** | **string** | склад отгрузки | 
-**Oblast** | **string** | область | 
 **IncomeID** | **int64** | номер поставки | 
-**Odid** | **int64** | уникальный идентификатор позиции заказа | 
 **NmId** | **int32** | Код WB | 
 **Subject** | **string** | предмет | 
 **Category** | **string** | категория | 
 **Brand** | **string** | бренд | 
 **IsCancel** | **bool** | признак отмены заказа (0 – отмены не было, 1 – отмена была | 
-**CancelDt** | **string** | дата отмены заказа | 
 **GNumber** | **string** | Номер заказа | 
 **Srid** | **string** | Srid | 
 **OrderType** | Pointer to **string** | Тип поступившего заказа | [optional] 
+**RegionName** | **string** | область | 
+**CancelDate** | **string** | дата отмены заказа | 
+**Spp** | **float32** | Скидка WB | 
+**FinishedPrice** | **float32** | Фактическая цена с учетом всех скидок | 
+**PriceWithDisc** | **float32** | Цена со скидкой продавца | 
+**CountryName** | **string** | Страна | 
+**OblastOkrugName** | **string** | Округ | 
+**IsSupply** | **bool** | Договор поставки | 
+**IsRealization** | **bool** | Договор реализации | 
 
 ## Methods
 
 ### NewGetOrders200ResponseInner
 
-`func NewGetOrders200ResponseInner(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, oblast string, incomeID int64, odid int64, nmId int32, subject string, category string, brand string, isCancel bool, cancelDt string, gNumber string, srid string, ) *GetOrders200ResponseInner`
+`func NewGetOrders200ResponseInner(number int64, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, totalPrice float32, discountPercent float32, warehouseName string, incomeID int64, nmId int32, subject string, category string, brand string, isCancel bool, gNumber string, srid string, regionName string, cancelDate string, spp float32, finishedPrice float32, priceWithDisc float32, countryName string, oblastOkrugName string, isSupply bool, isRealization bool, ) *GetOrders200ResponseInner`
 
 NewGetOrders200ResponseInner instantiates a new GetOrders200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -225,26 +231,6 @@ and a boolean to check if the value has been set.
 SetWarehouseName sets WarehouseName field to given value.
 
 
-### GetOblast
-
-`func (o *GetOrders200ResponseInner) GetOblast() string`
-
-GetOblast returns the Oblast field if non-nil, zero value otherwise.
-
-### GetOblastOk
-
-`func (o *GetOrders200ResponseInner) GetOblastOk() (*string, bool)`
-
-GetOblastOk returns a tuple with the Oblast field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOblast
-
-`func (o *GetOrders200ResponseInner) SetOblast(v string)`
-
-SetOblast sets Oblast field to given value.
-
-
 ### GetIncomeID
 
 `func (o *GetOrders200ResponseInner) GetIncomeID() int64`
@@ -263,26 +249,6 @@ and a boolean to check if the value has been set.
 `func (o *GetOrders200ResponseInner) SetIncomeID(v int64)`
 
 SetIncomeID sets IncomeID field to given value.
-
-
-### GetOdid
-
-`func (o *GetOrders200ResponseInner) GetOdid() int64`
-
-GetOdid returns the Odid field if non-nil, zero value otherwise.
-
-### GetOdidOk
-
-`func (o *GetOrders200ResponseInner) GetOdidOk() (*int64, bool)`
-
-GetOdidOk returns a tuple with the Odid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOdid
-
-`func (o *GetOrders200ResponseInner) SetOdid(v int64)`
-
-SetOdid sets Odid field to given value.
 
 
 ### GetNmId
@@ -385,26 +351,6 @@ and a boolean to check if the value has been set.
 SetIsCancel sets IsCancel field to given value.
 
 
-### GetCancelDt
-
-`func (o *GetOrders200ResponseInner) GetCancelDt() string`
-
-GetCancelDt returns the CancelDt field if non-nil, zero value otherwise.
-
-### GetCancelDtOk
-
-`func (o *GetOrders200ResponseInner) GetCancelDtOk() (*string, bool)`
-
-GetCancelDtOk returns a tuple with the CancelDt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCancelDt
-
-`func (o *GetOrders200ResponseInner) SetCancelDt(v string)`
-
-SetCancelDt sets CancelDt field to given value.
-
-
 ### GetGNumber
 
 `func (o *GetOrders200ResponseInner) GetGNumber() string`
@@ -469,6 +415,186 @@ SetOrderType sets OrderType field to given value.
 `func (o *GetOrders200ResponseInner) HasOrderType() bool`
 
 HasOrderType returns a boolean if a field has been set.
+
+### GetRegionName
+
+`func (o *GetOrders200ResponseInner) GetRegionName() string`
+
+GetRegionName returns the RegionName field if non-nil, zero value otherwise.
+
+### GetRegionNameOk
+
+`func (o *GetOrders200ResponseInner) GetRegionNameOk() (*string, bool)`
+
+GetRegionNameOk returns a tuple with the RegionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionName
+
+`func (o *GetOrders200ResponseInner) SetRegionName(v string)`
+
+SetRegionName sets RegionName field to given value.
+
+
+### GetCancelDate
+
+`func (o *GetOrders200ResponseInner) GetCancelDate() string`
+
+GetCancelDate returns the CancelDate field if non-nil, zero value otherwise.
+
+### GetCancelDateOk
+
+`func (o *GetOrders200ResponseInner) GetCancelDateOk() (*string, bool)`
+
+GetCancelDateOk returns a tuple with the CancelDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCancelDate
+
+`func (o *GetOrders200ResponseInner) SetCancelDate(v string)`
+
+SetCancelDate sets CancelDate field to given value.
+
+
+### GetSpp
+
+`func (o *GetOrders200ResponseInner) GetSpp() float32`
+
+GetSpp returns the Spp field if non-nil, zero value otherwise.
+
+### GetSppOk
+
+`func (o *GetOrders200ResponseInner) GetSppOk() (*float32, bool)`
+
+GetSppOk returns a tuple with the Spp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpp
+
+`func (o *GetOrders200ResponseInner) SetSpp(v float32)`
+
+SetSpp sets Spp field to given value.
+
+
+### GetFinishedPrice
+
+`func (o *GetOrders200ResponseInner) GetFinishedPrice() float32`
+
+GetFinishedPrice returns the FinishedPrice field if non-nil, zero value otherwise.
+
+### GetFinishedPriceOk
+
+`func (o *GetOrders200ResponseInner) GetFinishedPriceOk() (*float32, bool)`
+
+GetFinishedPriceOk returns a tuple with the FinishedPrice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFinishedPrice
+
+`func (o *GetOrders200ResponseInner) SetFinishedPrice(v float32)`
+
+SetFinishedPrice sets FinishedPrice field to given value.
+
+
+### GetPriceWithDisc
+
+`func (o *GetOrders200ResponseInner) GetPriceWithDisc() float32`
+
+GetPriceWithDisc returns the PriceWithDisc field if non-nil, zero value otherwise.
+
+### GetPriceWithDiscOk
+
+`func (o *GetOrders200ResponseInner) GetPriceWithDiscOk() (*float32, bool)`
+
+GetPriceWithDiscOk returns a tuple with the PriceWithDisc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriceWithDisc
+
+`func (o *GetOrders200ResponseInner) SetPriceWithDisc(v float32)`
+
+SetPriceWithDisc sets PriceWithDisc field to given value.
+
+
+### GetCountryName
+
+`func (o *GetOrders200ResponseInner) GetCountryName() string`
+
+GetCountryName returns the CountryName field if non-nil, zero value otherwise.
+
+### GetCountryNameOk
+
+`func (o *GetOrders200ResponseInner) GetCountryNameOk() (*string, bool)`
+
+GetCountryNameOk returns a tuple with the CountryName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryName
+
+`func (o *GetOrders200ResponseInner) SetCountryName(v string)`
+
+SetCountryName sets CountryName field to given value.
+
+
+### GetOblastOkrugName
+
+`func (o *GetOrders200ResponseInner) GetOblastOkrugName() string`
+
+GetOblastOkrugName returns the OblastOkrugName field if non-nil, zero value otherwise.
+
+### GetOblastOkrugNameOk
+
+`func (o *GetOrders200ResponseInner) GetOblastOkrugNameOk() (*string, bool)`
+
+GetOblastOkrugNameOk returns a tuple with the OblastOkrugName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOblastOkrugName
+
+`func (o *GetOrders200ResponseInner) SetOblastOkrugName(v string)`
+
+SetOblastOkrugName sets OblastOkrugName field to given value.
+
+
+### GetIsSupply
+
+`func (o *GetOrders200ResponseInner) GetIsSupply() bool`
+
+GetIsSupply returns the IsSupply field if non-nil, zero value otherwise.
+
+### GetIsSupplyOk
+
+`func (o *GetOrders200ResponseInner) GetIsSupplyOk() (*bool, bool)`
+
+GetIsSupplyOk returns a tuple with the IsSupply field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSupply
+
+`func (o *GetOrders200ResponseInner) SetIsSupply(v bool)`
+
+SetIsSupply sets IsSupply field to given value.
+
+
+### GetIsRealization
+
+`func (o *GetOrders200ResponseInner) GetIsRealization() bool`
+
+GetIsRealization returns the IsRealization field if non-nil, zero value otherwise.
+
+### GetIsRealizationOk
+
+`func (o *GetOrders200ResponseInner) GetIsRealizationOk() (*bool, bool)`
+
+GetIsRealizationOk returns a tuple with the IsRealization field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsRealization
+
+`func (o *GetOrders200ResponseInner) SetIsRealization(v bool)`
+
+SetIsRealization sets IsRealization field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

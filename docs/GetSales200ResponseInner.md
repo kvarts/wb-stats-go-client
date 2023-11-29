@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **RegionName** | **string** | Регион | 
 **IncomeID** | **int64** | Идентификатор поставки | 
 **SaleID** | **string** | Уникальный идентификатор продажи/возврата | 
-**Odid** | **int64** | Уникальный идентификатор позиции заказа | 
 **Spp** | **float32** | Согласованная скидка постоянного покупателя | 
 **ForPay** | **float32** | К перечислению поставщику | 
 **FinishedPrice** | **float32** | Фактическая цена из заказа с учетом всех скидок | 
@@ -40,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewGetSales200ResponseInner
 
-`func NewGetSales200ResponseInner(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string, ) *GetSales200ResponseInner`
+`func NewGetSales200ResponseInner(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string, ) *GetSales200ResponseInner`
 
 NewGetSales200ResponseInner instantiates a new GetSales200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -433,26 +432,6 @@ and a boolean to check if the value has been set.
 `func (o *GetSales200ResponseInner) SetSaleID(v string)`
 
 SetSaleID sets SaleID field to given value.
-
-
-### GetOdid
-
-`func (o *GetSales200ResponseInner) GetOdid() int64`
-
-GetOdid returns the Odid field if non-nil, zero value otherwise.
-
-### GetOdidOk
-
-`func (o *GetSales200ResponseInner) GetOdidOk() (*int64, bool)`
-
-GetOdidOk returns a tuple with the Odid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOdid
-
-`func (o *GetSales200ResponseInner) SetOdid(v int64)`
-
-SetOdid sets Odid field to given value.
 
 
 ### GetSpp

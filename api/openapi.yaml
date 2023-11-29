@@ -280,26 +280,32 @@ components:
     get_orders_200_response_inner:
       example:
         date: date
-        supplierArticle: supplierArticle
         orderType: orderType
-        discountPercent: 1.4658129805029452
+        cancelDate: cancelDate
         incomeID: 5
-        odid: 5
-        isCancel: true
         totalPrice: 6.027456183070403
         subject: subject
-        lastChangeDate: lastChangeDate
-        oblast: oblast
-        nmId: 2
+        regionName: regionName
+        priceWithDisc: 9.301444243932576
+        nmId: 5
         warehouseName: warehouseName
         gNumber: gNumber
         srid: srid
         number: 0
-        cancel_dt: cancel_dt
         techSize: techSize
-        category: category
         barcode: barcode
         brand: brand
+        supplierArticle: supplierArticle
+        isRealization: true
+        discountPercent: 1.4658129805029452
+        isCancel: true
+        lastChangeDate: lastChangeDate
+        spp: 2.3021358869347655
+        finishedPrice: 7.061401241503109
+        oblastOkrugName: oblastOkrugName
+        isSupply: true
+        countryName: countryName
+        category: category
       properties:
         number:
           description: номер заказа
@@ -329,15 +335,8 @@ components:
         warehouseName:
           description: склад отгрузки
           type: string
-        oblast:
-          description: область
-          type: string
         incomeID:
           description: номер поставки
-          format: int64
-          type: integer
-        odid:
-          description: уникальный идентификатор позиции заказа
           format: int64
           type: integer
         nmId:
@@ -355,9 +354,6 @@ components:
         isCancel:
           description: "признак отмены заказа (0 – отмены не было, 1 – отмена была"
           type: boolean
-        cancel_dt:
-          description: дата отмены заказа
-          type: string
         gNumber:
           description: Номер заказа
           type: string
@@ -369,21 +365,72 @@ components:
           type: string
           x-stoplight:
             id: bif99xvdjkkau
+        regionName:
+          description: область
+          type: string
+          x-stoplight:
+            id: 9z7kx0xkihnqr
+        cancelDate:
+          description: дата отмены заказа
+          type: string
+          x-stoplight:
+            id: td461vsjzvvzo
+        spp:
+          description: Скидка WB
+          type: number
+          x-stoplight:
+            id: sxkxuejipd13e
+        finishedPrice:
+          description: Фактическая цена с учетом всех скидок
+          type: number
+          x-stoplight:
+            id: sdkbxz9cmm9ct
+        priceWithDisc:
+          description: Цена со скидкой продавца
+          type: number
+          x-stoplight:
+            id: 77uar6x8tqdw6
+        countryName:
+          description: Страна
+          type: string
+          x-stoplight:
+            id: cs2jx6aaahv2o
+        oblastOkrugName:
+          description: Округ
+          type: string
+          x-stoplight:
+            id: s4diaqt2638ol
+        isSupply:
+          description: Договор поставки
+          type: boolean
+          x-stoplight:
+            id: 7qxvglduy5m12
+        isRealization:
+          description: Договор реализации
+          type: boolean
+          x-stoplight:
+            id: 6y0z06rx8aqxz
       required:
       - barcode
       - brand
-      - cancel_dt
+      - cancelDate
       - category
+      - countryName
       - date
       - discountPercent
+      - finishedPrice
       - gNumber
       - incomeID
       - isCancel
+      - isRealization
+      - isSupply
       - lastChangeDate
       - nmId
       - number
-      - oblast
-      - odid
+      - oblastOkrugName
+      - priceWithDisc
+      - regionName
+      - spp
       - srid
       - subject
       - supplierArticle
@@ -563,15 +610,14 @@ components:
     get_sales_200_response_inner:
       example:
         date: date
-        forPay: 3.616076749251911
+        forPay: 9.301444243932576
         incomeID: 2
-        odid: 7
         totalPrice: 6.027456183070403
         orderId: 5
         subject: subject
         regionName: regionName
-        priceWithDisc: 4.145608029883936
-        nmId: 7
+        priceWithDisc: 2.027123023002322
+        nmId: 4
         warehouseName: warehouseName
         gNumber: gNumber
         srid: srid
@@ -586,10 +632,10 @@ components:
         discountPercent: 1.4658129805029452
         saleID: saleID
         lastChangeDate: lastChangeDate
-        spp: 9.301444243932576
-        finishedPrice: 2.027123023002322
+        spp: 7.061401241503109
+        finishedPrice: 3.616076749251911
         oblastOkrugName: oblastOkrugName
-        IsStorno: 1.2315135367772556
+        IsStorno: 7.386281948385884
         isSupply: true
         countryName: countryName
         category: category
@@ -654,10 +700,6 @@ components:
         saleID:
           description: Уникальный идентификатор продажи/возврата
           type: string
-        odid:
-          description: Уникальный идентификатор позиции заказа
-          format: int64
-          type: integer
         spp:
           description: Согласованная скидка постоянного покупателя
           type: number
@@ -711,7 +753,6 @@ components:
       - nmId
       - number
       - oblastOkrugName
-      - odid
       - orderId
       - priceWithDisc
       - promoCodeDiscount

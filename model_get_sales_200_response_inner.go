@@ -57,8 +57,6 @@ type GetSales200ResponseInner struct {
 	IncomeID int64 `json:"incomeID"`
 	// Уникальный идентификатор продажи/возврата
 	SaleID string `json:"saleID"`
-	// Уникальный идентификатор позиции заказа
-	Odid int64 `json:"odid"`
 	// Согласованная скидка постоянного покупателя
 	Spp float32 `json:"spp"`
 	// К перечислению поставщику
@@ -87,7 +85,7 @@ type GetSales200ResponseInner struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetSales200ResponseInner(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, odid int64, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string) *GetSales200ResponseInner {
+func NewGetSales200ResponseInner(number string, date string, lastChangeDate string, supplierArticle string, techSize string, barcode string, quantity int64, totalPrice float32, discountPercent float32, isSupply bool, isRealization bool, orderId int64, promoCodeDiscount float32, warehouseName string, countryName string, oblastOkrugName string, regionName string, incomeID int64, saleID string, spp float32, forPay float32, finishedPrice float32, priceWithDisc float32, nmId int64, subject string, category string, brand string, isStorno float32, gNumber string, srid string) *GetSales200ResponseInner {
 	this := GetSales200ResponseInner{}
 	this.Number = number
 	this.Date = date
@@ -108,7 +106,6 @@ func NewGetSales200ResponseInner(number string, date string, lastChangeDate stri
 	this.RegionName = regionName
 	this.IncomeID = incomeID
 	this.SaleID = saleID
-	this.Odid = odid
 	this.Spp = spp
 	this.ForPay = forPay
 	this.FinishedPrice = finishedPrice
@@ -587,30 +584,6 @@ func (o *GetSales200ResponseInner) SetSaleID(v string) {
 	o.SaleID = v
 }
 
-// GetOdid returns the Odid field value
-func (o *GetSales200ResponseInner) GetOdid() int64 {
-	if o == nil {
-		var ret int64
-		return ret
-	}
-
-	return o.Odid
-}
-
-// GetOdidOk returns a tuple with the Odid field value
-// and a boolean to check if the value has been set.
-func (o *GetSales200ResponseInner) GetOdidOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Odid, true
-}
-
-// SetOdid sets field value
-func (o *GetSales200ResponseInner) SetOdid(v int64) {
-	o.Odid = v
-}
-
 // GetSpp returns the Spp field value
 func (o *GetSales200ResponseInner) GetSpp() float32 {
 	if o == nil {
@@ -904,7 +877,6 @@ func (o GetSales200ResponseInner) ToMap() (map[string]interface{}, error) {
 	toSerialize["regionName"] = o.RegionName
 	toSerialize["incomeID"] = o.IncomeID
 	toSerialize["saleID"] = o.SaleID
-	toSerialize["odid"] = o.Odid
 	toSerialize["spp"] = o.Spp
 	toSerialize["forPay"] = o.ForPay
 	toSerialize["finishedPrice"] = o.FinishedPrice
